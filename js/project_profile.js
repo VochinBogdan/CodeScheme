@@ -16,22 +16,44 @@ function checkSize(){
     }
 }*/
 
-var mql = window.matchMedia("screen and (min-width: 480px)")
-if (mql.matches){ // if media query matches
-	function expandTab(tabName) {
-		var i;
+$(window).on("resize", emptySelection);
+
+function emptySelection(){
+	var i;
+	var x = document.getElementsByClassName("expand_tab");
+	for (i = 0; i < x.length; i++) {
+	   x[i].style.display = "none";  
+	}
+	
+	x = document.getElementsByClassName("tab");
+	for (i = 0; i < x.length; i++) {
+	   x[i].style.display = "none";  
+	}
+}
+
+function expandTab(tabName) {
+	var i;
+	var mql = window.matchMedia("screen and (min-width: 768px)");
+	if (mql.matches){ // if media query matches
 		var idName = tabName + "_big";
+		var x = document.getElementsByClassName("expand_tab");
+		for (i = 0; i < x.length; i++) {
+		   x[i].style.display = "none";  
+		}
+		
+		x = document.getElementsByClassName("tab");
+		for (i = 0; i < x.length; i++) {
+		   x[i].style.display = "none";  
+		}
+		document.getElementById(idName).style.display = "block";
+	}
+	else{
 		var x = document.getElementsByClassName("tab");
 		for (i = 0; i < x.length; i++) {
 		   x[i].style.display = "none";  
 		}
-		document.getElementById(idName).style.display = "block";  
-	}
-}
-else{
-	function expandTab(tabName) {
-		var i;
-		var x = document.getElementsByClassName("expand_tab");
+		
+		x = document.getElementsByClassName("expand_tab");
 		for (i = 0; i < x.length; i++) {
 		   x[i].style.display = "none";  
 		}
