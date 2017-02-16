@@ -1,0 +1,90 @@
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<head>
+        <title>Code Scheme: Project Profile</title>
+        <link rel="stylesheet" href="../css/project_profile.css">
+        <link rel="stylesheet" href="../css/nav.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+	<body>        
+        <div class="navigation">
+		<ul class="nav test--nav" id="my-topnav">
+          <li class="logo"><a class="logo">CodeScheme</a></li>
+        	<li><a href="#profile">Profile</a></li>
+            <li><a href="#feed">Projects</a></li>
+            <!--Search Bar-->
+            <li class="search">
+              <form action="/search.html" class="search-wrapper cf">
+                <input type="text" placeholder="Search" required>
+                  <button type="submit"> <span class="fontawesome-search"></span></button>
+              </form>
+            </li>
+            <!--End of Search Bar-->
+            <li class="icon">
+                <a href="javascript:void(0);" onclick="navButton()">&#9776;</a>
+            </li>
+        </ul>
+     <!--End of Navigation Bar-->
+    </div>
+	
+            
+        
+    <section class="projectProfile">
+          <h1 class="title"> Side Project Title </h1>
+          <button type="submit" class="join_button">Request to Join</button>
+          <ul class="tabs">
+                <li class="tab_li"><a href="javascript:void(0)" onClick="expandTab('About')">About the Project</a></li>            
+            	<div id="About" class="expand_tab" style="display:none">
+                  <h2>About the Project</h2>
+                  <p>Making web pages.</p>
+                </div>
+                <li class="tab_li"><a href="javascript:void(0)" onClick="expandTab('Skills')">Skills Required</a></li>
+                <div id="Skills" class="expand_tab" style="display:none">
+                  <h2>Skills Required</h2>
+                  <p>HTML, CSS, JS.</p> 
+                </div>
+                <li class="tab_li"><a href="javascript:void(0)" onClick="expandTab('People')">People Involved</a></li>
+                <div id="People" class="expand_tab" style="display:none">
+                  <h2>People Involved</h2>
+                  <p>Creator, moderators, people.</p>
+                </div>
+            </ul>
+
+            <div id="About_big" class="tab" style="display:none">
+              <h2>About the Project</h2>
+              <p>Making web pages.</p>
+            </div>
+
+            <div id="Skills_big" class="tab" style="display:none">
+              <h2>Skills Required</h2>
+              <p>HTML, CSS, JS.</p> 
+            </div>
+
+            <div id="People_big" class="tab" style="display:none">
+              <h2>People Involved</h2>
+              <p>Creator, moderators, people.</p>
+            </div>
+            
+            <footer>
+                <li class="git_icon">
+                    <i class="fa fa-github" style="font-size:48px; aria-hidden="true"></i>
+                </li>
+            
+	            <button type="submit" class="info_button">Request More Info</button>
+            </footer>
+            
+        </section>
+        
+        
+        
+    	
+        
+        
+        <script src="../js/project_profile.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="../js/nav.js"></script>
+</body>
+</html>
