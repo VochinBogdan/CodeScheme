@@ -1,0 +1,151 @@
+/* Navigation Bar */
+.navigation{
+  width:99%;
+  position:fixed;
+}
+ul.nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #222;
+}
+
+ul.nav li {float: right;}
+
+ul.nav li.logo{float: left;}
+
+ul.nav li a {
+    display: inline-block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+ul.nav li a:hover {background-color: #555
+;}
+
+ul.nav li.icon {display: none;}
+
+/* Responsive media */
+@media screen and (max-width:768px) {
+  /*Navigation*/
+  ul.nav li:not(:first-child) {display: none;}
+    
+  ul.nav li.icon {
+    float: right;
+    display: inline-block;
+  }
+  
+  /*Navigation*/
+  ul.nav.responsive {position: relative;}
+  ul.nav.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  ul.nav.responsive li {
+    float: none;
+    display: inline;
+  }
+  ul.nav.responsive li a {
+    display: block;
+    text-align: left;
+  } 
+}
+
+/* Search Bar */
+
+/* fontawesome */
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+body{
+  text-align:center;
+  background-color:#ebebeb;
+}
+
+.cf:before, .cf:after{
+    content:"";
+    display:table;
+}
+ 
+.cf:after{
+    clear:both;
+}
+ 
+.cf{
+    zoom:1;
+}    
+
+ /* Form wrapper styling */
+.search-wrapper {
+width: 240px;
+margin: 5px auto 5px auto;
+}
+ 
+/* Form text input */
+.search-wrapper input {
+width: 160px;
+height: 20px;
+padding: 10px 15px;
+float: left;
+font: normal 16px 'Arial', 'Tahoma';
+border: 0;
+background: #fff;
+border-radius: 5px 0 0 5px;
+}
+
+.search-wrapper input:hover + .search-wrapper button {
+    background: #ccc
+}
+ 
+.search-wrapper input:focus {
+    outline: 0;
+    background: #fff;
+}
+ 
+.search-wrapper input::-webkit-input-placeholder {
+   color: #c6c7c6;
+   font-weight: normal;
+}
+ 
+.search-wrapper input:-moz-placeholder {
+    color: #999;
+    font-weight: normal;
+    font-style: italic;
+}
+ 
+.search-wrapper input:-ms-input-placeholder {
+    color: #999;
+    font-weight: normal;
+    font-style: italic;
+}    
+ 
+/* Form submit button */
+.search-wrapper button {
+overflow: visible;
+position: relative;
+float: right;
+border: 0;
+padding: 0;
+cursor: pointer;
+height: 40px;
+width: 50px;
+font: bold 18px 'Arial', 'Tahoma';
+color: #e3e3e3;
+background: #c9c9c9;
+border-radius: 0 5px 5px 0;
+}
+   
+.search-wrapper button:hover{     
+    background: #9ad3de;
+}
+
+/* Iframe */
+
+
+ 
