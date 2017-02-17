@@ -2,7 +2,8 @@
 .navigation{
     top: 0px;
     width: 100%;
-    position:fixed;
+    position: fixed;
+    z-index: 1;
 }
 
 ul.nav {
@@ -74,8 +75,15 @@ ul.nav li.icon {
         text-align: left;
     }
 }
+.search{
+    float:left;
+}
 
-/* Search Bar */
+.search-options{
+    float:right;
+    padding: 5px;
+    margin-top: 10px;
+}
 
 /* fontawesome */
 .cf:before, .cf:after{
@@ -117,23 +125,6 @@ ul.nav li.icon {
 .search-wrapper input:focus {
     outline: 0;
     background: #fff;
-}
-
-.search-wrapper input::-webkit-input-placeholder {
-   color: #c6c7c6;
-   font-weight: normal;
-}
-
-.search-wrapper input:-moz-placeholder {
-    color: #999;
-    font-weight: normal;
-    font-style: italic;
-}
-
-.search-wrapper input:-ms-input-placeholder {
-    color: #999;
-    font-weight: normal;
-    font-style: italic;
 }
 
 /* Form submit button */

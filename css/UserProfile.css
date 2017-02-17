@@ -1,0 +1,192 @@
+body{
+    padding:0px;
+    margin:0px;
+    margin-top:100px;
+    background-image:
+            radial-gradient(circle at 100% 150%, #f4f4f4 24%, white 25%, white 28%, #f4f4f4 29%, #f4f4f4 36%, white 36%, white 40%, transparent 40%, transparent),
+            radial-gradient(circle at 0    150%, #f4f4f4 24%, white 25%, white 28%, #f4f4f4 29%, #f4f4f4 36%, white 36%, white 40%, transparent 40%, transparent),
+            radial-gradient(circle at 50%  100%, white 10%, #f4f4f4 11%, #f4f4f4 23%, white 24%, white 30%, #f4f4f4 31%, #f4f4f4 43%, white 44%, white 50%, #f4f4f4 51%, #f4f4f4 63%, white 64%, white 71%, transparent 71%, transparent),
+            radial-gradient(circle at 100% 50%, white 5%, #f4f4f4 6%, #f4f4f4 15%, white 16%, white 20%, #f4f4f4 21%, #f4f4f4 30%, white 31%, white 35%, #f4f4f4 36%, #f4f4f4 45%, white 46%, white 49%, transparent 50%, transparent),
+            radial-gradient(circle at 0    50%, white 5%, #f4f4f4 6%, #f4f4f4 15%, white 16%, white 20%, #f4f4f4 21%, #f4f4f4 30%, white 31%, white 35%, #f4f4f4 36%, #f4f4f4 45%, white 46%, white 49%, transparent 50%, transparent);
+    background-size:100px 50px;
+    overflow: scroll;
+}
+
+/* Profile Section */
+.profile-info {
+    margin: auto;
+    max-width: 70%;
+    padding: 10px;
+}
+
+/* Profile: Card */
+.card {
+    display: table-cell;
+    width:25%;
+    background-color: transparent;
+}
+
+.card-bio h1{
+    padding: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+}
+
+.card-bio h3{
+    padding: 5px;
+    font-family: Arial, sans-serif;
+    font-style: italic;
+    font-size: 20px;
+    color: #89bdd3;
+}
+
+hr {
+    display: block;
+    height: 2px;
+    border: 0;
+    border-top: 2px solid #89bdd3;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.card img{
+    margin: 0 auto;
+    width: 225px;
+    height: 225px;
+    border-radius:10px;
+    border:2px solid #89bdd3;
+}
+
+.card-bio {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    display: table-cell;
+    vertical-align: top;
+    background-color: #e3e3e3;
+    border:2px solid #89bdd3;
+    width: 1000px;
+    border-radius:10px;
+}
+
+/* Profile Info */
+
+.profile-info {
+    margin-top: 30px;
+}
+
+.project-title{
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
+.project-desc{
+    font-style: italic;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Links */
+
+.prof-links {
+    display: block;
+    list-style: none;
+    margin: 0;
+}
+
+.prof-links li{
+    display:block;
+    float:right;
+    padding: 20px;
+    transform: rotate(15deg) scale(1.0);
+    transition: .3s ease-in-out;
+}
+
+.prof-links li:hover{
+    transform: rotate(0) scale(0.9);
+}
+/* Profile Description */
+.profile-desc{
+  font-family: Arial, serif;
+}
+
+/* Profile: Skills*/
+
+.header-skills{
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    float: left;
+}
+
+.skills {
+    width: 50%;
+    margin: 0 auto;
+    padding:0;
+    float: left;
+}
+
+ul.skillset {
+    float: left;
+    width: 100%;
+}
+
+.skill-percent {
+    float: right;
+}
+
+li.skill-bar {
+    background-color: #7BC673;
+    color: #FFF;
+    font: bold 12px/30px Arial, sans-serif;
+    margin-bottom: 3px;
+    padding: 2px 8px;
+    width: 400px;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+
+/* Profile: Projects */
+.curr-projects {
+    float:left;
+    display:block;
+    padding:5%;
+}
+.project{
+    float: left;
+    display:block;
+    border-radius:10px;
+    background-color: #e3e3e3;
+    border:2px solid #89bdd3;
+    width:95%;
+    margin-top:1%;
+    padding:1%;
+    transition: 1s ease-in-out;
+}
+
+.project:hover{
+    transform: scale(0.9);
+}
+
+.header-projects{
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    float: left;
+}
+
+.profile-projects{
+    float: left;
+    width: 90%;
+}
+
+/* Profile: Past Projects */
+/*TODO*/
+
+/* Responsive Design Segment */
+@media screen and (max-width:768px) {
+    .card {
+        display: block;
+    }
+
+    .profile-info {
+        max-width: 100%;
+    }
+}
