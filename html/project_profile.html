@@ -30,7 +30,7 @@
             <!--Search Bar-->
             <li class="search">
                 <form action="/search.html" class="search-wrapper cf">
-                    <input type="text" placeholder="Search" required="">
+                    <input type="text" placeholder="Search" required>
                     <button type="submit" onclick="window.location.href='../html/ProjectSearch.html'"> <span class="fontawesome-search"><i class="fa fa-search" aria-hidden="true"></i></span></button>
                 </form>
             </li>
@@ -64,18 +64,30 @@
             <li class="tab_li"><a href="javascript:void(0)" onClick="expandTab('Skills')">Skills Required</a>
             </li>
             <li id="Skills" class="expand_tab" style="display:none">
-                <div>
-                    <a href="" onClick="display:none">
-                        <h2>Skills Required</h2>
-                        <ul>
-                            <li>HTML</li>
-                            <li>CSS</li>
-                            <li>Javascript</li>
-                            <li>Familiarity with Mongo</li>
-                        </ul>
-                        <br>
-                    </a>
-                </div>
+                <!--Project Skills-->
+	               <a href="" onClick="display:none">
+                   <h2>Skills Required</h2>
+                   <div class="skills">
+                       <ul class="skillset">
+        
+                           <li class="skill-bar javascript-bar">
+                               <span>Javascript</span>
+                               <span class="skill-percent">80%</span>
+                           </li>
+        
+                           <li class="skill-bar css-bar">
+                               <span>CSS</span>
+                               <span class="skill-percent">30%</span>
+                           </li>
+        
+                           <li class="skill-bar html-bar">
+                               <span>HTML</span>
+                               <span class="skill-percent">100%</span>
+                           </li>
+        				   <br>
+                       </ul>
+                   </div>
+                   </a>
             </li>
             <li class="tab_li"><a href="javascript:void(0)" onClick="expandTab('People')">People Involved</a>
             </li>
@@ -114,18 +126,28 @@
         <div id="About_big" class="tab" style="display:none">
             <h2>About the Project</h2>
             <h4>Match people to side-projects they wish to work on. </h4>
-            <p>A website that matches users to available side-projects in the field of computer science, based on a survey of interests and skills. Also allows users to create side-project ideas that can be posted on the website for other users to browse through, or be matched with. Tags are used to easily filter through the different programming languages, skills, and interests. The website also offers an easy way to schedule meetings by taking account the group members’ available times.</p>
+            <p>A website that matches users to available side-projects in the field of computer science, based on a survey of interests and skills. Also allows users to create side-project ideas that can be posted on the website for other users to browse through, or be matched with. Tags are used to easily filter through the different programming languages, skills, and interests. The website also offers an easy way to schedule meetings by taking account the group members' available times.</p>
         </div>
 
         <div id="Skills_big" class="tab" style="display:none">
             <h2>Skills Required</h2>
-            <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>Javascript</li>
-                <li>Familiarity with Mongo</li>
-            </ul>
-            <br>
+           <div class="skills">
+               <ul class="skillset">
+                   <li class="skill-bar javascript-bar">
+                       <span>Javascript</span>
+                       <span class="skill-percent">80%</span>
+                   </li>
+                   <li class="skill-bar css-bar">
+                       <span>CSS</span>
+                       <span class="skill-percent">30%</span>
+                   </li>
+                   <li class="skill-bar html-bar">
+                       <span>HTML</span>
+                       <span class="skill-percent">100%</span>
+                   </li>
+                   <br>
+               </ul>
+           </div>
         </div>
 
         <div id="People_big" class="tab" style="display:none">

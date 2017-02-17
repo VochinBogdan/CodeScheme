@@ -1,7 +1,6 @@
 body {
     margin: 0;
     padding: 0;
-    /*background-color:ebebeb;*/
     
     background-image: radial-gradient(circle at 100% 150%, #f4f4f4 24%, white 25%, white 28%, #f4f4f4 29%, #f4f4f4 36%, white 36%, white 40%, transparent 40%, transparent), radial-gradient(circle at 0 150%, #f4f4f4 24%, white 25%, white 28%, #f4f4f4 29%, #f4f4f4 36%, white 36%, white 40%, transparent 40%, transparent), radial-gradient(circle at 50% 100%, white 10%, #f4f4f4 11%, #f4f4f4 23%, white 24%, white 30%, #f4f4f4 31%, #f4f4f4 43%, white 44%, white 50%, #f4f4f4 51%, #f4f4f4 63%, white 64%, white 71%, transparent 71%, transparent), radial-gradient(circle at 100% 50%, white 5%, #f4f4f4 6%, #f4f4f4 15%, white 16%, white 20%, #f4f4f4 21%, #f4f4f4 30%, white 31%, white 35%, #f4f4f4 36%, #f4f4f4 45%, white 46%, white 49%, transparent 50%, transparent), radial-gradient(circle at 0 50%, white 5%, #f4f4f4 6%, #f4f4f4 15%, white 16%, white 20%, #f4f4f4 21%, #f4f4f4 30%, white 31%, white 35%, #f4f4f4 36%, #f4f4f4 45%, white 46%, white 49%, transparent 50%, transparent);
     background-size: 100px 50px;
@@ -96,6 +95,43 @@ p {
 .expand_tab a {
     text-decoration: none;
     color: black;
+}
+/* Profile: Skills*/
+.skills {
+	display: block;
+    width: 70%;
+    margin: 0 auto;
+	padding:0;
+}
+
+ul.skillset {
+    width: 100%;
+}
+
+li.skill-bar {
+    background-color: #7BC673;
+    color: #FFF;
+    font: bold 12px/30px Arial, sans-serif;
+    margin-bottom: 3px;
+    padding: 2px 8px;
+    width: 400px;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+li.javascript-bar{
+    width:80%;
+    background-color:#F3C128;
+}
+
+li.css-bar{
+    width:30%;
+    background-color:#1CDCFF;
+}
+
+li.html-bar{
+    width:100%;
+    background-color:#7CD14E;
 }
 .git_icon {
     list-style-type: none;
