@@ -1,10 +1,46 @@
 <!DOCTYPE html>
+
+<!--Some HTML from http://codepen.io/desireebryant/full/QNpxbY/-->
+
 <html>
     <head>
         <title>CodeScheme</title>
-        <link rel="stylesheet" href="./css/SignUpPage.css">
+		<!-- CSS Imports -->
+        <link rel="stylesheet" href="../css/SignUpPage.css">
+		<link rel="stylesheet" href="../css/nav.css">
+		<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+		<!-- Javascript Imports -->
+		<script src="../js/nav.js"></script>
     </head>
     <body>
+
+	<!-- Navigation Bar -->
+	<div class="navigation">
+		<ul class="nav test--nav" id="my-topnav">
+			<li class="logo"><a class="logo">CodeScheme</a></li>
+			<li><a href="#profile">Profile</a></li>
+			<li><a href="#feed">Projects</a></li>
+			<!-- Search Options -->
+			<div class="search-options">
+				<select>
+					<option value="Users">Users</option>
+					<option value="Projects">Projects</option>
+				</select>
+			</div>
+			<!--Search Bar-->
+			<li class="search">
+				<form action="/search.html" class="search-wrapper cf">
+					<input type="text" placeholder="Search" required="">
+					<button type="submit"> <span class="fontawesome-search"><i class="fa fa-search" aria-hidden="true"></i></span></button>
+				</form>
+			</li>
+			<!--End of Search Bar-->
+			<li class="icon">
+				<a href="javascript:void(0);" onclick="navButton()">&#9776;</a>
+			</li>
+		</ul>
+	</div>
+
 		<div class="wrapper">
 		  <div class="signup">
 			<h1 class="sign-up-header">Sign Up</h1>
