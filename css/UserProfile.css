@@ -109,7 +109,6 @@ hr {
 }
 
 /* Profile: Skills*/
-
 .header-skills{
     font-weight: bold;
     font-family: Arial, sans-serif;
@@ -143,6 +142,20 @@ li.skill-bar {
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
+li.javascript-bar{
+    width:80%;
+    background-color:#F3C128;
+}
+
+li.css-bar{
+    width:30%;
+    background-color:#1CDCFF;
+}
+
+li.html-bar{
+    width:100%;
+    background-color:#7CD14E;
+}
 
 /* Profile: Projects */
 .curr-projects {
