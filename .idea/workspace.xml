@@ -38,8 +38,8 @@
       <file leaf-file-name="UserProfile.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/UserProfile.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="161" column="17" lean-forward="false" selection-start-line="161" selection-start-column="17" selection-end-line="161" selection-end-column="17" />
+            <state relative-caret-position="238">
+              <caret line="110" column="20" lean-forward="true" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -129,8 +129,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="286" />
-    <option name="y" value="95" />
+    <option name="x" value="274" />
+    <option name="y" value="66" />
     <option name="width" value="2201" />
     <option name="height" value="1287" />
   </component>
@@ -281,12 +281,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1487348435723</updated>
-      <workItem from="1487348437450" duration="13662000" />
+      <workItem from="1487348437450" duration="14360000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13662000" />
+    <option name="totallyTimeSpent" value="14360000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -298,7 +298,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="286" y="95" width="2201" height="1287" extended-state="0" />
+    <frame x="274" y="66" width="2201" height="1287" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15996301" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -434,8 +434,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/UserProfile.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="161" column="17" lean-forward="false" selection-start-line="161" selection-start-column="17" selection-end-line="161" selection-end-column="17" />
+        <state relative-caret-position="238">
+          <caret line="110" column="20" lean-forward="true" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="20" />
           <folding />
         </state>
       </provider>
