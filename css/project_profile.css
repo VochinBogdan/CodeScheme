@@ -117,10 +117,11 @@ p {
     margin: 0 auto;
     margin-top: 10px;
 }
-.info_button:hover {
+button:hover {
     background-color: #89bdd3;
     color: white;
 }
+
 @media screen and (min-width: 768px) {
     section::after {
         clear: both;
@@ -190,8 +191,8 @@ p {
         padding: 14px 20px;
         margin: 20px 10px 20px 10px;
     }
-    .info_button:hover {
-        background-color: #89bdd3;
-        color: white;
-    }
+    button:hover {
+		background-color: #89bdd3;
+		color: white;
+	}
 }
