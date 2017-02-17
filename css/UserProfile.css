@@ -135,7 +135,7 @@ ul.skillset {
 li.skill-bar {
     background-color: #7BC673;
     color: #FFF;
-    font: bold 12px/30px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font: bold 12px/30px Arial, sans-serif;
     margin-bottom: 3px;
     padding: 2px 8px;
     width: 400px;
