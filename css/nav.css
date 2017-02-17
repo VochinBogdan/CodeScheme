@@ -107,6 +107,7 @@ ul.nav li.icon {
     border: 0;
     background: #fff;
     border-radius: 5px 0 0 5px;
+    box-sizing: initial;
 }
 
 .search-wrapper input:hover + .search-wrapper button {
