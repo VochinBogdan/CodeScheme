@@ -1,240 +1,197 @@
-body{
-	margin: 0;
-	padding: 0;
-	/*background-color:ebebeb;*/
-	
-	
-	background-image:
-radial-gradient(circle at 100% 150%, #f4f4f4 24%, white 25%, white 28%, #f4f4f4 29%, #f4f4f4 36%, white 36%, white 40%, transparent 40%, transparent),
-radial-gradient(circle at 0    150%, #f4f4f4 24%, white 25%, white 28%, #f4f4f4 29%, #f4f4f4 36%, white 36%, white 40%, transparent 40%, transparent),
-radial-gradient(circle at 50%  100%, white 10%, #f4f4f4 11%, #f4f4f4 23%, white 24%, white 30%, #f4f4f4 31%, #f4f4f4 43%, white 44%, white 50%, #f4f4f4 51%, #f4f4f4 63%, white 64%, white 71%, transparent 71%, transparent),
-radial-gradient(circle at 100% 50%, white 5%, #f4f4f4 6%, #f4f4f4 15%, white 16%, white 20%, #f4f4f4 21%, #f4f4f4 30%, white 31%, white 35%, #f4f4f4 36%, #f4f4f4 45%, white 46%, white 49%, transparent 50%, transparent),
-radial-gradient(circle at 0    50%, white 5%, #f4f4f4 6%, #f4f4f4 15%, white 16%, white 20%, #f4f4f4 21%, #f4f4f4 30%, white 31%, white 35%, #f4f4f4 36%, #f4f4f4 45%, white 46%, white 49%, transparent 50%, transparent);
-background-size:100px 50px;
-
-}
-
-ul {
-	list-style-type: none;
+body {
     margin: 0;
     padding: 0;
-	color: black;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 1em;
-	line-height: 1.5em;
+    /*background-color:ebebeb;*/
+    
+    background-image: radial-gradient(circle at 100% 150%, #f4f4f4 24%, white 25%, white 28%, #f4f4f4 29%, #f4f4f4 36%, white 36%, white 40%, transparent 40%, transparent), radial-gradient(circle at 0 150%, #f4f4f4 24%, white 25%, white 28%, #f4f4f4 29%, #f4f4f4 36%, white 36%, white 40%, transparent 40%, transparent), radial-gradient(circle at 50% 100%, white 10%, #f4f4f4 11%, #f4f4f4 23%, white 24%, white 30%, #f4f4f4 31%, #f4f4f4 43%, white 44%, white 50%, #f4f4f4 51%, #f4f4f4 63%, white 64%, white 71%, transparent 71%, transparent), radial-gradient(circle at 100% 50%, white 5%, #f4f4f4 6%, #f4f4f4 15%, white 16%, white 20%, #f4f4f4 21%, #f4f4f4 30%, white 31%, white 35%, #f4f4f4 36%, #f4f4f4 45%, white 46%, white 49%, transparent 50%, transparent), radial-gradient(circle at 0 50%, white 5%, #f4f4f4 6%, #f4f4f4 15%, white 16%, white 20%, #f4f4f4 21%, #f4f4f4 30%, white 31%, white 35%, #f4f4f4 36%, #f4f4f4 45%, white 46%, white 49%, transparent 50%, transparent);
+    background-size: 100px 50px;
 }
-
-li a{
-	text-decoration: none;
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    line-height: 1.5em;
 }
-
+li a {
+    text-decoration: none;
+}
 h2 {
-	 color: black;
-	 font-family: 'Open Sans Condensed', sans-serif;
-	 font-size: 2em; 
-	 font-weight: 700;
-	 line-height: 1.5em;
-	 margin:0; 
-	 padding: 30px;
-	 text-align: center;
-	 text-transform: uppercase;
+    color: black;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 2em;
+    font-weight: 700;
+    line-height: 1.5em;
+    margin: 0;
+    padding: 30px;
+    text-align: center;
+    text-transform: uppercase;
 }
-
-h4{
-	color: black; 
-	font-family: 'Open Sans Condensed', sans-serif;
-	font-size: 1em;
-	font-weight: 700; 
-	line-height: 1.5em; 
-	margin: 0;
-	padding: 10px 30px 10px 30px;
-	text-align: center; 
-	text-transform: uppercase;
+h4 {
+    color: black;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    line-height: 1.5em;
+    margin: 0;
+    padding: 10px 30px 10px 30px;
+    text-align: center;
+    text-transform: uppercase;
 }
-
 p {
-	color: black;
-	font-family: 'Open Sans', sans-serif; 
-	font-size: 1em; 
-	line-height: 1.5em; 
-	margin: 0;
-	padding: 30px;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    line-height: 1.5em;
+    margin: 0;
+    padding: 30px;
 }
-
 .title {
-	font-family: 'Serif';
-	font-size: 4em;
-	font-weight: normal;
-	line-height: 60px;
-	margin-top: 100px;
-	margin-bottom: 20px;
-	text-transform: uppercase;
-
-	text-align: center;
+    font-family: 'Serif';
+    font-size: 4em;
+    font-weight: normal;
+    line-height: 60px;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-align: center;
 }
-
 .tabs {
-	clear: left;
+    clear: left;
     list-style-type: none;
     margin: 20px 10px 20px 10px;
     padding: 0;
     overflow: hidden;
     background-color: #9ad3de;
     border: 1px solid #89bdd3;
-	text-align: center;
+    text-align: center;
 }
-
 .tab_li {
-	text-align: center;
-    border-top: 1px solid #89bdd3;
-	border-bottom: 1px solid #89bdd3;
+    text-align: center;
+    border-top: 1px solid #89bdd3;
+    border-bottom: 1px solid #89bdd3;
 }
-
 .tab_li:last-child {
-    border-bottom: none;
+    border-bottom: none;
 }
-
-.tab_li a{
-	float: none;
+.tab_li a {
+    float: none;
     display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-	border-bottom: 1px solid #89bdd3;
-
+    border-bottom: 1px solid #89bdd3;
 }
-
-
 .tab_li a:hover {
     background-color: #89bdd3;
 }
-
 .expand_tab {
-	border-top: 1px solid #89bdd3;
-	border-bottom: 1px solid #89bdd3;
-	background-color: #e3e3e3;
+    border-top: 1px solid #89bdd3;
+    border-bottom: 1px solid #89bdd3;
+    background-color: #e3e3e3;
 }
-
-.expand_tab a{
-	text-decoration:none;
-	color: black;
+.expand_tab a {
+    text-decoration: none;
+    color: black;
 }
-
-.git_icon{
-	list-style-type: none;
-	text-align: center;
+.git_icon {
+    list-style-type: none;
+    text-align: center;
 }
-
-.info_button{
-	display: block;
-	background-color: #9ad3de;
-	font-size: 1em;
-	padding: 14px 20px;
-	margin: 0 auto;
-	margin-top: 10px;
+.info_button {
+    display: block;
+    background-color: #9ad3de;
+    font-size: 1em;
+    padding: 14px 20px;
+    margin: 0 auto;
+    margin-top: 10px;
 }
-
-.join_button{
-	display: block;
-	background-color: #9ad3de;
-	font-size: 1em;
-	padding: 14px 31px;
-	margin: 0 auto;
-	margin-top: 10px;
+.join_button {
+    display: block;
+    background-color: #9ad3de;
+    font-size: 1em;
+    padding: 14px 31px;
+    margin: 0 auto;
+    margin-top: 10px;
 }
-
 .info_button:hover {
-    background-color: #89bdd3;
-    color: white;
+    background-color: #89bdd3;
+    color: white;
 }
-
-
-
 @media screen and (min-width: 768px) {
-
     section::after {
         clear: both;
         content: '';
         display: table;
         height: 0;
         visibility: hidden;
-        
     }
-
     .tabs {
-		list-style-type: none;
-		margin: 0 auto;
-		margin-top: 10px;
-		margin-bottom: 10px;
-    	padding: 0;
-		overflow: hidden;
-		background-color: #9ad3de;
-    	border: 1px solid #555;
-
-		display: table;
-		table-layout: fixed;
-		width: 80%;
-	}
-	
-	.tab_li {
-		display: table-cell;
-		border-right: 1px solid #89bdd3;
-	}
-	
-	.tab_li a{
-		
-		display: block;
-		color: white;
-		text-align: center;
-		padding: 14px 16px;
-		text-decoration: none;
-		border: 0;
-	}
-	
-	.tab{
-		background-color: #e3e3e3;
-		margin: 0 auto;
-		margin-bottom: 10px;
-		width: 80%;
-		border: 1px solid #89bdd3;
-		padding-top: 50px;
-		padding-bottom: 50px;
-		text-align: center;
-	}
-
-	footer{
-		display: block;
-		margin: 0 auto;
-		padding: 0;
-		width: 80%;
-	}
-	
-	.git_icon{
-		float: left;
-		list-style-type: none;
-		margin: 20px 10px 20px 10px;
-		padding: 0;
-	}
-	
-	.join_button{
-		float: right;
-		background-color: #9ad3de;
-		font-size: 1em;
-		padding: 14px 20px;
-		margin: 20px 10px 20px 10px;
-	}
-	
-	.info_button{
-		float: right;
-		background-color: #9ad3de;
-		font-size: 1em;
-		padding: 14px 20px;
-		margin: 20px 10px 20px 10px;
-	}
-	
+        list-style-type: none;
+        margin: 0 auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 0;
+        overflow: hidden;
+        background-color: #9ad3de;
+        border: 1px solid #555;
+        display: table;
+        table-layout: fixed;
+        width: 80%;
+    }
+    .tab_li {
+        display: table-cell;
+        border-right: 1px solid #89bdd3;
+    }
+    .tab_li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        border: 0;
+    }
+    .tab {
+        background-color: #e3e3e3;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        width: 80%;
+        border: 1px solid #89bdd3;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        text-align: center;
+    }
+    footer {
+        display: block;
+        margin: 0 auto;
+        padding: 0;
+        width: 80%;
+    }
+    .git_icon {
+        float: left;
+        list-style-type: none;
+        margin: 20px 10px 20px 10px;
+        padding: 0;
+    }
+    .join_button {
+        float: right;
+        background-color: #9ad3de;
+        font-size: 1em;
+        padding: 14px 20px;
+        margin: 20px 10px 20px 10px;
+    }
+    .info_button {
+        float: right;
+        background-color: #9ad3de;
+        font-size: 1em;
+        padding: 14px 20px;
+        margin: 20px 10px 20px 10px;
+    }
     .info_button:hover {
-	    background-color: #89bdd3;
-	    color: white;
-	}
+        background-color: #89bdd3;
+        color: white;
+    }
 }
