@@ -8,29 +8,37 @@
         <link rel="stylesheet" href="../css/dashboard.css">
         <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
         <script type="text/javascript" src="../js/dashboard.js"></script>
+        <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
         <script type="text/javascript" src="../js/nav.js"></script>
     </head>
     <body onload="document.getElementById(&quot;defaultOpen&quot;).click()" onresize="styleBorder()">
-        <!-- Navigation Bar -->
-        <div class="navigation">
-            <ul class="nav test--nav" id="my-topnav">
-                <li class="logo"><a class="logo">CodeScheme</a></li>
-                <li><a href="#profile">Profile</a></li>
-                <li><a href="#feed">Projects</a></li>
-                <!--Search Bar-->
-                <li class="search">
-                    <form action="/search.html" class="search-wrapper cf">
-                        <input type="text" placeholder="Search" required="">
-                        <button type="submit"> <span class="fontawesome-search"></span></button>
-                    </form>
-                </li>
-                <!--End of Search Bar-->
-                <li class="icon">
-                    <a href="javascript:void(0);" onclick="navButton()">&#9776;</a>
-                </li>
-            </ul>
+    <!-- Navigation Bar -->
+    <div class="navigation">
+        <ul class="nav test--nav" id="my-topnav">
+            <li class="logo"><a class="logo" href="../html/dashboard.html">CodeScheme</a></li>
+            <li><a href="../html/UserProfile.html">Profile</a></li>
+            <li><a href="../html/project_profile.html">Projects</a></li>
+            <!-- Search Options -->
+            <div class="search-options">
+                <select>
+                    <option value="Users">Users</option>
+                    <option value="Projects">Projects</option>
+                </select>
+            </div>
+            <!--Search Bar-->
+            <li class="search">
+                <form action="/search.html" class="search-wrapper cf">
+                    <input type="text" placeholder="Search" required="">
+                    <button type="submit" onclick="window.location.href='../html/ProjectSearch.html'"> <span class="fontawesome-search"><i class="fa fa-search" aria-hidden="true"></i></span></button>
+                </form>
+            </li>
+            <!--End of Search Bar-->
+            <li class="icon">
+                <a href="javascript:void(0);" onclick="navButton()">&#9776;</a>
+            </li>
+        </ul>
         <!--End of Navigation Bar-->
-        </div>
+    </div>
         <!--Container for user-specific projects-->
         <div class="user_project_container">
             <h1 class="greet">Greetings, User.</h1>
