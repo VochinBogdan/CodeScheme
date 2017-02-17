@@ -91,16 +91,6 @@ ul.nav li.icon {
     margin-top: 10px;
 }
 
-/* fontawesome */
-.cf:before, .cf:after{
-    content:"";
-    display:table;
-}
-
-.cf:after{
-    clear:both;
-}
-
  /* Form wrapper styling */
 .search-wrapper {
     width: 240px;
