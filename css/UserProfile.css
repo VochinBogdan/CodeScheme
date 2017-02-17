@@ -190,9 +190,6 @@ li.html-bar{
     width: 90%;
 }
 
-/* Profile: Past Projects */
-/*TODO*/
-
 /* Responsive Design Segment */
 @media screen and (max-width:768px) {
     .card {
