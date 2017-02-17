@@ -42,6 +42,12 @@ ul.nav li.icon {
     display: none;
 }
 
+.navigation select {
+    background:white;
+    padding:2px;
+    font-size:1.25em;
+}
+
 /* Responsive media */
 @media screen and (max-width: 768px) {
     /*Navigation*/
@@ -93,10 +99,6 @@ ul.nav li.icon {
 
 .cf:after{
     clear:both;
-}
-
-.cf{
-    zoom:1;
 }
 
  /* Form wrapper styling */
