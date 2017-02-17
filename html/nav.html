@@ -6,14 +6,15 @@ navigation bar on other pages-->
         <title>CodeScheme</title>
         <link rel="stylesheet" href="../css/nav.css">
         <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+        <script src="../js/nav.js"></script>
     </head>
     <body>
         <!-- Navigation Bar -->
         <div class="navigation">
             <ul class="nav test--nav" id="my-topnav">
-                <li class="logo"><a class="logo">CodeScheme</a></li>
-                <li><a href="#profile">Profile</a></li>
-                <li><a href="#feed">Projects</a></li>
+                <li class="logo"><a class="logo" href="../html/dashboard.html">CodeScheme</a></li>
+                <li><a href="../html/UserProfile.html">Profile</a></li>
+                <li><a href="../html/project_profile.html">Projects</a></li>
                 <!-- Search Options -->
                 <div class="search-options">
                     <select>
@@ -25,7 +26,7 @@ navigation bar on other pages-->
                 <li class="search">
                     <form action="/search.html" class="search-wrapper cf">
                         <input type="text" placeholder="Search" required="">
-                        <button type="submit"> <span class="fontawesome-search"><i class="fa fa-search" aria-hidden="true"></i></span></button>
+                        <button type="submit" onclick="window.location.href='../html/ProjectSearch.html'"> <span class="fontawesome-search"><i class="fa fa-search" aria-hidden="true"></i></span></button>
                     </form>
                 </li>
                 <!--End of Search Bar-->
@@ -35,6 +36,5 @@ navigation bar on other pages-->
             </ul>
         <!--End of Navigation Bar-->
         </div>
-    <script src="../js/nav.js"></script>
   </body>
 </html>
