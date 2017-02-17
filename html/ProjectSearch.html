@@ -1,112 +1,122 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<link rel="stylesheet" href="../css/nav.css">
-		<link rel="stylesheet" href="../css/ProjectSearch.css">
-		<title>CodeScheme - Search</title>
-	</head>
-	<body>
-		
-		<!-- Navigation Bar -->
-	   <div class="navigation">
-			<ul class="nav test--nav" id="my-topnav">
-	          <li class="logo"><a class="logo">CodeScheme</a></li>
-	        	<li><a href="#profile">Profile</a></li>
-	            <li><a href="#feed">Projects</a></li>
-	            <!--Search Bar-->
-	            <li class="search">
-	              <form action="/search.html" class="search-wrapper cf">
-	                <input type="text" placeholder="Search" required="">
-	                  <button type="submit"> <span class="fontawesome-search"></span></button>
-	              </form>
-	            </li>
-	            <!--End of Search Bar-->
-	            <li class="icon">
-	                <a href="javascript:void(0);" onclick="navButton()">&#9776;</a>
-	            </li>
-	        </ul>
-	     <!--End of Navigation Bar-->
-	    </div>
-		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-	    <script src="../js/nav.js"></script>
+    <head>
+        <link rel="stylesheet" href="../css/nav.css">
+        <link rel="stylesheet" href="../css/ProjectSearch.css">
+        <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+        <script src="../js/nav.js"></script>
+        <title>CodeScheme - Search</title>
+    </head>
+    <body>
+    <!-- Navigation Bar -->
+    <div class="navigation">
+        <ul class="nav test--nav" id="my-topnav">
+            <li class="logo"><a class="logo" href="../html/dashboard.html">CodeScheme</a></li>
+            <li><a href="../html/UserProfile.html">Profile</a></li>
+            <li><a href="../html/project_profile.html">Projects</a></li>
+            <!-- Search Options -->
+            <li>
+            <div class="search-options">
+                <select>
+                    <option value="Users">Users</option>
+                    <option value="Projects">Projects</option>
+                </select>
+            </div>
+            </li>
+            <!--Search Bar-->
+            <li class="search">
+                <form action="/search.html" class="search-wrapper cf">
+                    <input type="text" placeholder="Search" required="">
+                    <button type="submit" onclick="window.location.href='../html/ProjectSearch.html'"> <span class="fontawesome-search"><i class="fa fa-search" aria-hidden="true"></i></span></button>
+                </form>
+            </li>
+            <!--End of Search Bar-->
+            <li class="icon">
+                <a href="javascript:void(0);" onclick="navButton()">&#9776;</a>
+            </li>
+        </ul>
+        <!--End of Navigation Bar-->
+    </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="../js/nav.js"></script>
 
-		<!-- Filters for searching projects -->
-		<div class="filters">
-				<h3>Filters</h3>
-				<span class="filter_line">Location <input type="text"></span>
-				<span class="filter_line">School 
-				<select class="school_menu" name="School">
-					<option value="any">Any</option>
-					<option value="UofT">University of Toronto</option>
-					<option value="Waterloo">Waterloo</option>
-				</select>
-				</span>
+        <!-- Filters for searching projects -->
+        <div class="filters">
+            <h3>Filters</h3>
+            <span class="filter_line">Location <input type="text"></span>
+            <span class="filter_line">School
+                <select class="school_menu" name="School">
+                    <option value="any">Any</option>
+                    <option value="UofT">University of Toronto</option>
+                    <option value="Waterloo">Waterloo</option>
+                </select>
+            </span>
 
-				<h4>Skills</h4>
-					<span><div class="skills">
-						<span class="skill filter_line">
-							HTML
-							<button class="remove_skill">x</button>
-						</span>
-						<span class="skill filter_line">
-							Javascript
-							<button class="remove_skill">x</button>
-						</span>
-					</div></span>
-					<span class="filter_line">
-						<input type="text" placeholder="Add Skill">
-						<button>Add</button>
-					</span>
-				<span class="filter_line"><button class="apply_filter">Apply Filters</button></span>
+            <h4>Skills</h4>
+                <span><div class="skills">
+                    <span class="skill filter_line">
+                        HTML
+                        <button class="remove_skill">x</button>
+                    </span>
+                    <span class="skill filter_line">
+                        Javascript
+                        <button class="remove_skill">x</button>
+                    </span>
+                </div></span>
+                <span class="filter_line">
+                    <input type="text" placeholder="Add Skill">
+                    <button>Add</button>
+                </span>
+            <span class="filter_line"><button class="apply_filter">Apply Filters</button></span>
+        </div>
 
-		</div>
+        <div class="search_results">
+            <h1>SEARCH RESULTS</h1>
+            <select name="Order By">
+                <option value="newest">Most Recent</option>
+                <option value="relevant">Most Relevant</option>
+            </select>
+            <div class="searched_projects">
 
-		<div class="search_results">
-			<h1>SEARCH RESULTS</h1>
-			<select name="Order By">
-				<option value="newest">Most Recent</option>
-				<option value="relevant">Most Relevant</option>
-			</select>
-			<div class="searched_projects">
+                <div class="project_search_result">
+                    <h3>Project Name</h3>
+                    <p class="project_creator">Created by User</p>
+                    <p class="project_description">Project description</p>
+                    <p class="project_teammates_needed">#/# Teammates needed</p>
+                    <p class="project_tags">#skill_tag #skill_tag</p>
+                    <p class="project_location">Location</p>
+                </div>
 
-				<div class="project_search_result">
-					<h3>Project Name</h3>
-					<p class="project_creator">Created by User</p>
-					<p class="project_description">Project description</p>
-					<p class="project_teammates_needed">#/# Teammates needed</p>
-					<p class="project_tags">#skill_tag #skill_tag</p>
-					<p class="project_location">Location</p>
-				</div>
+                <div class="project_search_result">
+                    <h3>Project Name</h3>
+                    <p class="project_creator">Created by User</p>
+                    <p class="project_description">Project description</p>
+                    <p class="project_teammates_needed">#/# Teammates needed</p>
+                    <p class="project_tags">#skill_tag #skill_tag</p>
+                    <p class="project_location">Location</p>
+                </div>
 
-				<div class="project_search_result">
-					<h3>Project Name</h3>
-					<p class="project_creator">Created by User</p>
-					<p class="project_description">Project description</p>
-					<p class="project_teammates_needed">#/# Teammates needed</p>
-					<p class="project_tags">#skill_tag #skill_tag</p>
-					<p class="project_location">Location</p>
-				</div>
+                <div class="project_search_result">
+                    <h3>Project Name</h3>
+                    <p class="project_creator">Created by User</p>
+                    <p class="project_description">Project description</p>
+                    <p class="project_teammates_needed">#/# Teammates needed</p>
+                    <p class="project_tags">#skill_tag #skill_tag</p>
+                    <p class="project_location">Location</p>
+                </div>
 
-				<div class="project_search_result">
-					<h3>Project Name</h3>
-					<p class="project_creator">Created by User</p>
-					<p class="project_description">Project description</p>
-					<p class="project_teammates_needed">#/# Teammates needed</p>
-					<p class="project_tags">#skill_tag #skill_tag</p>
-					<p class="project_location">Location</p>
-				</div>
+                <div class="project_search_result">
+                    <h3>Project Name</h3>
+                    <p class="project_creator">Created by User</p>
+                    <p class="project_description">Project description</p>
+                    <p class="project_teammates_needed">#/# Teammates needed</p>
+                    <p class="project_tags">#skill_tag #skill_tag</p>
+                    <p class="project_location">Location</p>
+                </div>
 
-				<div class="project_search_result">
-					<h3>Project Name</h3>
-					<p class="project_creator">Created by User</p>
-					<p class="project_description">Project description</p>
-					<p class="project_teammates_needed">#/# Teammates needed</p>
-					<p class="project_tags">#skill_tag #skill_tag</p>
-					<p class="project_location">Location</p>
-				</div>
+            </div>
+        </div>
 
-			</div>
-		</div>
-
-	</body>
+    </body>
 </html>

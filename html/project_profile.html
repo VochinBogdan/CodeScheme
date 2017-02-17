@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Code Scheme: Project Profile</title>
+    <link rel="stylesheet" href="../css/project_profile.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body onResize="emptySelection()" onload="emptySelection()">
+
+    <!-- Navigation Bar -->
+    <div class="navigation">
+        <ul class="nav test--nav" id="my-topnav">
+            <li class="logo"><a class="logo" href="../html/dashboard.html">CodeScheme</a></li>
+            <li><a href="../html/UserProfile.html">Profile</a></li>
+            <li><a href="../html/project_profile.html">Projects</a></li>
+            <!-- Search Options -->
+            <li>
+            <div class="search-options">
+                <select>
+                    <option value="Users">Users</option>
+                    <option value="Projects">Projects</option>
+                </select>
+            </div>
+            </li>
+            <!--Search Bar-->
+            <li class="search">
+                <form action="/search.html" class="search-wrapper cf">
+                    <input type="text" placeholder="Search" required="">
+                    <button type="submit" onclick="window.location.href='../html/ProjectSearch.html'"> <span class="fontawesome-search"><i class="fa fa-search" aria-hidden="true"></i></span></button>
+                </form>
+            </li>
+            <!--End of Search Bar-->
+            <li class="icon">
+                <a href="javascript:void(0);" onclick="navButton()">&#9776;</a>
+            </li>
+        </ul>
+        <!--End of Navigation Bar-->
+    </div>
+
+
+    <!--Project Profile-->
+
+    <section class="projectProfile">
+        <h1 class="title"> Side Project Title </h1>
+        <ul class="tabs">
+            <!--Expandable Tabs for mobile & small screens -->
+            <li class="tab_li"><a href="javascript:void(0)" onClick="expandTab('About')">About the Project</a>
+            </li>
+            <li id="About" class="expand_tab" style="display:none">
+                <div>
+                    <a href="" onClick="display:none">
+                        <h2>About the Project</h2>
+                        <h4>Match people to side-projects they wish to work on. </h4>
+                        <p>A website that matches users to available side-projects in the field of computer science, based on a survey of interests and skills. Also allows users to create side-project ideas that can be posted on the website for other users to browse through, or be matched with. Tags are used to easily filter through the different programming languages, skills, and interests. The website also offers an easy way to schedule meetings by taking account the group members' available times.</p>
+                        <br>
+                    </a>
+                </div>
+            </li>
+            <li class="tab_li"><a href="javascript:void(0)" onClick="expandTab('Skills')">Skills Required</a>
+            </li>
+            <li id="Skills" class="expand_tab" style="display:none">
+                <div>
+                    <a href="" onClick="display:none">
+                        <h2>Skills Required</h2>
+                        <ul>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>Javascript</li>
+                            <li>Familiarity with Mongo</li>
+                        </ul>
+                        <br>
+                    </a>
+                </div>
+            </li>
+            <li class="tab_li"><a href="javascript:void(0)" onClick="expandTab('People')">People Involved</a>
+            </li>
+            <li id="People" class="expand_tab" style="display:none">
+                <div>
+                    <a href="" onClick="display:none">
+                        <h2>People Involved</h2>
+                        <h4>Creators</h4>
+                        <ul>
+                            <li>Ken</li>
+                            <li>Courtney</li>
+                            <li>Bogdan</li>
+                            <li>Julia</li>
+                        </ul>
+                        <br>
+                        <h4>Moderators</h4>
+                        <ul>
+                            <li>Jack Sparrow</li>
+                            <li>Hector Barbossa</li>
+						</ul>
+                        <br>
+                        <h4>Members</h4>
+                        <ul>
+                            <li>Will Turner</li>
+                            <li>Elizabeth Swann</li>
+                            <li>Joshamee Gibbs</li>
+                            <li>Davy Jones</li>
+                            <li>Tia Dalma</li>
+						</ul>
+                        <br>
+                    </a>
+                </div>
+            </li>
+        </ul>
+        <!--Information show up below the tabs for larger screens -->
+        <div id="About_big" class="tab" style="display:none">
+            <h2>About the Project</h2>
+            <h4>Match people to side-projects they wish to work on. </h4>
+            <p>A website that matches users to available side-projects in the field of computer science, based on a survey of interests and skills. Also allows users to create side-project ideas that can be posted on the website for other users to browse through, or be matched with. Tags are used to easily filter through the different programming languages, skills, and interests. The website also offers an easy way to schedule meetings by taking account the group members’ available times.</p>
+        </div>
+
+        <div id="Skills_big" class="tab" style="display:none">
+            <h2>Skills Required</h2>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Javascript</li>
+                <li>Familiarity with Mongo</li>
+            </ul>
+            <br>
+        </div>
+
+        <div id="People_big" class="tab" style="display:none">
+            <h2>People Involved</h2>
+            <h4>Creators</h4>
+            <ul>
+                <li>Ken</li>
+                <li>Courtney</li>
+                <li>Bogdan</li>
+                <li>Julia</li>
+            </ul>
+            <br>
+            <h4>Moderators</h4>
+            <ul>
+                <li>Jack Sparrow</li>
+                <li>Hector Barbossa</li>
+            </ul>
+            <br>
+            <h4>Members</h4>
+            <ul>
+                <li>Will Turner</li>
+                <li>Elizabeth Swann</li>
+                <li>Joshamee Gibbs</li>
+                <li>Davy Jones</li>
+                <li>Tia Dalma</li>
+            </ul>
+            <br>
+        </div>
+        <!--End of tabs-->
+        <footer>
+            <div class="git_icon">
+                <a href="https://csc309-spring2017.github.io/index.html">
+                    <i class="fa fa-github" style="font-size:48px;color:black;" aria-hidden="true"></i>
+                </a>
+            </div>
+            <button class="info_button">Request More Info</button>
+            <button class="join_button">Request to Join</button>
+
+        </footer>
+    </section>
+    <!--End of Project Profile-->
+
+
+
+
+
+    <script src="../js/project_profile.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="../js/nav.js"></script>
+</body>
+
+</html>
