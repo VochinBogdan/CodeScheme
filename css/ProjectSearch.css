@@ -6,11 +6,11 @@ body {
     margin-top:100px; /** Create space for Navbar **/
 
     background-image:
-    radial-gradient(circle at 100% 150%, #fcfcfc  24%, white 25%, white 28%, #fcfcfc  29%, #fcfcfc  36%, white 36%, white 40%, transparent 40%, transparent),
-    radial-gradient(circle at 0    150%, #fcfcfc  24%, white 25%, white 28%, #fcfcfc  29%, #fcfcfc  36%, white 36%, white 40%, transparent 40%, transparent),
-    radial-gradient(circle at 50%  100%, white 10%, #fcfcfc  11%, #fcfcfc  23%, white 24%, white 30%, #fcfcfc  31%, #fcfcfc  43%, white 44%, white 50%, #fcfcfc  51%, #fcfcfc  63%, white 64%, white 71%, transparent 71%, transparent),
-    radial-gradient(circle at 100% 50%, white 5%, #fcfcfc  6%, #fcfcfc  15%, white 16%, white 20%, #fcfcfc  21%, #fcfcfc  30%, white 31%, white 35%, #fcfcfc  36%, #fcfcfc  45%, white 46%, white 49%, transparent 50%, transparent),
-    radial-gradient(circle at 0    50%, white 5%, #fcfcfc  6%, #fcfcfc  15%, white 16%, white 20%, #fcfcfc  21%, #fcfcfc  30%, white 31%, white 35%, #fcfcfc  36%, #fcfcfc  45%, white 46%, white 49%, transparent 50%, transparent);
+    radial-gradient(circle at 100% 150%, #f4f4f4  24%, white 25%, white 28%, #f4f4f4  29%, #f4f4f4  36%, white 36%, white 40%, transparent 40%, transparent),
+    radial-gradient(circle at 0    150%, #f4f4f4  24%, white 25%, white 28%, #f4f4f4  29%, #f4f4f4  36%, white 36%, white 40%, transparent 40%, transparent),
+    radial-gradient(circle at 50%  100%, white 10%, #f4f4f4  11%, #f4f4f4  23%, white 24%, white 30%, #f4f4f4  31%, #f4f4f4  43%, white 44%, white 50%, #f4f4f4  51%, #f4f4f4  63%, white 64%, white 71%, transparent 71%, transparent),
+    radial-gradient(circle at 100% 50%, white 5%, #f4f4f4  6%, #f4f4f4  15%, white 16%, white 20%, #f4f4f4  21%, #f4f4f4  30%, white 31%, white 35%, #f4f4f4  36%, #f4f4f4  45%, white 46%, white 49%, transparent 50%, transparent),
+    radial-gradient(circle at 0    50%, white 5%, #f4f4f4  6%, #f4f4f4  15%, white 16%, white 20%, #f4f4f4  21%, #f4f4f4  30%, white 31%, white 35%, #f4f4f4  36%, #f4f4f4  45%, white 46%, white 49%, transparent 50%, transparent);
     background-size:100px 50px;
 }
 
