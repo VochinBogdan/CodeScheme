@@ -57,6 +57,7 @@ p {
     text-transform: uppercase;
     text-align: center;
 }
+/* Tabs*/
 .tabs {
     clear: left;
     list-style-type: none;
@@ -96,7 +97,11 @@ p {
     text-decoration: none;
     color: black;
 }
-/* Profile: Skills*/
+i{
+	color:black;
+}
+
+/* Project: Skills*/
 .skills {
 	display: block;
     width: 70%;
@@ -133,9 +138,12 @@ li.html-bar{
     width:100%;
     background-color:#7CD14E;
 }
+/* Footer*/
 .git_icon {
     list-style-type: none;
     text-align: center;
+	font-size:48px;
+	color:black;
 }
 .info_button {
     display: block;
