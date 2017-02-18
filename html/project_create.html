@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>CodeScheme: Create a New Project</title>
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/project_create.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navigation">
+        <ul class="nav test--nav" id="my-topnav">
+            <li class="logo"><a class="logo" href="../html/dashboard.html">CodeScheme</a>
+            </li>
+            <li><a href="../html/UserProfile.html">Profile</a>
+            </li>
+            <li><a href="../html/project_profile.html">Projects</a>
+            </li>
+            <!-- Search Options -->
+            <li>
+                <div class="search-options">
+                    <select>
+                        <option value="Users">Users</option>
+                        <option value="Projects">Projects</option>
+                    </select>
+                </div>
+            </li>
+            <!--Search Bar-->
+            <li class="search">
+                <form action="/search.html" class="search-wrapper cf">
+                    <input type="text" placeholder="Search" required>
+                    <button type="submit" onclick="window.location.href='../html/ProjectSearch.html'"> <span class="fontawesome-search"><i class="fa fa-search" aria-hidden="true"></i></span>
+                    </button>
+                </form>
+            </li>
+            <!--End of Search Bar-->
+            <li class="icon">
+                <a href="javascript:void(0);" onclick="navButton()">&#9776;</a>
+            </li>
+        </ul>
+        <!--End of Navigation Bar-->
+    </div>
+
+
+    <!--Project Creation Fields-->
+    <section class="Create_Project">
+        <header>
+            <h1>Create a New Side Project</h1>
+        </header>
+        <form action="../html/project_profile.html" method="post" class="create_project_form">
+            <div class="form_element">
+                <label id="titleField">
+                    <span class="Label">Title:</span>
+                    <br>
+                    <br>
+                    <input type="text" id="title" name="title" class="input_element" required>
+                </label>
+            </div>
+
+            <div class="form_element">
+                <label id="short_desc">
+                    <span class="Label">Project Tagline:</span>
+                    <br>
+                    <br>
+                    <textarea name="desc" rows="1" cols="50" class="input_element" required></textarea>
+                </label>
+            </div>
+
+            <div class="form_element">
+                <label id="long_desc">
+                    <span class="Label">Project Description:</span>
+                    <br>
+                    <br>
+                    <textarea name="desc" rows="6" cols="50" class="input_element" required></textarea>
+                </label>
+            </div>
+
+            <!--Slide-bars for skills-->
+            <section class="skills">
+                <h4 class="Label">Skills:</h4>
+                <div class="skill" id="skill1">
+                    <select class="skill_name">
+                        <option value="HTML">HTML</option>
+                        <option value="CSS">CSS</option>
+                        <option value="JavaScript">JavaScript</option>
+                    </select>
+                    <br>
+                    <input type="range" id="range1" min="0" max="100" value="0" step="5" class="slidebar" onchange="showValue(this.value)" />
+                    <span id="result1">0</span>
+                </div>
+                <div class="skill" id="skill2" style="display:none">
+                    <select class="skill_name">
+                        <option value="HTML">HTML</option>
+                        <option value="CSS">CSS</option>
+                        <option value="JavaScript">JavaScript</option>
+                    </select>
+                    <br>
+                    <input type="range" id="range2" min="0" max="100" value="0" step="5" class="slidebar" onchange="showValue(this.value)" />
+                    <span id="result2">0</span>
+                </div>
+                <div class="skill" id="skill3" style="display:none">
+                    <select class="skill_name">
+                        <option value="HTML">HTML</option>
+                        <option value="CSS">CSS</option>
+                        <option value="JavaScript">JavaScript</option>
+                    </select>
+                    <br>
+                    <input type="range" id="range3" min="0" max="100" value="0" step="5" class="slidebar" onchange="showValue(this.value)" />
+                    <span id="result3">0</span>
+                </div>
+                <a href="javascript:void(0)" onClick="addSkills()">
+                    <i id="add_button" class="fa fa-plus-circle" style="font-size:24px;"> Add more skills</i>
+                </a>
+            </section>
+			<!--End of Slide-bars for skills-->
+            
+            <div class="form_element">
+                <label id="numMembersField">
+                    <span class="Label">Number of Members:</span>
+                    <br>
+                    <br>
+                    <input type="text" id="numMembers" name="numMembers" class="input_element">
+                </label>
+            </div>
+
+            <div class="form_element">
+                <label id="Label">
+                    <span class="Label">GitHub Link:</span>
+                    <br>
+                    <br>
+                    <input type="text" id="git" name="git" class="input_element">
+                </label>
+            </div>
+
+            <div class="form_element">
+                <input id="SubmitButton" type="submit" value="Submit" class="submit_button">
+            </div>
+        </form>
+    </section>
+
+    <script src="../js/project_create.js"></script>
+</body>
+
+</html>
