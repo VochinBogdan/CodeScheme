@@ -160,6 +160,7 @@ li.html-bar{
     padding: 14px 31px;
     margin: 0 auto;
     margin-top: 10px;
+	margin-bottom: 30px;
 }
 button:hover {
     background-color: #89bdd3;
