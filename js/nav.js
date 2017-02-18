@@ -9,6 +9,7 @@ function navButton() {
 }
 
 /* Search Bar */
+/* Search Wrapper and Function from http://codepen.io/martinomag/full/LGjez/*/
 $(document).ready(function(){
     $(".search-wrapper input").mouseenter(function(){
         $(".search-wrapper button").css("background-color", "#89bdd3");
