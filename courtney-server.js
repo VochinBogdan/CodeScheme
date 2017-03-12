@@ -46,7 +46,7 @@ app.post('/users', function (req, res) {
             school: null,
             projects: [],
             past_projects: [],
-            projects_following: []
+            following_projects: []
         })
     });
 })
