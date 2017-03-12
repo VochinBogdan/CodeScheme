@@ -1,3 +1,5 @@
+/* Some CSS for Skill Bars from http://codepen.io/Metty/full/CjemI/ */
+
 body{
     padding:0px;
     margin:0px;
@@ -189,9 +191,6 @@ li.html-bar{
     float: left;
     width: 90%;
 }
-
-/* Profile: Past Projects */
-/*TODO*/
 
 /* Responsive Design Segment */
 @media screen and (max-width:768px) {

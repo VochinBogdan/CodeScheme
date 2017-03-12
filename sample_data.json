@@ -1,0 +1,154 @@
+{
+	"user_batman": {
+		"username": "batman",
+		"password": "123456",
+		"bio": "Batman is cool.",
+		"email": "batman@gmail.com",
+		"github": "github.com/batman",
+		"skills_known": [{
+			"python": 5
+		}, {
+			"java": 3
+		}],
+		"skills_wanted": [{
+			"java": 5
+		}],
+		"city": "Gotham",
+		"school": "home",
+		"projects": [{
+			"project_id": "AlphaCentauri"
+		}],
+		"following_projects": []
+	},
+	"user_superman": {
+		"username": "superman",
+		"password": "654321",
+		"bio": "Superman is cool.",
+		"email": "superman@gmail.com",
+		"github": "github.com/superman",
+		"skills_known": [{
+			"python": 3
+		}, {
+			"java": 5
+		}],
+		"skills_wanted": [{
+			"python": 5
+		}],
+		"city": "Metropolis",
+		"school": "Barons",
+		"projects": [{
+			"project_id": "AlphaCentauri"
+		}],
+		"following_projects": []
+	},
+	"user_andrew96": {
+		"username": "andrew96",
+		"password": "000000",
+		"bio": "I am a third year CS student at UofT.",
+		"email": "andrew.jackson@mail.utoronto.ca",
+		"github": "github.com/andrewj",
+		"skills_known": [{
+			"python": 1
+		}, {
+			"java": 5
+		}, {
+			"html": 3
+		}, {
+			"css": 3
+		}],
+		"skills_wanted": [{
+			"python": 5
+		}, {
+			"html": 5
+		}, {
+			"css": 5
+		}],
+		"city": "Toronto",
+		"school": "UofT",
+		"projects": [{
+			"project_id": "AlphaCentauri"
+		}],
+		"following_projects": []
+	},
+	"user_joker76": {
+		"username": "joker76",
+		"password": "767676",
+		"bio": "What do you give to a sick bird? Tweetment.",
+		"email": "joker@gmail.com",
+		"github": "github.com/joker",
+		"skills_known": [{
+			"javascript": 5
+		}, {
+			"html": 5
+		}, {
+			"css": 5
+		}],
+		"skills_wanted": [],
+		"city": "Gotham",
+		"school": "SFC",
+		"projects": [{
+			"project_id": "EvilPlan"
+		}],
+		"following_projects": [{
+			"project_id": "AlphaCentauri"
+		}]
+	},
+	"project_AlphaCentauri": {
+		"title": "AlphaCentauri",
+		"short_description": "Let's make some science",
+		"description": "I want to fight the villains near Alpha Centauri, help me get there.",
+		"num_members_needed": 3,
+		"active": true,
+		"creators": [{
+			"user_id": "batman"
+		}],
+		"moderators": [{
+			"user_id": "andrew96"
+		}],
+		"contributors": [{
+			"user_id": "superman"
+		}],
+		"join_requests": [{
+			"user_id": "joker76"
+		}],
+		"skills_used": [{
+			"python": 5
+		}, {
+			"java": 5
+		}],
+		"tags": [{
+			"tag": "exploration"
+		}, {
+			"tag": "travel"
+		}],
+		"github": "github.com/batman/AlphaCentauri",
+		"city": "Gotham",
+		"school": "home"
+	},
+	"project_EvilPlan": {
+		"title": "EvilPlan",
+		"short_description": "Something bad is about to go down",
+		"description": "Help me take over the world",
+		"num_members_needed": 4,
+		"active": false,
+		"creators": [{
+			"user_id": "joker76"
+		}],
+		"moderators": [],
+		"contributors": [],
+		"join_requests": [],
+		"skills_used": [{
+			"c": 5
+		}, {
+			"haskell": 5
+		}],
+		"tags": [{
+			"tag": "machine"
+		}, {
+			"tag": "functional"
+		}],
+		"github": "github.com/joker/EvilPlan",
+		"city": "Gotham",
+		"school": "SFC"
+	}
+}

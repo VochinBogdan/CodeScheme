@@ -40,6 +40,10 @@ body {
     margin-bottom: 2%;
 }
 
+.no_display {
+    display: none;
+}
+
 .tablink {
     display: inline-block;
     border: none;
