@@ -1,6 +1,10 @@
 var express = require('express');
 app = express();
 
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 // MongoDB
 var MongoClient = require('mongodb').MongoClient;
 var mongoURL = 'mongodb://localhost:27017/codescheme';
@@ -20,6 +24,7 @@ app.post('/users', function (req, res) {
 
     // Check required attributes are there
     if (!req.body.email || !req.body.username || !req.body.password) {
+        console.log(req);
         return res.sendStatus(400);
     }
 
@@ -29,7 +34,7 @@ app.post('/users', function (req, res) {
     }, function(err, count) {
 
         // Email or username already in database
-        if (count > 0){ 
+        if (count > 0){
             return res.sendStatus(403);
         }
 
@@ -47,7 +52,9 @@ app.post('/users', function (req, res) {
             projects: [],
             past_projects: [],
             following_projects: []
-        })
+        });
+
+        res.send(req.body.username + ' created');
     });
 })
 
