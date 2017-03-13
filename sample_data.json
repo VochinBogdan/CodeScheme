@@ -1,5 +1,6 @@
 {
-	"user_batman": {
+	"users": [
+		{"user_batman": {
 		"username": "batman",
 		"password": "123456",
 		"bio": "Batman is cool.",
@@ -19,8 +20,8 @@
 			"project_id": "AlphaCentauri"
 		}],
 		"following_projects": []
-	},
-	"user_superman": {
+		}},
+		{"user_superman": {
 		"username": "superman",
 		"password": "654321",
 		"bio": "Superman is cool.",
@@ -40,8 +41,8 @@
 			"project_id": "AlphaCentauri"
 		}],
 		"following_projects": []
-	},
-	"user_andrew96": {
+		}},
+		{"user_andrew96": {
 		"username": "andrew96",
 		"password": "000000",
 		"bio": "I am a third year CS student at UofT.",
@@ -69,8 +70,8 @@
 			"project_id": "AlphaCentauri"
 		}],
 		"following_projects": []
-	},
-	"user_joker76": {
+		}},
+		{"user_joker76": {
 		"username": "joker76",
 		"password": "767676",
 		"bio": "What do you give to a sick bird? Tweetment.",
@@ -92,8 +93,10 @@
 		"following_projects": [{
 			"project_id": "AlphaCentauri"
 		}]
-	},
-	"project_AlphaCentauri": {
+		}}
+	],
+	"projects": [
+		{"project_AlphaCentauri": {
 		"title": "AlphaCentauri",
 		"short_description": "Let's make some science",
 		"description": "I want to fight the villains near Alpha Centauri, help me get there.",
@@ -124,8 +127,8 @@
 		"github": "github.com/batman/AlphaCentauri",
 		"city": "Gotham",
 		"school": "home"
-	},
-	"project_EvilPlan": {
+		}},
+		{"project_EvilPlan": {
 		"title": "EvilPlan",
 		"short_description": "Something bad is about to go down",
 		"description": "Help me take over the world",
@@ -150,5 +153,6 @@
 		"github": "github.com/joker/EvilPlan",
 		"city": "Gotham",
 		"school": "SFC"
-	}
+		}}
+	]
 }
