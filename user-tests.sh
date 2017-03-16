@@ -42,10 +42,10 @@ curl -X "PUT" "http://localhost:3000/users/batman" \
 
 # Delete User
 read -p $'\nDelete User'
-curl -X "PUT" "http://localhost:3000/users/batman"
+curl -X "DELETE" "http://localhost:3000/users/batman"
 
 # Delete User does not exist
 read -p $'\nDelete User does not exist'
-curl -X "PUT" "http://localhost:3000/users/FakeUser"
+curl -X "DELETE" "http://localhost:3000/users/FakeUser"
 
 # Search and list Users by name
