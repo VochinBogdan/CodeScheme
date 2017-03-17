@@ -3,11 +3,13 @@
     "version": "1.0.0",
     "description": "A webapp for side projects",
     "license": "UNLICENSED",
-    "repository":
-        { 
+    "repository": { 
             "type" : "git",
             "url" : "https://github.com/CSC309-spring2017/Team09-CodeScheme.git"
-        },
+    },
+    "scripts": {
+        "start" : "node index.js"
+    },
     "dependencies": {
         "express": "^4.15.2",
         "mongodb": "^2.2.24",
