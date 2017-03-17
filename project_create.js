@@ -37,63 +37,10 @@ function createProject(req, res) {
             return res.sendStatus(403);
         }
         
-        // Check for optional parameters
-        var v_short_desc, v_long_desc, v_moderators, v_members, v_num_needed, v_skills, v_git, v_tags, v_city, v_school;
-       
-       // short_desc
-        if(req.body.short_desc)
-            v_short_desc = req.body.short_desc;
-        else
-            v_short_desc = "";
-        // long_desc
-        if(req.body.long_desc)
-            v_long_desc = req.body.long_desc;
-        else
-            v_long_desc = "";
-        // moderators
-        if(req.body.moderators)
-            v_moderators = req.body.moderators;
-        else
-            v_moderators = "";
-        // members
-        if(req.body.members)
-            v_members = req.body.members;
-        else
-            v_members = "";
-        // num_needed
-        if(req.body.num_needed)
-            v_num_needed = req.body.num_needed;
-        else
-            v_num_needed = "";
-        // skills_used
-        if(req.body.skills_used)
-            v_skills = req.body.skills_used;
-        else
-            v_skills = "";
-        // github
-        if(req.body.github)
-            v_git = req.body.github;
-        else
-            v_git = "";
-        // tags
-        if(req.body.tags)
-            v_tags = req.body.tags;
-        else
-            v_tags = "";
-        // city
-        if(req.body.city)
-            v_city = req.body.city;
-        else
-            v_city = "";
-        // school
-        if(req.body.school)
-            v_school = req.body.school;
-        else
-            v_school = "";
-        
-       /*
         // Set create JSON
         var createJSON = {};
+        createJSON.title = req.body.title;
+        createJSON.creator = req.body.username;
         if (req.body.short_desc)
             createJSON.short_desc = req.body.short_desc;
         if (req.body.long_desc)
@@ -118,25 +65,8 @@ function createProject(req, res) {
             createJSON.school = req.body.school;
         
         // Insert into database
-        db.collection('projects').insert({$set: editJSON });
-        */
+        db.collection('projects').insert(createJSON);
         
-        // Insert into database
-        db.collection('projects').insert({
-            title: req.body.title,
-            short_desc: v_short_desc,
-            long_desc: v_long_desc,  //optional
-            creator: req.body.username,
-            moderators: v_moderators, //optional []
-            members: v_members, //optional []
-            num_needed: v_num_needed, //optional
-            active: true, //default TRUE upon creation
-            skills_used: v_skills,    // optional []
-            github: v_git, //optional
-            tags: v_tags,   //optional []
-            city: v_city, //optional
-            school: v_school
-        });
         res.send(req.body.title + ' created');
     });
     
@@ -173,12 +103,13 @@ function editProject(req, res) {
                 
                 // Make sure they have creator/moderator permission
                 if (req.body.username != project.creator){
-                    moderator_list = (project.moderators).split(", ");
-                    console.log(moderator_list);
-                    while(moderator_list[i]){
-                        if(req.body.username == moderator_list[i])
-                            has_permission = 1;
-                        i++;
+                    if(project.moderators){
+                        moderator_list = (project.moderators).split(", ");
+                        while(moderator_list[i]){
+                            if(req.body.username == moderator_list[i])
+                                has_permission = 1;
+                            i++;
+                        }
                     }
                 }
                 else
@@ -197,28 +128,26 @@ function editProject(req, res) {
                     editJSON.num_needed = req.body.num_needed;
                 if (req.body.active)
                     editJSON.active = req.body.active;
-                //if (req.body.creator)
-                //    editJSON.creator = req.body.creator;
                 if (req.body.moderators){
-                    if(project.moderators == "")
+                    if(!project.moderators)
                         editJSON.moderators = req.body.moderators;
                     else
                         editJSON.moderators = project.moderators + ", " + req.body.moderators;
                 }
                 if (req.body.members){
-                    if(project.members == "")
+                    if(!project.members)
                         editJSON.members = req.body.members;
                     else
                         editJSON.members = project.members + ", " + req.body.members;
                 }
                 if (req.body.skills_used){
-                    if(project.skills_used == "")
+                    if(!project.skills_used)
                         editJSON.skills_used = req.body.skills_used;
                     else
                         editJSON.skills_used = project.skills_used + ", " + req.body.skills_used;
                 }
                 if (req.body.tags){
-                    if(project.tags == "")
+                    if(!project.tags)
                         editJSON.tags = req.body.tags;
                     else
                         editJSON.tags = project.tags + ", " + req.body.tags;
