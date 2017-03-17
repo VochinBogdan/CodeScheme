@@ -190,8 +190,20 @@ function deleteProject(req, res) {
     
 }
 
+// Search projects
+    function getProjectsSearch(req, res) {
+        db.collection('projects').find(req.params).toArray(function(err, docs) {
+            if (err) {
+                handleError(res, err.message, "Failed to get projects.");
+            } else {
+                res.status(200).json(docs);
+            }
+        });
+    }
+
 app.post('/projects', createProject);
 app.get('/projects/:title', getProject);
+app.get('/projects', getProjectsSearch);
 app.put('/projects/:title', editProject);
 app.delete('/projects/:title', deleteProject);
 
