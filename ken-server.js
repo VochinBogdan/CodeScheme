@@ -23,7 +23,7 @@ MongoClient.connect(mongoURL, function(err, database) {
 function getEmailProjects(req, res) {
     // Check username and password
     if (!req.body.username || !req.body.password) {
-        console.log(req);
+        console.log("username and password combination required");
         return res.sendStatus(400);
     }
 
@@ -31,6 +31,7 @@ function getEmailProjects(req, res) {
         $and: [{username: req.body.username}, {password: req.body.password}]
     }, function(err, count) {
         if (count != 1) {
+            console.log("username/password combination does not exist");
             return res.sendStatus(403);
         }
 
@@ -42,7 +43,7 @@ function getEmailProjects(req, res) {
             }
         );
 
-        res.json(user);
+        return res.json(user);
     });
 }
 
@@ -51,7 +52,7 @@ function getEmailProjects(req, res) {
 function deleteUser(req, res) {
     // Check username and password
     if (!req.params.username || !req.body.password) {
-        console.log(req);
+        console.log("username and password combination required");
         return res.sendStatus(400);
     }
 
@@ -59,6 +60,7 @@ function deleteUser(req, res) {
         $and: [{username: req.params.username}, {password: req.body.password}]
     }, function(err, count) {
         if (count != 1) {
+            console.log("username/password combination does not exist");
             return res.sendStatus(403);
         }
 
@@ -66,7 +68,8 @@ function deleteUser(req, res) {
             {username: req.params.username}
         );
 
-        res.send(req.params.username + ' deleted');
+        console.log("delete success");
+        return res.sendStatus(200);
     });
 }
 
@@ -74,7 +77,7 @@ function deleteUser(req, res) {
 // Edit a user's profile information
 function editUser(req, res) {
     if (!req.params.username || !req.body.oldPassword) {
-        console.log(req);
+        console.log("username and password combination required");
         return res.sendStatus(400);
     }
 
@@ -82,16 +85,47 @@ function editUser(req, res) {
         $and: [{username: req.params.username}, {password: req.body.oldPassword}]
     }, function(err, count) {
         if (count != 1) {
+            console.log("username/password combination does not exist");
             return res.sendStatus(403);
+        }
+
+        var editJSON = {};
+        if (req.body.password) {
+            editJSON.password = req.body.password;
+        }
+        if (req.body.email) {
+            editJSON.email = req.body.email;
+        }
+        if (req.body.skills_learned) {
+            editJSON.skills_learned = req.body.skills_learned;
+        }
+        if (req.body.skills_wanted) {
+            editJSON.skills_wanted = req.body.skills_wanted;
+        }
+        if (req.body.projects) {
+            editJSON.projects = req.body.projects;
+        }
+        if (req.body.following_projects) {
+            editJSON.following_projects = req.body.following_projects;
+        }
+        if (req.body.bio) {
+            editJSON.bio = req.body.bio;
         }
 
         db.collection('users').findOneAndUpdate(
             {username: req.params.username},
-            {$set:
-                ???
+            {$set: editJSON}, function(err, result) {
+                if (result.hasWriteConcernError()) {
+                    console.log("write concern error");
+                    return res.sendStatus(403);
+                } else if (result.hasWriteError()) {
+                    console.log("write error");
+                    return res.sendStatus(403);
+                }
             }
         );
 
-        res.send(req.params.username + ' modified');
+        console.log("edit success");
+        return res.sendStatus(200);
     });
 }
