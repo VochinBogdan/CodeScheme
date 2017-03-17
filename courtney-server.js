@@ -24,7 +24,6 @@ app.post('/users', function (req, res) {
 
     // Check required attributes are there
     if (!req.body.email || !req.body.username || !req.body.password) {
-        console.log(req);
         return res.sendStatus(400);
     }
 
