@@ -17,4 +17,10 @@ MongoClient.connect(mongoURL, function(err, database) {
   app.listen(3000, function () {
     console.log('App listening on port 3000');
   });
+
+  // Users endpoints
+  require('./users.js')(app, db);
+  // Project endpoints
+  require('./projects.js')(app, db);
 });
+
