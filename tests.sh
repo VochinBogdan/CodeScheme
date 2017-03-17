@@ -30,71 +30,49 @@ curl -X GET -H "Content-Type: application/json" "http://localhost:3000/users/jus
 
 
 
-# Get user
-read -p $'\nGet user'
-curl -X GET -H "Content-Type: application/json" \
-     -H "Cache-Control: no-cache"
-     "http://localhost:3000/users/Batman"
+read -p $'\nSend a POST /users request with username \'batman\', email \'batman@gmail.com\', password \'123456\', should return message \'batman created\''
+curl -X POST -H "Content-Type: application/json" -d '{"username":"batman","email":"batman@gmail.com","password":"123456"}' "http://localhost:3000/users/"
 
-# Get user does not exist (should result in error)
-read -p $'\nGet user does not exist (should result in error)'
-curl -X GET -H "Content-Type: application/json" \
-     "http://localhost:3000/users/FakeUser"
+read -p $'\nGet request to /users/:username/private, should return JSON representing user email, projects, and projects following'
+curl -X GET -H "Content-Type: application/json" "http://localhost:3000/users/batman/private"
 
-# Edit User
-read -p $'\nEdit User'
-curl -X PUT -H "Content-Type: application/json" \
-     -H "Cache-Control: no-cache" \
-     -d '{
-        "username":"Batman",
-        "password":"123456",
-        "city":"Gotham"
-        }' "http://localhost:3000/users/Batman"
+read -p $'\nGet request to /users/:username/private on a username that does not exist, should return 404 error'
+curl -X GET -H "Content-Type: application/json" "http://localhost:3000/users/FakeUser/private"
 
-# Edit User without permission (should result in error)
-read -p $'\nEdit User without permission (should result in error)'
-curl -X PUT -H "Content-Type: application/json" \
-     -H "Cache-Control: no-cache" \
-     -d '{
-        "username":"Batman",
-        "password":"whatsurpassword",
-        "city":"JokerTown"
-        }' "http://localhost:3000/users/Batman"
+read -p $'\nEdit a user\'s information. Put request to /users/:username/ with city \'Gotham\', github \'github.com/batman\', and school \'UofT\', should return HTTP OK'
+curl -X PUT -H "Content-Type: application/json" -d '{"oldPassword":"123456","city":"Gotham","github":"github.com/batman","school":"UofT"}' "http://localhost:3000/users/batman"
 
-# Delete User
-read -p $'\nDelete User'
-curl -X POST -H "Content-Type: application/json" \
-     -H "Cache-Control: no-cache" \
-     -H "Postman-Token: 6e49311c-f259-8642-2866-809cfea8d2f4" \
-     -d '{
-        "username":"Joker",
-        "password":"HAHAHA",
-        "email":"Joker@gmail.com"
-        }' "http://localhost:3000/users"
-curl -X DELETE -H "Content-Type: application/x-www-form-urlencoded" \
-     -H "Cache-Control: no-cache" \
-     -d '{
-	    "username":"Joker",
-	    "password":"HAHAHA"
-        }' "http://localhost:3000/users/Joker"
+read -p $'\nCheck to see that batman\'s information was actually updated, should return JSON of updated information'
+curl -X GET -H "Content-Type: application/json" "http://localhost:3000/users/batman"
 
-# Delete user without permission (should result in error)
-read -p $'\nDelete user without permission (should result in error)'
-curl -X DELETE -H "Content-Type: application/x-www-form-urlencoded" \
-     -H "Cache-Control: no-cache" \
-     -d '{
-	    "username":"Batman",
-	    "password":"BATS"
-        }' "http://localhost:3000/users/Batman"
+read -p $'\nEdit a user\'s information without a password. Put request to /users/:username with city \'JokerTown\', github \'github.com/joker\', and school \'bleh\', should return 400 error'
+curl -X PUT -H "Content-Type: application/json" -d '{"city":"JokerTown","github":"github.com/joker", "school":"bleh"}' "http://localhost:3000/users/batman"
 
-# Delete user does not exist (should result in error)
-read -p $'\nDelete user does not exist (should result in error)'
-curl -X DELETE -H "Content-Type: application/x-www-form-urlencoded" \
-     -H "Cache-Control: no-cache" \
-     -d '{
-        "username":"Joker",
-	    "password":"HAHAHA"
-        }' "http://localhost:3000/users/Joker"
+read -p $'\nCheck to see that batman\'s information was not updated, should return JSON information of batman'
+curl -X GET -H "Content-Type: application/json" "http://localhost:3000/users/batman"
+
+read -p $'\nEdit a user\'s information with an incorrect password and city \'JokerTown\', should return 403 error'
+curl -X PUT -H "Content-Type: application/json" -d '{"oldPassword":"whatsurpass","city":"JokerTown"}' "http://localhost:3000/users/batman"
+
+read -p $'\nCheck to see that information was not updated, should return JSON information of batman'
+curl -X GET -H "Content-Type: application/json" "http://localhost:3000/users/batman"
+
+read -p $'\nCreate a new user to test that updated email cannot be an existing email, should return message \'superman created\''
+curl -X POST -H "Content-Type: application/json" -d '{"username":"superman","email":"superman@gmail.com","password":"654321"}' "http://localhost:3000/users/"
+
+read -p $'\nTry to update the email of an user to an existing email, should return 403 error'
+curl -X PUT -H "Content-Type: application/json" -d '{"oldPassword":"654321","email":"batman@gmail.com"}' "http://localhost:3000/users/superman"
+
+read -p $'\nDelete the user batman. Delete request to /users/:username with password, should return HTTP OK'
+curl -X DELETE -H "Content-Type: application/json" -d '{"password":"123456"}' "http://localhost:3000/users/batman"
+
+read -p $'\nDelete a non-existing user batman, should return 403 error'
+curl -X DELETE -H "Content-Type: application/json" -d '{"password":"123456"}' "http://localhost:3000/users/batman"
+
+read -p $'\nDelete the user superman with incorrect password, should return 403 error'
+curl -X DELETE -H "Content-Type: application/json" -d '{"password":"000000"}' "http://localhost:3000/users/superman"
+
+
 
 ## PROJECT TESTS
 

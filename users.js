@@ -68,7 +68,7 @@ module.exports = function (app, db) {
     })
 
     // Get a user's email and projects following, and projects they are a part of
-    app.get('/user/:username/private', function(req, res) {
+    app.get('/users/:username/private', function(req, res) {
         // Check username
         if (!req.params.username) {
             console.log("username required");
@@ -79,7 +79,6 @@ module.exports = function (app, db) {
             {username: req.params.username},
             function(err, count) {
                 if (count != 1) {
-                    console.log("count: " + count);
                     console.log("username does not exist");
                     return res.sendStatus(404);
                 }
@@ -103,12 +102,12 @@ module.exports = function (app, db) {
     })
 
     // Delete a user
-    app.delete('/user/:username', function(req, res) {
+    app.delete('/users/:username', function(req, res) {
         // Check username and password
         console.log(req.params.username);
         console.log(req.body.password);
         if (!req.params.username || !req.body.password) {
-            console.log("username required");
+            console.log("username password combination required");
             return res.sendStatus(400);
         }
 
@@ -133,7 +132,7 @@ module.exports = function (app, db) {
         });
     })
 
-    app.put('/user/:username', function(req, res) {
+    app.put('/users/:username', function(req, res) {
         if (!req.params.username || !req.body.oldPassword) {
             console.log("username and password combination required");
             return res.sendStatus(400);
