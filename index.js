@@ -20,6 +20,7 @@ MongoClient.connect(mongoURL, function(err, database) {
 
   // Users endpoints
   require('./users.js')(app, db);
-
+  // Project endpoints
+  require('./projects.js')(app, db);
 });
 
