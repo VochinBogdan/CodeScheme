@@ -120,6 +120,10 @@ module.exports = function (app, db) {
                 return res.sendStatus(403);
             }
 
+            // Delete all projects user is a creator of.
+            db.collection('projects').deleteMany({creator:req.body.username});
+
+            // Delete the user.
             db.collection('users').findOneAndDelete(
                 {username: req.params.username}
             );
