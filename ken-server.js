@@ -156,6 +156,6 @@ function editUser(req, res) {
     });
 }
 
-app.get('/user/:username', getEmailProjects);
+app.get('/user/:username/private', getEmailProjects);
 app.delete('/user/:username', deleteUser);
 app.put('/user/:username', editUser);

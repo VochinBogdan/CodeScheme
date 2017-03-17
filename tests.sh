@@ -28,35 +28,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"username":"justcourt2","e
 read -p $'\nGet request to /users/justcourt, should return JSON representing user justcourt2'
 curl -X GET -H "Content-Type: application/json" "http://localhost:3000/users/justcourt2"
 
-# Test Creating Users
-read -p $'\nCreate User'
-curl -X POST -H "Content-Type: application/json" \
-     -H "Cache-Control: no-cache" \
-     -d '{
-        "username":"Batman",
-        "password":"123456",
-        "email":"batman@gmail.com"
-        }' "http://localhost:3000/users"
 
-# Create User missing required parameter (should result in error)
-read -p $'\nCreate User missing parameter (should result in error)'
-curl -X POST -H "Content-Type: application/json" \
-     -H "Cache-Control: no-cache" \
-     -d '{
-        "username": "robin",
-        "email": "boywonder@gmail.com"
-        }' "http://localhost:3000/users"
-
-# Create User that already exists (should result in error)
-read -p $'\nCreate User already exists (should result in error)'
-curl -X POST -H "Content-Type: application/json" \
-     -H "Cache-Control: no-cache" \
-     -H "Postman-Token: 6e49311c-f259-8642-2866-809cfea8d2f4" \
-     -d '{
-        "username":"Batman",
-        "password":"123456",
-        "email":"batman@gmail.com"
-        }' "http://localhost:3000/users"
 
 # Get user
 read -p $'\nGet user'
@@ -232,7 +204,3 @@ read -p $'\nSearch with no matches (return empty array)'
 curl -X GET -H "Content-Type: application/x-www-form-urlencoded" \
      -H "Cache-Control: no-cache" \
      "http://localhost:3000/projects?title=FakeProject"
-
-
-
-
