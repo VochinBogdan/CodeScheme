@@ -1,10 +1,8 @@
-#!/usr/bin/env bash
-
+#!/bin/bash
 # Test Creating Users
 read -p $'\nCreate User'
 curl -X POST -H "Content-Type: application/json" \
      -H "Cache-Control: no-cache" \
-     -H "Postman-Token: 6e49311c-f259-8642-2866-809cfea8d2f4" \
      -d '{
         "username":"Batman",
         "password":"123456",
