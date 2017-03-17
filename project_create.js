@@ -98,7 +98,7 @@ function editProject(req, res) {
     if (!req.body.pid)
         return res.sendStatus(400);
     // Make sure they have creator/moderator permission
-    if (!req.creator || !req.moderator)
+    if (!req.creator && !req.moderator)
         return res.sendStatus(401);
     
     // Set edit JSON
