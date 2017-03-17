@@ -19,31 +19,37 @@ MongoClient.connect(mongoURL, function(err, database) {
   });
 });
 
-// Get a user's email and projects following
+// Get a user's email and projects following, and projects they are a part of
 function getEmailProjects(req, res) {
     // Check username and password
-    if (!req.body.username || !req.body.password) {
-        console.log("username and password combination required");
+    if (!req.params.username) {
+        console.log("username required");
         return res.sendStatus(400);
     }
 
-    var password = db.collection('users').count({
-        $and: [{username: req.body.username}, {password: req.body.password}]
-    }, function(err, count) {
+    var count = db.collection('users').count(
+        {username: req.params.username},
+        function(err, count) {
         if (count != 1) {
-            console.log("username/password combination does not exist");
-            return res.sendStatus(403);
+            console.log("count: " + count);
+            console.log("username does not exist");
+            return res.sendStatus(404);
         }
 
-        var user = db.collection('users').findOne(
-            {username: req.body.username},
+        db.collection('users').findOne(
+            {username: req.params.username},
             {
                 email: 1,
-                following_projects: 1
+                following_projects: 1,
+                projects: 1
+            }, function(err, user) {
+                if (user) {
+                    res.json(user);
+                } else {
+                    return res.sendStatus(404);
+                }
             }
         );
-
-        return res.json(user);
     });
 }
 
@@ -51,8 +57,10 @@ function getEmailProjects(req, res) {
 // Delete a user
 function deleteUser(req, res) {
     // Check username and password
+    console.log(req.params.username);
+    console.log(req.body.password);
     if (!req.params.username || !req.body.password) {
-        console.log("username and password combination required");
+        console.log("username required");
         return res.sendStatus(400);
     }
 
@@ -81,7 +89,9 @@ function editUser(req, res) {
         return res.sendStatus(400);
     }
 
-    var password = db.collection('users').count({
+    var existingEmail = 0;
+
+    db.collection('users').count({
         $and: [{username: req.params.username}, {password: req.body.oldPassword}]
     }, function(err, count) {
         if (count != 1) {
@@ -93,11 +103,8 @@ function editUser(req, res) {
         if (req.body.password) {
             editJSON.password = req.body.password;
         }
-        if (req.body.email) {
-            editJSON.email = req.body.email;
-        }
-        if (req.body.skills_learned) {
-            editJSON.skills_learned = req.body.skills_learned;
+        if (req.body.skills_known) {
+            editJSON.skills_known = req.body.skills_known;
         }
         if (req.body.skills_wanted) {
             editJSON.skills_wanted = req.body.skills_wanted;
@@ -111,21 +118,44 @@ function editUser(req, res) {
         if (req.body.bio) {
             editJSON.bio = req.body.bio;
         }
-
-        db.collection('users').findOneAndUpdate(
-            {username: req.params.username},
-            {$set: editJSON}, function(err, result) {
-                if (result.hasWriteConcernError()) {
-                    console.log("write concern error");
-                    return res.sendStatus(403);
-                } else if (result.hasWriteError()) {
-                    console.log("write error");
-                    return res.sendStatus(403);
+        if (req.body.github) {
+            editJSON.github = req.body.github;
+        }
+        if (req.body.city) {
+            editJSON.city = req.body.city;
+        }
+        if (req.body.school) {
+            editJSON.school = req.body.school;
+        }
+        if (req.body.email) {
+            db.collection('users').count({email: req.body.email},
+                function(err, count) {
+                    if (count > 0) {
+                        console.log("email already exists");
+                        return res.sendStatus(403);
+                    } else {
+                        editJSON.email = req.body.email;
+                        db.collection('users').findOneAndUpdate(
+                            {username: req.params.username},
+                            {$set: editJSON}
+                        );
+                        console.log("edit success");
+                        return res.sendStatus(200);
+                    }
                 }
-            }
-        );
+            );
+        } else {
+            db.collection('users').findOneAndUpdate(
+                {username: req.params.username},
+                {$set: editJSON}
+            );
 
-        console.log("edit success");
-        return res.sendStatus(200);
+            console.log("edit success");
+            return res.sendStatus(200);
+        }
     });
 }
+
+app.get('/user/:username', getEmailProjects);
+app.delete('/user/:username', deleteUser);
+app.put('/user/:username', editUser);
