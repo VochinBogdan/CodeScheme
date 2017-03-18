@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mongo codescheme --eval "db.dropDatabase()"
+
 ## USER TESTS
 read -p $'\nSend a POST /users request without a username, password or email, should return 400 error'
 curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: e45c1bea-91e7-d38e-445d-11e1953f16d6" -d '{}' "http://localhost:3000/users/"
@@ -73,7 +75,6 @@ read -p $'\nDelete the user superman with incorrect password, should return 403 
 curl -X DELETE -H "Content-Type: application/json" -d '{"password":"000000"}' "http://localhost:3000/users/superman"
 
 
-
 ## PROJECT TESTS
 
 # Create Project
@@ -95,38 +96,31 @@ curl -X POST -H "Content-Type: application/json" \
         }' "http://localhost:3000/projects"
 
 # Create project with missing required parameters (should result in error)
-read -p $'\nCreate Project missing requirements (should result in error)'
+read -p $'\nCreate Project with missing requirements (should result in error)'
 curl -X POST -H "Content-Type: application/json" \
      -H "Cache-Control: no-cache" \
      -d '{
-        "title":"SaveMatropolis",
-        "username":"SuperMan"
+        "title":"SaveMatropolis"
         }' "http://localhost:3000/projects"
 
 # Create Project that already exists (should result in error)
 read -p $'\nCreate Project already exists (should result in error)'
-curl -X POST -H "Content-Type: application/json" \
-     -H "Cache-Control: no-cache" \
-     -H "Postman-Token: 60f6ad4b-658c-f5f3-fa61-063a865ab254" \
-     -d '{
-        "title":"DirtyUpGotham",
-        "short_desc":"bringing in the trash",
-        "username":"Joker",
-        }' "http://localhost:3000/projects"
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -H "Cache-Control: no-cache" -d 'title=DirtyUpGotham&username=Joker&short_desc=bringing in the trash' "http://localhost:3000/projects"
 
 # Get Project
 read -p $'\nGet Project'
-curl -X GET -H "Content-Type: application/json" \
-     -H "Cache-Control: no-cache"
-     "http://localhost:3000/projects/CleanUpGotham"
+curl -X GET -H "Content-Type: application/x-www-form-urlencoded" -H "Cache-Control: no-cache" "http://localhost:3000/projects/CleanUpGotham"
 
 # Get Project does not exist (should result in error)
 read -p $'\nGet Project does not exist (should result in error)'
-curl -X GET -H "Content-Type: application/json" \
-     "http://localhost:3000/projects/FakeProject"
+curl -X GET -H "Content-Type: application/json" "http://localhost:3000/projects/FakeProject"
 
 # Edit Project
 read -p $'\nUpdate Project'
+curl -X PUT -H "Content-Type: application/x-www-form-urlencoded" -H "Cache-Control: no-cache" -d 'title=CleanUpGotham&username=Batman&city=Gotham' "http://localhost:3000/projects/CleanUpGotham"
+
+# Edit Project with missing required parameters
+read -p $'\nUpdate Project with missing required parameters (should result in error)'
 curl -X PUT -H "Content-Type: application/json" \
      -d '{
 	    "num_needed":"5",
@@ -135,35 +129,27 @@ curl -X PUT -H "Content-Type: application/json" \
 
 # Edit Project without permission (should result in error)
 read -p $'\nUpdate Project no permission (should result in error)'
-curl -X PUT -H "Content-Type: application/json" \
-     -d '{
-	    "num_needed":"5",
-	    "creator":"Joker"
-        }' "http://localhost:3000/projects/CleanUpGotham"
+curl -X PUT -H "Content-Type: application/x-www-form-urlencoded" -H "Cache-Control: no-cache" -d 'title=CleanUpGotham&username=Joker' "http://localhost:3000/projects/CleanUpGotham"
+
+# Edit Project that doesn't exist
+read -p $'\nUpdate Project that does not exist (should result in error)'
+curl -X PUT -H "Content-Type: application/x-www-form-urlencoded" -H "Cache-Control: no-cache" -d 'title=FakeProject&username=user1&city=Metropolis' "http://localhost:3000/projects/FakeProject"
 
 # Delete Project
 read -p $'\nDelete Project'
-curl -X DELETE -H "Content-Type: application/x-www-form-urlencoded" \
-     -H "Cache-Control: no-cache" \
-     -d '{
-	    "creator":"Joker"
-        }' "http://localhost:3000/projects/DirtyUpGotham"
+curl -X DELETE -H "Content-Type: application/x-www-form-urlencoded" -H "Cache-Control: no-cache" -d 'title=CleanUpGotham&username=Batman' "http://localhost:3000/projects/CleanUpGotham"
+
+# Delete Project with missing required parameters
+read -p $'\nDelete Project with missing required parameters (should result in error)'
+curl -X DELETE -H "Content-Type: application/x-www-form-urlencoded" -H "Cache-Control: no-cache" -d 'title=DirtyUpGotham' "http://localhost:3000/projects/DirtyUpGotham"
 
 # Delete Project without permission (should result in error)
 read -p $'\nDelete Project without permission (should result in error)'
-curl -X DELETE -H "Content-Type: application/x-www-form-urlencoded" \
-     -H "Cache-Control: no-cache" \
-     -d '{
-	    "creator":"Joker"
-        }' "http://localhost:3000/projects/CleanUpGotham"
+curl -X DELETE -H "Content-Type: application/x-www-form-urlencoded" -H "Cache-Control: no-cache" -d 'title=DirtyUpGotham&username=Batman' "http://localhost:3000/projects/DirtyUpGotham"
 
 # Delete Project does not exist (should result in error)
 read -p $'\nDelete Project does not exist (should result in error)'
-curl -X DELETE -H "Content-Type: application/x-www-form-urlencoded" \
-     -H "Cache-Control: no-cache" \
-     -d '{
-	    "creator":"Joker"
-        }' "http://localhost:3000/projects/FakeProject"
+curl -X DELETE -H "Content-Type: application/x-www-form-urlencoded" -H "Cache-Control: no-cache" -d 'title=CleanUpGotham&username=Batman' "http://localhost:3000/projects/CleanUpGotham"
 
 # Search get list of all projects
 read -p $'\nSearch with no set query (should return all projects)'
@@ -182,3 +168,7 @@ read -p $'\nSearch with no matches (return empty array)'
 curl -X GET -H "Content-Type: application/x-www-form-urlencoded" \
      -H "Cache-Control: no-cache" \
      "http://localhost:3000/projects?title=FakeProject"
+
+
+
+
