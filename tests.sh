@@ -157,18 +157,6 @@ curl -X GET -H "Content-Type: application/x-www-form-urlencoded" \
      -H "Cache-Control: no-cache" \
      "http://localhost:3000/projects"
 
-# Search projects with title CleanUpGotham
-read -p $'\nSearch with title query'
-curl -X GET -H "Content-Type: application/x-www-form-urlencoded" \
-     -H "Cache-Control: no-cache" \
-     "http://localhost:3000/projects?title=CleanUpGotham"
-
-# Search projects with no matches
-read -p $'\nSearch with no matches (return empty array)'
-curl -X GET -H "Content-Type: application/x-www-form-urlencoded" \
-     -H "Cache-Control: no-cache" \
-     "http://localhost:3000/projects?title=FakeProject"
-
 
 
 
