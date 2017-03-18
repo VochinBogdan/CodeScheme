@@ -127,11 +127,11 @@ curl -X PUT -H "Content-Type: application/json" \
 	    "creator":"Batman"
         }' "http://localhost:3000/projects/CleanUpGotham"
 
-# Edit Project without permission - should return 403 error
-read -p $'\nUpdate Project no permission - should return 403 error'
+# Edit Project without permission - should return 401 error
+read -p $'\nUpdate Project no permission - should return 401 error'
 curl -X PUT -H "Content-Type: application/x-www-form-urlencoded" -H "Cache-Control: no-cache" -d 'title=CleanUpGotham&username=Joker' "http://localhost:3000/projects/CleanUpGotham"
 
-# Edit Project that doesn't exist - should return 403 error
+# Edit Project that doesn't exist - should return 404 error
 read -p $'\nUpdate Project that does not exist - should return 404 error'
 curl -X PUT -H "Content-Type: application/x-www-form-urlencoded" -H "Cache-Control: no-cache" -d 'title=FakeProject&username=user1&city=Metropolis' "http://localhost:3000/projects/FakeProject"
 
@@ -143,8 +143,8 @@ curl -X DELETE -H "Content-Type: application/x-www-form-urlencoded" -H "Cache-Co
 read -p $'\nDelete Project with missing required parameters - should return 400 error'
 curl -X DELETE -H "Content-Type: application/x-www-form-urlencoded" -H "Cache-Control: no-cache" -d 'title=DirtyUpGotham' "http://localhost:3000/projects/DirtyUpGotham"
 
-# Delete Project without permission - should return 403 error
-read -p $'\nDelete Project without permission - should return 403 error'
+# Delete Project without permission - should return 401 error
+read -p $'\nDelete Project without permission - should return 401 error'
 curl -X DELETE -H "Content-Type: application/x-www-form-urlencoded" -H "Cache-Control: no-cache" -d 'title=DirtyUpGotham&username=Batman' "http://localhost:3000/projects/DirtyUpGotham"
 
 # Delete Project does not exist - should return 404 error
