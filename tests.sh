@@ -77,14 +77,14 @@ curl -X DELETE -H "Content-Type: application/json" -d '{"password":"000000"}' "h
 
 ## PROJECT TESTS
 
-# Create Project
-read -p $'\nCreate Project'
+# Create Projectmessage 'CleanUpGotham created'
+read -p $'\nCreate Project - should return message \'CleanUpGotham created\''
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" \
      -H "Cache-Control: no-cache" \
      -d 'title=CleanUpGotham&short_desc=taking out the trash&long_desc=Nanananana BATMAN!!&username=Batman' "http://localhost:3000/projects"
 
-# Create Project with optional parameters
-read -p $'\nCreate Project optional parameters'
+# Create Project with optional parameters - should return message 'DirtyUpGotham created'
+read -p $'\nCreate Project optional parameters - should return message \'DirtyUpGotham created\''
 curl -X POST -H "Content-Type: application/json" \
      -H "Cache-Control: no-cache" \
      -d '{
@@ -95,67 +95,79 @@ curl -X POST -H "Content-Type: application/json" \
         "num_needed":"5"
         }' "http://localhost:3000/projects"
 
-# Create project with missing required parameters (should result in error)
-read -p $'\nCreate Project with missing requirements (should result in error)'
+# Create project with missing required parameters - should return 400 error
+read -p $'\nCreate Project with missing requirements - should return 400 error'
 curl -X POST -H "Content-Type: application/json" \
      -H "Cache-Control: no-cache" \
      -d '{
-        "title":"SaveMatropolis"
+        "title":"SaveMetropolis"
         }' "http://localhost:3000/projects"
 
-# Create Project that already exists (should result in error)
-read -p $'\nCreate Project already exists (should result in error)'
+# Create Project that already exists - should return 403 error
+read -p $'\nCreate Project already exists - should return 403 error'
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -H "Cache-Control: no-cache" -d 'title=DirtyUpGotham&username=Joker&short_desc=bringing in the trash' "http://localhost:3000/projects"
 
-# Get Project
-read -p $'\nGet Project'
+# Get Project - should return JSON representing project 'CleanUpGotham'
+read -p $'\nGet Project - should return JSON representing project \'CleanUpGotham\''
 curl -X GET -H "Content-Type: application/x-www-form-urlencoded" -H "Cache-Control: no-cache" "http://localhost:3000/projects/CleanUpGotham"
 
-# Get Project does not exist (should result in error)
-read -p $'\nGet Project does not exist (should result in error)'
+# Get Project does not exist - should result in 404 error
+read -p $'\nGet Project does not exist - should return 404 error'
 curl -X GET -H "Content-Type: application/json" "http://localhost:3000/projects/FakeProject"
 
-# Edit Project
-read -p $'\nUpdate Project'
+# Edit Project - should return HTTP OK
+read -p $'\nUpdate Project - should return HTTP OK'
 curl -X PUT -H "Content-Type: application/x-www-form-urlencoded" -H "Cache-Control: no-cache" -d 'title=CleanUpGotham&username=Batman&city=Gotham' "http://localhost:3000/projects/CleanUpGotham"
 
-# Edit Project with missing required parameters
-read -p $'\nUpdate Project with missing required parameters (should result in error)'
+# Edit Project with missing required parameters - should return 400 error
+read -p $'\nUpdate Project with missing required parameters - should return 400 error'
 curl -X PUT -H "Content-Type: application/json" \
      -d '{
 	    "num_needed":"5",
 	    "creator":"Batman"
         }' "http://localhost:3000/projects/CleanUpGotham"
 
-# Edit Project without permission (should result in error)
-read -p $'\nUpdate Project no permission (should result in error)'
+# Edit Project without permission - should return 403 error
+read -p $'\nUpdate Project no permission - should return 403 error'
 curl -X PUT -H "Content-Type: application/x-www-form-urlencoded" -H "Cache-Control: no-cache" -d 'title=CleanUpGotham&username=Joker' "http://localhost:3000/projects/CleanUpGotham"
 
-# Edit Project that doesn't exist
-read -p $'\nUpdate Project that does not exist (should result in error)'
+# Edit Project that doesn't exist - should return 403 error
+read -p $'\nUpdate Project that does not exist - should return 404 error'
 curl -X PUT -H "Content-Type: application/x-www-form-urlencoded" -H "Cache-Control: no-cache" -d 'title=FakeProject&username=user1&city=Metropolis' "http://localhost:3000/projects/FakeProject"
 
-# Delete Project
-read -p $'\nDelete Project'
+# Delete Project - should return HTTP OK
+read -p $'\nDelete Project - should return HTTP OK'
 curl -X DELETE -H "Content-Type: application/x-www-form-urlencoded" -H "Cache-Control: no-cache" -d 'title=CleanUpGotham&username=Batman' "http://localhost:3000/projects/CleanUpGotham"
 
-# Delete Project with missing required parameters
-read -p $'\nDelete Project with missing required parameters (should result in error)'
+# Delete Project with missing required parameters - should return 400 error
+read -p $'\nDelete Project with missing required parameters - should return 400 error'
 curl -X DELETE -H "Content-Type: application/x-www-form-urlencoded" -H "Cache-Control: no-cache" -d 'title=DirtyUpGotham' "http://localhost:3000/projects/DirtyUpGotham"
 
-# Delete Project without permission (should result in error)
-read -p $'\nDelete Project without permission (should result in error)'
+# Delete Project without permission - should return 403 error
+read -p $'\nDelete Project without permission - should return 403 error'
 curl -X DELETE -H "Content-Type: application/x-www-form-urlencoded" -H "Cache-Control: no-cache" -d 'title=DirtyUpGotham&username=Batman' "http://localhost:3000/projects/DirtyUpGotham"
 
-# Delete Project does not exist (should result in error)
-read -p $'\nDelete Project does not exist (should result in error)'
+# Delete Project does not exist - should return 404 error
+read -p $'\nDelete Project does not exist - should return 404 error'
 curl -X DELETE -H "Content-Type: application/x-www-form-urlencoded" -H "Cache-Control: no-cache" -d 'title=CleanUpGotham&username=Batman' "http://localhost:3000/projects/CleanUpGotham"
 
-# Search get list of all projects
-read -p $'\nSearch with no set query (should return all projects)'
+# Search get list of all projects - should return JSON representation of all projects in an array
+read -p $'\nSearch with no set query - should return JSON representation of all projects in an array'
 curl -X GET -H "Content-Type: application/x-www-form-urlencoded" \
      -H "Cache-Control: no-cache" \
      "http://localhost:3000/projects"
+
+# Search projects with title CleanUpGotham - should return the JSON representation of the project 'CleanUpGotham'
+read -p $'\nSearch with title query - should return the JSON representation of the project \'CleanUpGotham\''
+curl -X GET -H "Content-Type: application/x-www-form-urlencoded" \
+     -H "Cache-Control: no-cache" \
+     "http://localhost:3000/projects?title=CleanUpGotham"
+
+# Search projects with no matches - should return empty array
+read -p $'\nSearch with no matches - should return empty array'
+curl -X GET -H "Content-Type: application/x-www-form-urlencoded" \
+     -H "Cache-Control: no-cache" \
+     "http://localhost:3000/projects?title=FakeProject"
 
 
 
