@@ -13,7 +13,7 @@ read -p $'\nGet request to /users/justcourt, should return 404 error as user is 
 curl -X GET -H "Content-Type: application/json" "http://localhost:3000/users/justcourt"
 
 read -p $'\nSend a POST /users request with username \'justcourt\', email \'justcourt@gmail.com\', password \'hunter2\', should return message \'justcourt created\''
-curl -X POST -H "Content-Type: application/json" -d '{"username":"justcourt","email":"justcourt@email.com","password":"hunter2"}' "http://localhost:3000/users/"
+curl -X POST -H "Content-Type: application/json" -d '{"username":"justcourt","email":"justcourt@gmail.com","password":"hunter2"}' "http://localhost:3000/users/"
 
 read -p $'\nGet request to /users/justcourt, should return JSON representing user justcourt'
 curl -X GET -H "Content-Type: application/json" "http://localhost:3000/users/justcourt"
