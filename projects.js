@@ -1,24 +1,4 @@
-var express = require('express');
-app = express();
-
-var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-// MongoDB
-var MongoClient = require('mongodb').MongoClient;
-var mongoURL = 'mongodb://localhost:27017/codescheme';
-var db;
-
-// MongoDB connect
-MongoClient.connect(mongoURL, function(err, database) {
-  db = database;
-  // Database is ready; listen on port 3000
-  app.listen(3000, function () {
-    console.log('App listening on port 3000');
-  });
-});
-
+module.exports = function (app, db) {
 // Create Project with title
 function createProject(req, res) {
 
@@ -210,7 +190,21 @@ function deleteProject(req, res) {
     
 }
 
+// Search projects
+    function getProjectsSearch(req, res) {
+        db.collection('projects').find(req.params).toArray(function(err, docs) {
+            if (err) {
+                handleError(res, err.message, "Failed to get projects.");
+            } else {
+                res.status(200).json(docs);
+            }
+        });
+    }
+
 app.post('/projects', createProject);
 app.get('/projects/:title', getProject);
+app.get('/projects', getProjectsSearch);
 app.put('/projects/:title', editProject);
 app.delete('/projects/:title', deleteProject);
+
+}
