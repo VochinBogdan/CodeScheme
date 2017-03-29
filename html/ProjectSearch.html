@@ -6,6 +6,9 @@
         <link rel="stylesheet" href="../css/ProjectSearch.css">
         <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
         <script src="../js/nav.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+        <script src="../js/project_search.js"></script>
         <title>CodeScheme - Search</title>
     </head>
     <body>
@@ -42,80 +45,58 @@
         <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
         <script src="../js/nav.js"></script>
 
-        <!-- Filters for searching projects -->
-        <div class="filters">
-            <h3>Filters</h3>
-            <div class="filter_line">Location <input type="text"></div>
-            <div class="filter_line">School
-                <select class="school_menu" name="School">
-                    <option value="any">Any</option>
-                    <option value="UofT">University of Toronto</option>
-                    <option value="Waterloo">Waterloo</option>
-                </select>
+        <div ng-app="projectSearchApp" ng-controller="projectSearchController">
+            <!-- Filters for searching projects -->
+            <div class="filters">
+                <h3>Filters</h3>
+                <div class="filter_line">Location <input type="text"></div>
+                <div class="filter_line">School
+                    <select class="school_menu" name="School">
+                        <option value="any">Any</option>
+                        <option value="UofT">University of Toronto</option>
+                        <option value="Waterloo">Waterloo</option>
+                    </select>
+                </div>
+
+                <h4>Skills</h4>
+                    <div><div class="skills">
+                        <div class="skill filter_line">
+                            HTML
+                            <button class="remove_skill">x</button>
+                        </div>
+                        <div class="skill filter_line">
+                            Javascript
+                            <button class="remove_skill">x</button>
+                        </div>
+                    </div></div>
+                    <div class="filter_line">
+                        <input type="text" placeholder="Add Skill">
+                        <button>Add</button>
+                    </div>
+                <div class="filter_line"><button class="apply_filter">Apply Filters</button></div>
             </div>
 
-            <h4>Skills</h4>
-                <div><div class="skills">
-                    <div class="skill filter_line">
-                        HTML
-                        <button class="remove_skill">x</button>
-                    </div>
-                    <div class="skill filter_line">
-                        Javascript
-                        <button class="remove_skill">x</button>
-                    </div>
-                </div></div>
-                <div class="filter_line">
-                    <input type="text" placeholder="Add Skill">
-                    <button>Add</button>
+            <div class="search_results">
+                <h1>SEARCH RESULTS</h1>
+                <select name="Order By">
+                    <option value="newest">Most Recent</option>
+                    <option value="relevant">Most Relevant</option>
+                </select>
+
+                <!-- Show each search result in the projects found -->
+                <div class="searched_projects" ng-repeat="project in projects">
+                    <div class="project_search_result">
+                        <h3>{{ project.title }}</h3>
+                        <p class="project_creator">{{ project.creator[0] }}</p>
+                        <p class="project_description">{{ project.short_description }}</p>
+                        <p class="project_teammates_needed">
+                            {{ project.num_members_found }}/{{ project.num_members_needed }} Teammates needed
+                        </p>
+                        <p class="project_tags" ng-repeat="(i, skill) in project.skills_used">
+                            {{ skill }}
+                        </p>
+                        <p class="project_location">{{ project.city }}</p></div>
                 </div>
-            <div class="filter_line"><button class="apply_filter">Apply Filters</button></div>
-        </div>
-
-        <div class="search_results">
-            <h1>SEARCH RESULTS</h1>
-            <select name="Order By">
-                <option value="newest">Most Recent</option>
-                <option value="relevant">Most Relevant</option>
-            </select>
-            <div class="searched_projects">
-
-                <div class="project_search_result">
-                    <h3>Project Name</h3>
-                    <p class="project_creator">Created by User</p>
-                    <p class="project_description">Project description</p>
-                    <p class="project_teammates_needed">#/# Teammates needed</p>
-                    <p class="project_tags">#skill_tag #skill_tag</p>
-                    <p class="project_location">Location</p>
-                </div>
-
-                <div class="project_search_result">
-                    <h3>Project Name</h3>
-                    <p class="project_creator">Created by User</p>
-                    <p class="project_description">Project description</p>
-                    <p class="project_teammates_needed">#/# Teammates needed</p>
-                    <p class="project_tags">#skill_tag #skill_tag</p>
-                    <p class="project_location">Location</p>
-                </div>
-
-                <div class="project_search_result">
-                    <h3>Project Name</h3>
-                    <p class="project_creator">Created by User</p>
-                    <p class="project_description">Project description</p>
-                    <p class="project_teammates_needed">#/# Teammates needed</p>
-                    <p class="project_tags">#skill_tag #skill_tag</p>
-                    <p class="project_location">Location</p>
-                </div>
-
-                <div class="project_search_result">
-                    <h3>Project Name</h3>
-                    <p class="project_creator">Created by User</p>
-                    <p class="project_description">Project description</p>
-                    <p class="project_teammates_needed">#/# Teammates needed</p>
-                    <p class="project_tags">#skill_tag #skill_tag</p>
-                    <p class="project_location">Location</p>
-                </div>
-
             </div>
         </div>
 

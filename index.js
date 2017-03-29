@@ -1,9 +1,10 @@
 var express = require('express');
 app = express();
-
+var session = require('express-session');
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(express.static(__dirname + '/'));
 
 // MongoDB
 var MongoClient = require('mongodb').MongoClient;
@@ -12,15 +13,19 @@ var db;
 
 // MongoDB connect
 MongoClient.connect(mongoURL, function(err, database) {
-  db = database;
-  // Database is ready; listen on port 3000
-  app.listen(3000, function () {
-    console.log('App listening on port 3000');
-  });
+    db = database;
+    // Database is ready; listen on port 3000
+    app.listen(3000, function () {
+        console.log('App listening on port 3000');
+    });
 
-  // Users endpoints
-  require('./users.js')(app, db);
-  // Project endpoints
-  require('./projects.js')(app, db);
+    // Users endpoints
+    require('./users.js')(app, db);
+    // Project endpoints
+    require('./projects.js')(app, db);
+});
+
+app.get('/project_search', function(req, res) {
+    res.sendFile(__dirname + '/html/ProjectSearch.html');
 });
 
