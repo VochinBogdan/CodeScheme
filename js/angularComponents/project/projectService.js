@@ -51,7 +51,6 @@
                 method:'GET'
             }).then(function(res){
                 angular.copy(res.data,service.currentproject);
-                //service.currentproject=res.data;
             });
         }
 
