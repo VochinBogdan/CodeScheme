@@ -45,12 +45,39 @@ function styleBorder() {
     }
 }
 
-function display_single_project(response, parentElement) {
+function displaySingleProject(response, parentElement) {
+
+}
+
+function getParameterByName(name) {
+    var url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+function getProjects(username) {
 
 }
 
 $(document).ready(function() {
-    // get projects
+    // get username
+    var username = getParameterByName('username');
+    console.log(username);
 
-    
-})
+    $.ajax({
+        type : "GET",
+        url : "/users/" + username + "/private",
+        dataType : "json",
+        contentType : "application/json; charset=utf-8",
+        success : function(response) {
+            var projects = response['projects'];
+            var following_projects = response['following_projects'];
+            console.log(projects);
+            console.log(following_projects);
+        }
+    });
+});
