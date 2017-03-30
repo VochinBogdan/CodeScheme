@@ -17,9 +17,11 @@
 		"user_id": "joker76"
 	}],
 	"skills_used": [{
-		"python": 5
+		"name": "python",
+		"level": 3
 	}, {
-		"java": 5
+		"name": "java",
+		"level": 5
 	}],
 	"tags": [{
 		"tag": "exploration"
@@ -43,9 +45,11 @@
 	"contributors": [],
 	"join_requests": [],
 	"skills_used": [{
-		"c": 5
+		"name":"C",
+		"level":3
 	}, {
-		"haskell": 5
+		"name":"haskell",
+		"level": 5
 	}],
 	"tags": [{
 		"tag": "machine"
