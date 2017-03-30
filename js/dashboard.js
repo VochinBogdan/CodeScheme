@@ -44,3 +44,13 @@ function styleBorder() {
         explore_project_container.style.borderLeft = "2px solid black";
     }
 }
+
+function display_single_project(response, parentElement) {
+
+}
+
+$(document).ready(function() {
+    // get projects
+
+    
+})
