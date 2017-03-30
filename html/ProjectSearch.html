@@ -86,7 +86,7 @@
                 <!-- Show each search result in the projects found -->
                 <div class="searched_projects">
                     <div class="project_search_result" ng-repeat="project in projects">
-                        <h3>{{ project.title }}</h3>
+                        <a href="/html/projectProfile.html?title={{ project.title }}"><h3>{{ project.title }}</h3></a>
                         <p class="project_creator">Creator: <a href="/html/UserProfile.html?username={{ project.creators[0].user_id }}">{{ project.creators[0].user_id }}</a></p>
                         <p class="project_description">{{ project.short_description }}</p>
                         <p class="project_teammates_needed">
