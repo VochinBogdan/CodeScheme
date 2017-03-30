@@ -13,16 +13,16 @@ var db;
 
 // MongoDB connect
 MongoClient.connect(mongoURL, function(err, database) {
-    db = database;
+    console.log(database);
     // Database is ready; listen on port 3000
     app.listen(3000, function () {
         console.log('App listening on port 3000');
     });
 
     // Users endpoints
-    require('./users.js')(app, db);
+    require('./users.js')(app, database);
     // Project endpoints
-    require('./projects.js')(app, db);
+    require('./projects.js')(app, database);
 });
 
 app.get('/project_search', function(req, res) {
