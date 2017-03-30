@@ -1,0 +1,117 @@
+<!-- section for all Project Create information -->
+<div class="projectProfile">
+    
+    <h1 class="title"> {{$ctrl.project.title}} </h1>
+    <ul class="tabs">
+        <!--Expandable Tabs for mobile & small screens -->
+        <li class="tab_li"><a href="javascript:void(0)" onClick="expandTab('About')">About the Project</a>
+        </li>
+        <li id="About" class="expand_tab" style="display:none">
+            <div>
+                <a href="" onClick="display:none">
+                    <h2>About the Project</h2>
+                    <h4>{{$ctrl.project.short_desc}} </h4>
+                    <p>{{$ctrl.project.long_desc}}</p>
+                    <br>
+                    <h4 class="cur-tags" ng-repeat="tag in $ctrl.project.tags">Tags: </h4>
+                    <h5>#{{tag}} </h5>
+                    <br>
+                </a>
+            </div>
+        </li>
+        <li class="tab_li"><a href="javascript:void(0)" onClick="expandTab('Skills')">Skills Required</a>
+        </li>
+        <li id="Skills" class="expand_tab" style="display:none">
+            <!--Project Skills-->
+            <a href="" onClick="display:none">
+                <h2>Skills Required</h2>
+                <div class="skills">
+                    <ul class="skillset">
+                        <li class="skill-bar javascript-bar" ng-repeat="skill in $ctrl.project.skills"    style="width:{{skill.level}};">
+                            <span>{{skill.name}}</span>
+                            <span class="skill-percent">{{skill.level}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </a>
+        </li>
+        <li class="tab_li"><a href="javascript:void(0)" onClick="expandTab('People')">People Involved</a>
+        </li>
+        <li id="People" class="expand_tab" style="display:none">
+            <div>
+                <a href="" onClick="display:none">
+                    <h2>People Involved</h2>
+                    <h4>Creators</h4>
+                    <ul>
+                        <li><i class="fa fa-user"> {{$ctrl.project.creator}}</i>
+                        </li>
+                    </ul>
+                    <br>
+                    <h4>Moderators</h4>
+                    <ul>
+                        <li class="cur-moderators" ng-repeat="mod in $ctrl.projects.moderators"><i class="fa fa-user"> {{mod.username}}</i>
+                        </li>
+                    </ul>
+                    <br>
+                    <h4>Members</h4>
+                    <ul>
+                        <li class="cur-members" ng-repeat="mem in $ctrl.projects.members"><i class="fa fa-user"> {{mem.username}}</i>
+                        </li>
+                    </ul>
+                    <br>
+                </a>
+            </div>
+        </li>
+    </ul>
+    <!--Information show up below the tabs for larger screens -->
+    <div id="About_big" class="tab" style="display:none">
+        <h2>About the Project</h2>
+        <h4>{{$ctrl.project.short_desc}} </h4>
+        <p>{{$ctrl.project.long_desc}}</p>
+        <h4 class="cur-tags" ng-repeat="tag in $ctrl.project.tags">Tags: </h4>
+        <h5>#{{tag}} </h5>
+    </div>
+    <div id="Skills_big" class="tab" style="display:none">
+        <h2>Skills Required</h2>
+        <div class="skills">
+            <ul class="skillset">
+                <li class="skill-bar javascript-bar" ng-repeat="skill in $ctrl.project.skills"    style="width:{{skill.level}};">
+                    <span>{{skill.name}}</span>
+                    <span class="skill-percent">{{skill.level}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="People_big" class="tab" style="display:none">
+        <h2>People Involved</h2>
+        <h4>Creators</h4>
+        <ul>
+            <li><i class="fa fa-user"><a href=""> {{$ctrl.project.creator}}</a></i>
+            </li>
+        </ul>
+        <br>
+        <h4>Moderators</h4>
+        <ul>
+            <li class="cur-moderators" ng-repeat="mod in $ctrl.projects.moderators"><i class="fa fa-user"> {{mod.username}}</i>
+            </li>
+        </ul>
+        <br>
+        <h4>Members</h4>
+        <ul>
+            <li class="cur-members" ng-repeat="mem in $ctrl.projects.members"><i class="fa fa-user"> {{mem.username}}</i>
+            </li>
+        </ul>
+        <br>
+    </div>
+    <!--End of tabs-->
+    <footer>
+        <div class="git_icon">
+            <a href="{{$ctrl.project.github}}">
+            <i class="fa fa-github"></i>
+            </a>
+        </div>
+        <button class="info_button">Request More Info</button>
+        <button class="join_button">Request to Join</button>
+    </footer>
+</div>
+<!--End of Project Profile-->

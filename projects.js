@@ -60,7 +60,12 @@ function getProject(req, res) {
         
         function(err, project) {
             if (project){
-                res.json(project);
+                //res.json(project);
+                //res.status(200).render('project_profile',
+                //{
+                //    userList: usersList
+                //});
+                res.status(200).json(project);
             // If document not found
             } else {
                 res.sendStatus(404);
