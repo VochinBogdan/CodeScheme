@@ -9,13 +9,18 @@
       <link rel="stylesheet" href="../css/UserProfile.css">
       <link rel="stylesheet" href="../css/nav.css">
       <!-- Javascript Imports -->
-      <script src="../js/nav.js"></script>
-      <script src="../js/ProfilePage.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="/js/nav.js"></script>
+        <script src="/js/angularComponents/codeSchemeApp.js"></script>
+      <script src="/js/ProfilePage.js"></script>
       <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="/js/angularComponents/profile/profileComponent.js"></script>
+        <script src="/js/angularComponents/profile/profileService.js"></script>
     </head>
 
    <!--Body Start-->
-   <body>
+   <body ng-app="codeSchemeApp">
    <!-- Navigation Bar -->
    <div class="navigation">
        <ul class="nav test--nav" id="my-topnav">
@@ -45,96 +50,7 @@
        </ul>
        <!--End of Navigation Bar-->
    </div>
-     
-   <!-- Container for all Profle information -->
-   <!--Profile Card-->
-   <div class="profile-info">
-       <section class="profile-card">
-           <div class="card">
-               <img class="prof-pic test--profile_photo" src="../images/sRaul.png" alt=null>
-           </div>
-
-           <!-- Biography and links -->
-           <div class="card-bio">
-               <h1>UserName</h1>
-               <h3>Software Engineering</h3>
-               <hr/>
-               <!-- Social links -->
-               <ul class="prof-links test--profile_links">
-                   <li><a href="mailto:bogdan.vochin@mail.utoronto.ca?Subject=Hello%20again"><img class="link-email test--profile_links align-text" src="../images/mail.png" alt=null/></a></li>
-                   <li><a href="https://github.com" ><img class="link-github test--profile_links align-text" src="../images/github.png" alt=null/></a></li>
-
-               </ul>
-           </div>
-       </section>
-         <!--Profile Description-->
-       <section class="profile-desc">
-           <h2 class="header-description">Description</h2>
-           <p class="description"> At this point they came in sight of thirty forty windmills that there are on plain, and as soon as Don Quixote saw them he said to his squire, "Fortune is arranging matters for us better than we could have shaped our desires ourselves, for look there, friend Sancho Panza, where thirty or more monstrous giants present themselves, all of whom I mean to engage in battle and slay, and with whose spoils we shall begin to make our fortunes; for this is righteous warfare, and it is God's good service to sweep so evil a breed from off the face of the earth."
-
-               "What giants?" said Sancho Panza.
-
-               "Those thou seest there," answered his master, "with the long arms, and some have them nearly two leagues long."
-
-               "Look, your worship," said Sancho; "what we see there are not giants but windmills, and what seem to be their arms are the sails that turned by the wind make the millstone go."
-
-               "It is easy to see," replied Don Quixote, "that thou art not used to this business of adventures; those are giants; and if thou art afraid, away with thee out of this and betake thyself to prayer while I engage them in fierce and unequal combat."
-
-               So saying, he gave the spur to his steed Rocinante, heedless of the cries his squire Sancho sent after him, warning him that most certainly they were windmills and not giants he was going to attack. He, however, was so positive they were giants that he neither heard the cries of Sancho, nor perceived, near as he was, what they were, but made at them shouting, "Fly not, cowards and vile beings, for a single knight attacks you."
-
-               A slight breeze at this moment sprang up, and the great sails began to move, seeing which Don Quixote exclaimed, "Though ye flourish more arms than the giant Briareus, ye have to reckon with me."
-
-               So saying, and commending himself with all his heart to his lady Dulcinea, imploring her to support him in such a peril, with lance in rest and covered by his buckler, he charged at Rocinante's fullest gallop and fell upon the first mill that stood in front of him; but as he drove his lance-point into the sail the wind whirled it round with such force that it shivered the lance to pieces, sweeping with it horse and rider, who went rolling over on the plain, in a sorry condition. Sancho hastened to his assistance as fast as his ass could go, and when he came up found him unable to move, with such a shock had Rocinante fallen with him..</p>
-       </section>
-       <!--Profile Skills-->
-       <section class="profile-skills">
-           <h2 class="header-skills">Skill List</h2>
-           <div class="skills">
-               <ul class="skillset">
-
-                   <li class="skill-bar javascript-bar">
-                       <span>Javascript</span>
-                       <span class="skill-percent">80%</span>
-                   </li>
-
-                   <li class="skill-bar css-bar">
-                       <span>CSS</span>
-                       <span class="skill-percent">30%</span>
-                   </li>
-
-                   <li class="skill-bar html-bar">
-                       <span>HTML</span>
-                       <span class="skill-percent">100%</span>
-                   </li>
-
-               </ul>
-           </div>
-       </section>
-       <!--Profile Projects-->
-       <section class="profile-projects">
-           <h2 class="header-projects">Projects</h2>
-           <div class="cur-projects">
-               <div class="project">
-                   <p class="project-title">Project Title</p>
-                   <p class="project-desc">Project Description</p>
-                   <p class="project-tags">#JavaScript #CSS #HTML</p>
-               </div>
-
-               <div class="project">
-                   <p class="project-title">Project Title</p>
-                   <p class="project-desc">Project Description</p>
-                   <p class="project-tags">#JavaScript #CSS #HTML</p>
-               </div>
-
-               <div class="project">
-                   <p class="project-title">Project Title</p>
-                   <p class="project-desc">Project Description</p>
-                   <p class="project-tags">#JavaScript #CSS #HTML</p>
-               </div>
-           </div>
-       </section>
-
-   </div>
+    <profile ></profile>
 
    </body>
 </html>

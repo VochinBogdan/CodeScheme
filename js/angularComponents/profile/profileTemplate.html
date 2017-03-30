@@ -1,0 +1,58 @@
+
+<!-- Container for all Profle information -->
+<!--Profile Card-->
+<<div class="profile-info">
+    <section class="profile-card">
+        <div class="card">
+            <img class="prof-pic test--profile_photo" src="../images/sRaul.png" alt=null>
+        </div>
+
+        <!-- Biography and links -->
+        <div class="card-bio">
+            <h1>{{$ctrl.user.username}}</h1>
+            <h3>Software Engineering</h3>
+            <hr/>
+            <!-- Social links -->
+            <ul class="prof-links test--profile_links">
+                <li><a href="mailto:{{$ctrl.user.email}}"><img class="link-email test--profile_links align-text" src="../images/mail.png" alt=null/></a></li>
+                <li><a href="{{$ctrl.user.github}}" ><img class="link-github test--profile_links align-text" src="../images/github.png" alt=null/></a></li>
+
+            </ul>
+        </div>
+    </section>
+    <!--Profile Description-->
+    <section class="profile-desc">
+        <h2 class="header-description">Description</h2>
+        <p class="description">{{$ctrl.user.bio}} </p>
+    </section>
+    <!--Profile Skills-->
+    <section class="profile-skills">
+        <h2 class="header-skills">Skill List</h2>
+        <div class="skills">
+            <ul class="skillset">
+
+                <li class="skill-bar javascript-bar" ng-repeat="skill in $ctrl.user.skills_known"    style="width:{{skill.level}};">
+                    <span>{{skill.name}}</span>
+                    <span class="skill-percent">{{skill.level}}</span>
+                </li>
+
+
+
+            </ul>
+        </div>
+    </section>
+    <!--Profile Projects-->
+    <section class="profile-projects">
+        <h2 class="header-projects">Projects</h2>
+        <div class="cur-projects" ng-repeat="project in $ctrl.user.projects">
+            <div class="project">
+                <p class="project-title">{{project.title}}</p>
+                <p class="project-desc">{{project.short_desc}}</p>
+                <p class="project-tags">{{project.creator}}</p>
+            </div>
+
+
+        </div>
+    </section>
+
+</div>

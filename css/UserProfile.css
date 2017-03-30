@@ -144,19 +144,14 @@ li.skill-bar {
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-li.javascript-bar{
-    width:80%;
-    background-color:#F3C128;
-}
 
-li.css-bar{
-    width:30%;
+
+li.skill-bar:nth-child(even){
     background-color:#1CDCFF;
 }
 
-li.html-bar{
-    width:100%;
-    background-color:#7CD14E;
+li.skill-bar:nth-child(odd){
+    background-color:#7BC673;
 }
 
 /* Profile: Projects */
@@ -174,13 +169,13 @@ li.html-bar{
     width:95%;
     margin-top:1%;
     padding:1%;
-    transition: 1s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    transition: 0.5s ease-in-out;
 }
 
-.project:hover{
-    transform: scale(0.9);
+.project:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
-
 .header-projects{
     font-weight: bold;
     font-family: Arial, sans-serif;
@@ -202,3 +197,4 @@ li.html-bar{
         max-width: 100%;
     }
 }
+
