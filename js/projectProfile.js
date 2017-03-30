@@ -45,3 +45,9 @@ function expandTab(tabName) {
         document.getElementById(tabName).style.display = "block";
     }
 }
+
+
+function getProject(){
+    
+	location.href = "users" + URL;
+}

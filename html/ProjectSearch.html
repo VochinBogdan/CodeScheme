@@ -17,7 +17,7 @@
             <ul class="nav test--nav" id="my-topnav">
                 <li class="logo"><a class="logo" href="../html/dashboard.html">CodeScheme</a></li>
                 <li><a href="../html/UserProfile.html">Profile</a></li>
-                <li><a href="../html/project_profile.html">Projects</a></li>
+                <li><a href="../html/projectProfile.html">Projects</a></li>
                 <!-- Search Options -->
                 <li>
                 <div class="search-options">
@@ -84,16 +84,18 @@
                 </select>
 
                 <!-- Show each search result in the projects found -->
-                <div class="searched_projects" ng-repeat="project in projects">
-                    <div class="project_search_result">
+                <div class="searched_projects">
+                    <div class="project_search_result" ng-repeat="project in projects">
                         <h3>{{ project.title }}</h3>
-                        <p class="project_creator">{{ project.creator[0] }}</p>
+                        <p class="project_creator">Creator: <a href="/html/UserProfile.html?username={{ project.creators[0].user_id }}">{{ project.creators[0].user_id }}</a></p>
                         <p class="project_description">{{ project.short_description }}</p>
                         <p class="project_teammates_needed">
                             {{ project.num_members_found }}/{{ project.num_members_needed }} Teammates needed
                         </p>
-                        <p class="project_tags" ng-repeat="(i, skill) in project.skills_used">
-                            {{ skill }}
+                        <p class="project_tags">
+                            <span ng-repeat="(i, skill) in project.skills_used">
+                                #{{ skill.name }}
+                            </span>
                         </p>
                         <p class="project_location">{{ project.city }}</p></div>
                 </div>

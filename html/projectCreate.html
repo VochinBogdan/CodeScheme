@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>CodeScheme: Create a New Project</title>
     <link rel="stylesheet" href="../css/nav.css">
-    <link rel="stylesheet" href="../css/project_create.css">
+    <link rel="stylesheet" href="../css/projectCreate.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -18,7 +18,7 @@
             </li>
             <li><a href="../html/UserProfile.html">Profile</a>
             </li>
-            <li><a href="../html/project_profile.html">Projects</a>
+            <li><a href="../html/projectProfile.html">Projects</a>
             </li>
             <!-- Search Options -->
             <li>
@@ -51,40 +51,41 @@
         <header>
             <h1>Create a New Side Project</h1>
         </header>
-        <form action="../html/project_profile.html" method="post" class="create_project_form">
+        <form action="../html/projectProfile.html" method="post" class="create_project_form">
             <div class="form_element">
-                <label id="title">
+                <label>
                     <span class="Label">Title:</span>
                     <br>
                     <br>
-                    <input type="text" id="title" name="title" class="input_element" required>
+                    <input type="text" id="title" name="title" class="input_element" pattern="([az])" required>
+                    <span class="error"></span>
                 </label>
             </div>
 
             <div class="form_element">
-                <label id="short_desc">
-                    <span class="Label">Project Tagline:</span>
+                <label>
+                    <span class="Label">Project Short Description:</span>
                     <br>
                     <br>
-                    <textarea name="desc" rows="1" cols="50" class="input_element" required></textarea>
+                    <textarea name="desc" id="short_desc" rows="1" cols="50" class="input_element" pattern="([az])" required></textarea>
                 </label>
             </div>
 
             <div class="form_element">
-                <label id="long_desc">
-                    <span class="Label">Project Description:</span>
+                <label>
+                    <span class="Label">Project Long Description:</span>
                     <br>
                     <br>
-                    <textarea name="desc" rows="6" cols="50" class="input_element" required></textarea>
+                    <textarea name="desc" id="long_desc" rows="6" cols="50" class="input_element"></textarea>
                 </label>
             </div>
             
             <div class="form_element">
-                <label id="tags">
+                <label>
                     <span class="Label">Tags:</span>
                     <br>
                     <br>
-                    <textarea name="desc" rows="1" cols="50" class="input_element" required></textarea>
+                    <textarea name="desc" id="tags" rows="1" cols="50" class="input_element" pattern="(\#[az])" required></textarea>
                 </label>
             </div>
 
@@ -146,12 +147,12 @@
             </div>
 
             <div class="form_element">
-                <input id="SubmitButton" type="submit" value="Submit" class="submit_button">
+                <input id="SubmitButton" type="submit" value="Submit" class="submit_button" onClick="createProject()">
             </div>
         </form>
     </section>
 
-    <script src="../js/project_create.js"></script>
+    <script src="../js/projectCreate.js"></script>
 </body>
 
 </html>
