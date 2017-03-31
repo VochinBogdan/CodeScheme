@@ -45,7 +45,7 @@ function styleBorder() {
     }
 }
 
-function displaySingleProject(title, parentId) {
+function displaySingleProject(title, parentId, username) {
     $.ajax({
         type : "GET",
         url : "/projects/" + title,
@@ -92,7 +92,7 @@ function displaySingleProject(title, parentId) {
             project.append(city);
 
             $("#" + project.attr("id")).click(function() {
-                window.location.replace("projectProfile.html?title=" + project.attr("id"));
+                window.location.replace("projectProfile.html?title=" + project.attr("id") + "&loggedInUsername=" + username);
             });
         }
     })
@@ -125,11 +125,11 @@ $(document).ready(function() {
 
             for (var i = 0; i < projects.length; i++) {
                 user_projects[i] = projects[i]["project_id"];
-                displaySingleProject(projects[i]["project_id"], "user_projects");
+                displaySingleProject(projects[i]["project_id"], "user_projects", username);
             }
             for (i = 0; i < following_projects.length; i++) {
                 following_projects[i] = following_projects[i]["project_id"];
-                displaySingleProject(following_projects[i]["project_id"], "following");
+                displaySingleProject(following_projects[i]["project_id"], "following", username);
             }
 
             $.ajax({
@@ -148,7 +148,7 @@ $(document).ready(function() {
                     }
 
                     for (i = 0; i < explore_projects.length; i++) {
-                        displaySingleProject(explore_projects[i], "explore_projects");
+                        displaySingleProject(explore_projects[i], "explore_projects", username);
                     }
                 }
             });

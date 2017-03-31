@@ -1,25 +1,27 @@
-<!--Project Creation Fields-->
-    <section class="Create_Project">
+<!--Project Editing Fields-->
+    <section class="Edit_Project">
         <header>
-            <h1>Create a New Side Project</h1>
+            <h1>Edit {{$ctrl.project.title}}</h1>
         </header>
-        <form class="create_project_form">
-            <div class="form_element">
-                <label>
-                    <span class="Label">Title:</span>
+        <form class="edit_project_form">
+		
+			<div class="form_element">
+                <label id="activeField">
+                    <span class="Label">Project Status:</span>
                     <br>
                     <br>
-                    <input type="text" id="title" class="input_element" required placeholder="Title" ng-model="$ctrl.project.title">
-                    <span class="error"></span>
+					<input type="radio" name="active_status" value="true" ng-model="$ctrl.project.active"> Active
+					<input type="radio" name="active_status" value="false" ng-model="$ctrl.project.active"> Archived<br>
+					<br>
                 </label>
             </div>
-						
+            
 			<div class="form_element">
                 <label>
                     <span class="Label">Short Description:</span>
                     <br>
                     <br>
-                    <textarea name="desc" id="short_desc" rows="1" cols="50" class="input_element" required placeholder="Short Description" ng-model="$ctrl.project.short_desc"></textarea>
+                    <textarea name="desc" id="short_desc" rows="1" cols="50" class="input_element" required placeholder="Short Description" ng-model="$ctrl.project.short_desc" value="{{$ctrl.project.short_desc}}"></textarea>
                 </label>
             </div>
 
@@ -28,7 +30,7 @@
                     <span class="Label">Long Description:</span>
                     <br>
                     <br>
-                    <textarea name="desc" id="long_desc" rows="6" cols="50" class="input_element" placeholder="Describe your side-project here" ng-model="$ctrl.project.long_desc"></textarea>
+                    <textarea name="desc" id="long_desc" rows="6" cols="50" class="input_element" placeholder="Describe your side-project here" ng-model="$ctrl.project.long_desc" value="{{$ctrl.project.long_desc}}"></textarea>
                 </label>
             </div>
             
@@ -37,7 +39,7 @@
                     <span class="Label">Tags:</span>
                     <br>
                     <br>
-                    <textarea name="desc" id="tags" rows="1" cols="50" class="input_element" ng-model="$ctrl.project.tags"></textarea>
+                    <textarea name="desc" id="tags" rows="1" cols="50" class="input_element" ng-model="$ctrl.project.tags" value="{{$ctrl.project.tags}}"></textarea>
                 </label>
             </div>
 
@@ -81,11 +83,29 @@
 			<!--End of Slide-bars for skills-->
             
             <div class="form_element">
-                <label id="numMembersField">
-                    <span class="Label">Number of Members Needed:</span>
+                <label id="numContributorsField">
+                    <span class="Label">Number of Contributors Needed:</span>
                     <br>
                     <br>
-                    <input type="text" id="numMembers" name="numMembers" class="input_element" ng-model="$ctrl.project.num_needed">
+                    <input type="text" id="numContributors" name="numContributors" class="input_element" ng-model="$ctrl.project.num_needed" value="{{$ctrl.project.num_needed}}">
+                </label>
+            </div>
+			
+			<div class="form_element">
+                <label id="moderatorsField">
+                    <span class="Label">Moderators:</span>
+                    <br>
+                    <br>
+                    <input type="text" id="moderators" name="moderators" class="input_element" ng-model="$ctrl.project.moderators" value="{{$ctrl.project.moderators}}">
+                </label>
+            </div>
+			
+			<div class="form_element">
+                <label id="contributorsField">
+                    <span class="Label">Contributors:</span>
+                    <br>
+                    <br>
+                    <input type="text" id="contributors" name="contributors" class="input_element" ng-model="$ctrl.project.contributors" value="{{$ctrl.project.contributors}}">
                 </label>
             </div>
 
@@ -94,7 +114,7 @@
                     <span class="Label">GitHub Link:</span>
                     <br>
                     <br>
-                    <input type="text" id="git" name="git" class="input_element" ng-model="$ctrl.project.github">
+                    <input type="text" id="git" name="git" class="input_element" value="{{$ctrl.project.github}}">
                 </label>
             </div>
 			
@@ -103,7 +123,7 @@
                     <span class="Label">City:</span>
                     <br>
                     <br>
-                    <input type="text" id="city" name="city" class="input_element" ng-model="$ctrl.project.city">
+                    <input type="text" id="city" name="city" class="input_element" ng-model="$ctrl.project.city" value="{{$ctrl.project.city}}">
                 </label>
             </div>
 			
@@ -112,12 +132,12 @@
                     <span class="Label">School:</span>
                     <br>
                     <br>
-                    <input type="text" id="school" name="school" class="input_element" ng-model="$ctrl.project.school">
+                    <input type="text" id="school" name="school" class="input_element" ng-model="$ctrl.project.school" value="{{$ctrl.project.school}}">
                 </label>
             </div>
 
             <div class="form_element">
-                <input id="SubmitButton" type="submit" value="Submit" class="submit_button" onClick="createProject()" ng-click="$ctrl.createProject()">
+                <input id="SubmitButton" type="submit" value="Submit" class="submit_button" ng-click="$ctrl.editProject()">
             </div>
         </form>
     </section>
