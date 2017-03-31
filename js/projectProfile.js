@@ -1,3 +1,4 @@
+
 // When the page is first loaded & when the window is resized, erase the opened tabs
 function emptySelection() {
     var i;
@@ -13,12 +14,13 @@ function emptySelection() {
     // if the screen is larger than 768px, display the "About" tab by default
     var mediaQuery = window.matchMedia("screen and (min-width: 768px)");
     if (mediaQuery.matches) {
-        document.getElementById('About_big').style.display = "block";
+		var AboutBig = document.getElementById('About_big');
+		AboutBig.style.display = "block";
     }
 }
 
 function expandTab(tabName) {
-    var i;
+    var i, flag = 0;
     var mediaQuery = window.matchMedia("screen and (min-width: 768px)");
     if (mediaQuery.matches) { // if media query matches
         var idName = tabName + "_big";
@@ -39,15 +41,12 @@ function expandTab(tabName) {
         }
 
         x = document.getElementsByClassName("expand_tab");
-        for (i = 0; i < x.length; i++) {
+		if(document.getElementById(tabName).style.display == "block")
+			flag = 1;
+		for (i = 0; i < x.length; i++) {
             x[i].style.display = "none";
         }
-        document.getElementById(tabName).style.display = "block";
+		if(!flag)
+			document.getElementById(tabName).style.display = "block";
     }
-}
-
-
-function getProject(){
-    
-	location.href = "users" + URL;
 }
