@@ -23,16 +23,17 @@
     </section>
     <!--Profile Description-->
     <section class="profile-desc">
-        <h2 class="header-description">Description</h2>
+        <h2 class="header-description">Description</h2><br>
         <p class="description">{{$ctrl.user.bio}} </p>
     </section>
     <!--Profile Skills-->
     <section class="profile-skills">
         <h2 class="header-skills">Skill List</h2>
+        <br>
         <div class="skills">
             <ul class="skillset">
 
-                <li class="skill-bar javascript-bar" ng-repeat="skill in $ctrl.user.skills_known"    style="width:{{skill.level}};">
+                <li class="skill-bar javascript-bar" ng-repeat="skill in $ctrl.user.skills_known" style="width:{{skill.level}}%;">
                     <span>{{skill.name}}</span>
                     <span class="skill-percent">{{skill.level}}</span>
                 </li>
@@ -44,7 +45,7 @@
     </section>
     <!--Profile Projects-->
     <section class="profile-projects">
-        <h2 class="header-projects">Projects</h2>
+        <h2 class="header-projects">Projects</h2><br>
         <div class="cur-projects" ng-repeat="project in $ctrl.user.projects">
             <div class="project" href="/html/projectProfile?title={{project.title}}">
                 <p class="project-title">{{project.title}}</p>

@@ -28,7 +28,7 @@
                 }
             }).then(function(res){
                 console.log(res);
-                window.location.replace('/html/UserProfile.html?username='+ service.newUser.username);
+                window.location.replace('/html/UserProfile.html?username='+ service.newUser.username+ '&loggedInUsername='+ service.newUser.username);
             });
         }
     }

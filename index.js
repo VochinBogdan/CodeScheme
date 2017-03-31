@@ -26,7 +26,7 @@ MongoClient.connect(mongoURL, function(err, database) {
 });
 
 app.get('/', function (req,res) {
-    res.sendfile(__dirname + '/html/dashboard.html');
+    res.sendfile(__dirname + '/html/SignUpPage.html');
 });
 
 app.get('/project_search', function(req, res) {

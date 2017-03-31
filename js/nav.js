@@ -32,7 +32,7 @@ $(document).ready(function(){
     var username = getParameterByName("loggedInUsername");
 
     $("#user_profile").click(function() {
-        window.location.replace("UserProfile.html?loggedInUsername=" + username);
+        window.location.replace("UserProfile.html?loggedInUsername=" + username+ "&username=" + username);
     });
 
     $("#create_project").click(function() {

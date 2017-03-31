@@ -9,6 +9,7 @@
 
         ctrl.$onInit=function(){
             pS.getUser();
+            pS.setLoginUser();
         }
    }
 

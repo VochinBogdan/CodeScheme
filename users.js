@@ -50,7 +50,7 @@ module.exports = function (app, db) {
                 github: 1,
                 email: 1,
                 skills_known: 1,
-                skills_wanter: 1,
+                skills_wanted: 1,
                 bio: 1,
                 city: 1,
                 school: 1,

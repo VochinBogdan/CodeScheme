@@ -10,9 +10,8 @@
     <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
     <!-- Javascript Imports -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="../js/nav.js"></script>
-    <script src="/js/editUser.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="/js/angularComponents/codeSchemeApp.js"></script>
@@ -20,34 +19,33 @@
     <script src="/js/angularComponents/editUser/editUserService.js"></script>
 </head>
 <body ng-app="codeSchemeApp">
-    <!-- Navigation Bar -->
-    <div class="navigation">
-        <ul class="nav test--nav" id="my-topnav">
-            <li class="logo"><a class="logo" href="../html/dashboard.html">CodeScheme</a></li>
-            <li><a href="../html/UserProfile.html">Profile</a></li>
-            <li><a href="../html/projectProfile.html">Projects</a></li>
-            <!-- Search Options -->
-            <li>
-                <div class="search-options">
-                    <select>
-                        <option value="Users">Users</option>
-                        <option value="Projects">Projects</option>
-                    </select>
-                </div>
-            </li>
-            <!--Search Bar-->
-            <li class="search">
-                <form action="/search.html" class="search-wrapper cf">
-                    <input type="text" placeholder="Search" required="">
-                    <button type="submit" onclick="window.location.href='../html/ProjectSearch.html'"> <span class="fontawesome-search"><i class="fa fa-search" aria-hidden="true"></i></span></button>
-                </form>
-            </li>
-            <!--End of Search Bar-->
-            <li class="icon">
-                <a href="javascript:void(0);" onclick="navButton()">&#9776;</a>
-            </li>
-        </ul>
-        <!--End of Navigation Bar-->
+<!-- Navigation Bar -->
+<div class="navigation">
+    <ul class="nav test--nav" id="my-topnav">
+        <li class="logo"><a class="logo" id="logo">CodeScheme</a></li>
+        <li><a id="user_profile">Profile</a></li>
+        <li><a id="create_project">Create</a></li>
+        <li><a href="../html/SignUpPage.html">Sign Up</a></li>
+        <!-- Search Options -->
+        <div class="search-options">
+            <select>
+                <option value="Users">Users</option>
+                <option value="Projects">Projects</option>
+            </select>
+        </div>
+        <!--Search Bar-->
+        <li class="search">
+            <form action="/search.html" class="search-wrapper cf">
+                <input type="text" placeholder="Search" required="">
+                <button type="submit" onclick="window.location.href='../html/ProjectSearch.html'"> <span class="fontawesome-search"><i class="fa fa-search" aria-hidden="true"></i></span></button>
+            </form>
+        </li>
+        <!--End of Search Bar-->
+        <li class="icon">
+            <a href="javascript:void(0);" onclick="navButton()">&#9776;</a>
+        </li>
+    </ul>
+    <!--End of Navigation Bar-->
     </div>
     <!--User Update Data-->
     <edit-user></edit-user>
