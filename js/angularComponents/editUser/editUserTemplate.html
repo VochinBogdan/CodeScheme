@@ -31,6 +31,17 @@
                 <label>Github</label>
                 <input type="text" placeholder="Github" ng-model="$ctrl.user.github" value="{{$ctrl.user.github}}">
             </fieldset>
+            <!--Skills-->
+            <section class="skills">
+                <h4 class="Label">Skills:</h4>
+                <h2><a href="#" id="addScnt">Add Another Skill</a></h2>
+
+                <div id="p_scents">
+                    <p>
+                    </p>
+                </div>
+            </section>
+            <!--End of Skills-->
             <button type="button" ng-click="$ctrl.updateUser()">Submit</button>
         </form>
     </div>

@@ -46,7 +46,7 @@
     <section class="profile-projects">
         <h2 class="header-projects">Projects</h2>
         <div class="cur-projects" ng-repeat="project in $ctrl.user.projects">
-            <div class="project">
+            <div class="project" href="/html/projectProfile?title={{project.title}}">
                 <p class="project-title">{{project.title}}</p>
                 <p class="project-desc">{{project.short_desc}}</p>
                 <p class="project-tags">{{project.creator}}</p>

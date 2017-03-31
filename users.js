@@ -48,6 +48,7 @@ module.exports = function (app, db) {
             {
                 username: 1,
                 github: 1,
+                email: 1,
                 skills_known: 1,
                 skills_wanter: 1,
                 bio: 1,
