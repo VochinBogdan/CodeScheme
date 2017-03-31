@@ -8,17 +8,6 @@
             updateUser: updateUser,
             getUser:getUser,
             user: {
-                email: '',
-                oldPassword:'',
-                password: '',
-                github: null,
-                skills_known: [],
-                skills_wanted: [],
-                bio: '',
-                city: null,
-                school: null
-            },
-            userinfo:{
                 username: '',
                 email: '',
                 oldPassword:'',
@@ -41,14 +30,14 @@
 
             console.log(service.user);
             $http({
-                url:'/users/' + service.userinfo.username,
+                url:'/users/' + service.user.username,
                 method:'PUT',
                 data:{
                     email:service.user.email,
                     oldPassword:service.user.oldpassword,
                     password:service.user.password,
+                    github: service.user.github,
                     //TODO: ADD THESE to HTML
-                    //github: service.user.github,
                     //skills_known: service.user.skills_known,
                     //skills_wanted: service.user.skills_wanted,
                     bio: service.user.bio,
@@ -57,7 +46,7 @@
                 }
             }).then(function(res){
                 console.log(res);
-                window.location.replace('/html/UserProfile.html?username='+ service.userinfo.username);
+                window.location.replace('/html/UserProfile.html?username='+ service.user.username);
             });
         }
 
@@ -68,7 +57,14 @@
                 url:'/users/'+username,
                 method:'GET'
             }).then(function(res){
-                angular.copy(res.data,service.userinfo);
+                angular.copy(res.data,service.user);
+            });
+
+            $http({
+                url:'/users/'+username+'/private',
+                method:'GET'
+            }).then(function(res){
+                angular.copy(res.data.email,service.user.email);
             });
         }
 

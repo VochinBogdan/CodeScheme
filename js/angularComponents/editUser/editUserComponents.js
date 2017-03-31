@@ -5,7 +5,6 @@
 
     function editUserController(eUS){
         var ctrl=this;
-        ctrl.userinfo=eUS.userinfo;
         ctrl.user=eUS.user;
 
         ctrl.$onInit=function(){

@@ -17,6 +17,10 @@ body{
   position: relative;
 }
 
+span.usertitle {
+  color: #89bdd3;
+}
+
 .signup {
   height: 500px;
   width: 400px;
@@ -31,8 +35,8 @@ body{
 }
 
 .edit {
-  height: 800px;
-  width: 400px;
+  height: 900px;
+  width: 600px;
   background: #ffffff;
   border-radius: 5px;
   position: absolute;

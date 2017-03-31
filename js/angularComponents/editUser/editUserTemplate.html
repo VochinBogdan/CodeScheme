@@ -1,10 +1,7 @@
 <div class="wrapper editUser">
     <div class="edit">
-        <h1 class="edit-user-header">Edit User</h1>
+        <h1 class="edit-user-header">Edit User: <span class="usertitle">{{$ctrl.user.username}}</span></h1>
         <form class="edit-user-form">
-            <fieldset>
-                <label>{{$ctrl.userinfo.username}}</label>
-            </fieldset>
             <fieldset>
                 <label>Current Password</label>
                 <input type="password" placeholder="Current Password" ng-model="$ctrl.user.oldpassword">
@@ -16,19 +13,23 @@
             </fieldset>
             <fieldset>
                 <label>Email</label>
-                <input type="text" placeholder="Email" ng-model="$ctrl.user.email">
+                <input type="text" placeholder="Email" ng-model="$ctrl.user.email" value="{{$ctrl.user.email}}">
             </fieldset>
             <fieldset>
                 <label>Bio</label>
-                <input type="text" placeholder="Bio" ng-model="$ctrl.user.bio">
+                <input type="text" placeholder="Bio" ng-model="$ctrl.user.bio" value="{{$ctrl.user.bio}}">
             </fieldset>
             <fieldset>
                 <label>City</label>
-                <input type="text" placeholder="City" ng-model="$ctrl.user.city">
+                <input type="text" placeholder="City" ng-model="$ctrl.user.city" value="{{$ctrl.user.city}}">
             </fieldset>
             <fieldset>
                 <label>School</label>
-                <input type="text" placeholder="School" ng-model="$ctrl.user.school">
+                <input type="text" placeholder="School" ng-model="$ctrl.user.school" value="{{$ctrl.user.school}}">
+            </fieldset>
+            <fieldset>
+                <label>Github</label>
+                <input type="text" placeholder="Github" ng-model="$ctrl.user.github" value="{{$ctrl.user.github}}">
             </fieldset>
             <button type="button" ng-click="$ctrl.updateUser()">Submit</button>
         </form>
