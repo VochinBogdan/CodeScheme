@@ -5,43 +5,20 @@
     function profileService($http){
         var service={
             currentUser:{
-                username: 'test user',
-                email: 'test@test.com',
-                password: 'test',
+                username: '',
+                email: '',
+                password: '',
                 github: null,
-                skills_known: [{
-                    name:'Javascript',
-                    level:'80%'
-                },
-                    {
-                        name:'CSS',
-                        level:'20%'
-                    },{
-                        name:'HTML',
-                        level:'60%'
-                    }],
+                skills_known: [],
                 skills_wanted: [],
-                bio: 'this is my bio',
+                bio: '',
                 city: null,
                 school: null,
-                projects: [{
-                    title:'Project title',
-                    creator:'Andy',
-                    short_desc:'this is a short description'
-                },
-                    {
-                        title:'Project title',
-                        creator:'Andy 1',
-                        short_desc:'this is a short description'
-                    }
-                    ,{
-                        title:'Project title',
-                        creator:'Andy 2',
-                        short_desc:'this is a short description'
-                    }],
+                projects: [],
                 past_projects: [],
                 following_projects: []
             },
+            projects:[],
             getUser:getUser
         }
 
@@ -55,7 +32,15 @@
                 method:'GET'
             }).then(function(res){
                 angular.copy(res.data,service.currentUser);
-                //service.currentUser=res.data;
+                //TODO: Do the work on the server side with a new endpoint.Instead of many requests.
+                for(var i = 0; i < service.currentUser.projects.length; i++){
+                    $http({
+                        url:'/projects/' + service.currentUser.projects[i].project_id,
+                        method:'GET'
+                    }).then(function(res){
+                        projects.push(res.data);
+                    });
+                }
             });
         }
 
