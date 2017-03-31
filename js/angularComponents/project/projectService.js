@@ -4,11 +4,11 @@
 
     function projectService($http){
         var service={
-            currentproject:{
-                title: 'test project',
+            currentProject:{
+                title: 'The Very Best Project Ever',
                 short_desc: 'this is a short description',
                 long_desc: 'this is a long description. Sort of.',
-                tags: [{'superCoolProject', 'default'}],
+                tags: [{}],
                 skills: [{
                         name:'Javascript',
                         level:'80%'
@@ -50,16 +50,16 @@
                 url:'/projects/'+title,
                 method:'GET'
             }).then(function(res){
-                angular.copy(res.data,service.currentproject);
+                angular.copy(res.data,service.currentProject);
             });
         }
 
-        function getParameterByTitle(title, url) {
+        function getParameterByName(name, url) {
             if (!url) {
                 url = window.location.href;
             }
-            title = title.replace(/[\[\]]/g, "\\$&");
-            var regex = new RegExp("[?&]" + title + "(=([^&#]*)|&|#|$)"),
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
                 results = regex.exec(url);
             if (!results) return null;
             if (!results[2]) return '';

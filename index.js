@@ -25,6 +25,10 @@ MongoClient.connect(mongoURL, function(err, database) {
     require('./projects.js')(app, database);
 });
 
+app.get('/', function (req,res) {
+    res.sendfile(__dirname + '/html/dashboard.html');
+});
+
 app.get('/project_search', function(req, res) {
     res.sendFile(__dirname + '/html/ProjectSearch.html');
 });

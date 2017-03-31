@@ -4,19 +4,24 @@
 <head>
     <meta charset="utf-8">
     <title>Code Scheme: Project Profile</title>
+	<!-- CSS Imports -->
     <link rel="stylesheet" href="../css/projectProfile.css">
     <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Javascript Imports -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="/js/angularComponents/codeSchemeApp.js"></script>
+	<script src="/js/angularComponents/codeSchemeApp.js"></script>
     <script src="/js/angularComponents/project/projectComponent.js"></script>
     <script src="/js/angularComponents/project/projectService.js"></script>
-
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script src="/js/nav.js"></script>
+	<script src="../js/projectProfile.js"></script>
+	
 </head>
 
-<body onResize="emptySelection()" onload="emptySelection()">
+<body onResize="emptySelection()" ng-app="codeSchemeApp">
 
     <!-- Navigation Bar -->
     <div class="navigation">
@@ -26,6 +31,8 @@
             <li><a href="../html/UserProfile.html">Profile</a>
             </li>
             <li><a href="../html/projectProfile.html">Projects</a>
+            </li>
+            <li><a href="../html/SignUpPage.html">Sign Up</a>
             </li>
             <!-- Search Options -->
             <li>
@@ -52,15 +59,11 @@
         <!--End of Navigation Bar-->
     </div>
 
-
     <!--Project Profile-->
     <project></project>
     
     <!--End of Project Profile-->
-
-    <script src="../js/projectProfile.js"></script>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="../js/nav.js"></script>
+    
 </body>
 
 </html>

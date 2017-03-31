@@ -45,12 +45,113 @@ function styleBorder() {
     }
 }
 
-function display_single_project(response, parentElement) {
+function displaySingleProject(title, parentId) {
+    $.ajax({
+        type : "GET",
+        url : "/projects/" + title,
+        dataType : "json",
+        contentType : "application/json; charset=utf-8",
+        success : function(response) {
+            var title = $("<h3>" + response["title"] + "</h3>");
+            var short_desc = $("<p>" + response["short_description"] + "</p>");
+            short_desc.addClass("project_description");
+            var city = $("<p>" + response["city"] + "</p>");
+            city.addClass("project_location");
 
+            var creator = $("<p>Created by " + response["creator"] + "</p>");
+            creator.addClass("project_creator");
+
+            var num_needed = response["num_members_needed"];
+            var num_found = response["contributors"].length;
+            var teammates_needed = $("<p>" + num_found + "/" + num_needed + " Teammates found</p>");
+            teammates_needed.addClass("project_teammates_needed");
+
+            var skills = "";
+            for (var i = 0; i < response["skills_used"].length; i++) {
+                skills += "#" + response["skills_used"][i]["name"] + " ";
+            }
+            var tags = $("<p>" + skills + "</p>");
+            tags.addClass("project_tags");
+
+            if (parentId == "user_projects") {
+                var project = $("<div>", {"class": "user_project", "id": response["title"]});
+                $("#user_projects").append(project);
+            } else if (parentId == "following") {
+                var project = $("<div>", {"class": "follow_project", "id": response["title"]});
+                $("#following").append(project);
+            } else if (parentId == "explore_projects") {
+                var project = $("<div>", {"class": "explore_project", "id": response["title"]});
+                $("#explore_projects").append(project);
+            }
+
+            project.append(title);
+            project.append(creator);
+            project.append(short_desc);
+            project.append(teammates_needed);
+            project.append(tags);
+            project.append(city);
+
+            $("#" + project.attr("id")).click(function() {
+                window.location.replace("projectProfile.html?title=" + project.attr("id"));
+            });
+        }
+    })
+}
+
+function getParameterByName(name) {
+    var url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return "";
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
 $(document).ready(function() {
-    // get projects
+    // get username
+    var username = getParameterByName("username");
+    var user_projects = [];
+    var following_projects = [];
 
-    
-})
+    $.ajax({
+        type : "GET",
+        url : "/users/" + username + "/private",
+        dataType : "json",
+        contentType : "application/json; charset=utf-8",
+        success : function(response) {
+            var projects = response["projects"];
+            var following_projects = response["following_projects"];
+
+            for (var i = 0; i < projects.length; i++) {
+                user_projects[i] = projects[i]["project_id"];
+                displaySingleProject(projects[i]["project_id"], "user_projects");
+            }
+            for (i = 0; i < following_projects.length; i++) {
+                following_projects[i] = following_projects[i]["project_id"];
+                displaySingleProject(following_projects[i]["project_id"], "following");
+            }
+
+            $.ajax({
+                type : "GET",
+                url : "/projects",
+                dataType : "json",
+                contentType : "application/json; charset=utf-8",
+                success : function(response) {
+                    var explore_projects = [];
+
+                    // filter out projects that the user is already a part of or following
+                    for (0; i < response.length; i++) {
+                        if (!user_projects.includes(response[i]["title"]) && !following_projects.includes(response[i]["title"])) {
+                            explore_projects.push(response[i]["title"]);
+                        }
+                    }
+
+                    for (i = 0; i < explore_projects.length; i++) {
+                        displaySingleProject(explore_projects[i], "explore_projects");
+                    }
+                }
+            });
+        }
+    });
+});

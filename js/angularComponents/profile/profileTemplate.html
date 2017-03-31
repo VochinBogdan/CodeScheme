@@ -4,18 +4,19 @@
 <<div class="profile-info">
     <section class="profile-card">
         <div class="card">
-            <img class="prof-pic test--profile_photo" src="../images/sRaul.png" alt=null>
+            <img class="prof-pic test--profile_photo" src="../images/defAvatar.png" alt=null>
         </div>
 
         <!-- Biography and links -->
         <div class="card-bio">
             <h1>{{$ctrl.user.username}}</h1>
-            <h3>Software Engineering</h3>
+            <h3>{{$ctrl.user.city}} {{$ctrl.user.school}}</h3>
             <hr/>
             <!-- Social links -->
             <ul class="prof-links test--profile_links">
                 <li><a href="mailto:{{$ctrl.user.email}}"><img class="link-email test--profile_links align-text" src="../images/mail.png" alt=null/></a></li>
                 <li><a href="{{$ctrl.user.github}}" ><img class="link-github test--profile_links align-text" src="../images/github.png" alt=null/></a></li>
+                <li><a href="/html/userEdit.html?username={{$ctrl.user.username}}"><img class="settings" src="/images/settings.png" alt=null></a></li>
 
             </ul>
         </div>
