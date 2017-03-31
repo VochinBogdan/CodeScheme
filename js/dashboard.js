@@ -157,8 +157,4 @@ $(document).ready(function() {
             window.location.replace("userNotFound.html");
         }
     });
-
-    $("#logo").click(function() {
-        window.location.replace("dashboard.html?loggedInUsername=" + username);
-    });
 });
