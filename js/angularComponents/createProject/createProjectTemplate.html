@@ -1,0 +1,115 @@
+<!--Project Creation Fields-->
+    <section class="Create_Project">
+        <header>
+            <h1>Create a New Side Project</h1>
+        </header>
+        <form class="create_project_form">
+            <div class="form_element">
+                <label>
+                    <span class="Label">Title:</span>
+                    <br>
+                    <br>
+                    <input type="text" id="title" class="input_element" required placeholder="Title" ng-model="$ctrl.project.title">
+                    <span class="error"></span>
+                </label>
+            </div>
+			
+			<div class="form_element">
+                <label>
+                    <span class="Label">Creator:</span>
+                    <br>
+                    <br>
+                    <input type="text" id="creator" class="input_element" required placeholder="just for now" ng-model="$ctrl.project.username">
+                    <span class="error"></span>
+                </label>
+            </div>
+
+            <div class="form_element">
+                <label>
+                    <span class="Label">Short Description:</span>
+                    <br>
+                    <br>
+                    <textarea name="desc" id="short_desc" rows="1" cols="50" class="input_element" pattern="([az])" required placeholder="Short Description" ng-model="$ctrl.project.short_desc"></textarea>
+                </label>
+            </div>
+
+            <div class="form_element">
+                <label>
+                    <span class="Label">Long Description:</span>
+                    <br>
+                    <br>
+                    <textarea name="desc" id="long_desc" rows="6" cols="50" class="input_element" placeholder="Describe your side-project here" ng-model="$ctrl.project.long_desc"></textarea>
+                </label>
+            </div>
+            
+            <div class="form_element">
+                <label>
+                    <span class="Label">Tags:</span>
+                    <br>
+                    <br>
+                    <textarea name="desc" id="tags" rows="1" cols="50" class="input_element" pattern="(\#[az])" ></textarea>
+                </label>
+            </div>
+
+            <!--Slide-bars for skills-->
+            <section class="skills">
+                <h4 class="Label">Skills:</h4>
+                <div class="skill" id="skill1">
+                    <select class="skill_name">
+                        <option value="HTML">HTML</option>
+                        <option value="CSS">CSS</option>
+                        <option value="JavaScript">JavaScript</option>
+                    </select>
+                    <br>
+                    <input type="range" id="range1" min="0" max="100" value="0" step="5" class="slidebar" onchange="showValue(this.value)" />
+                    <span id="result1">0</span>
+                </div>
+                <div class="skill" id="skill2" style="display:none">
+                    <select class="skill_name">
+                        <option value="HTML">HTML</option>
+                        <option value="CSS">CSS</option>
+                        <option value="JavaScript">JavaScript</option>
+                    </select>
+                    <br>
+                    <input type="range" id="range2" min="0" max="100" value="0" step="5" class="slidebar" onchange="showValue(this.value)" />
+                    <span id="result2">0</span>
+                </div>
+                <div class="skill" id="skill3" style="display:none">
+                    <select class="skill_name">
+                        <option value="HTML">HTML</option>
+                        <option value="CSS">CSS</option>
+                        <option value="JavaScript">JavaScript</option>
+                    </select>
+                    <br>
+                    <input type="range" id="range3" min="0" max="100" value="0" step="5" class="slidebar" onchange="showValue(this.value)" />
+                    <span id="result3">0</span>
+                </div>
+                <a href="javascript:void(0)" onClick="addSkills()">
+                    <i id="add_button" class="fa fa-plus-circle" style="font-size:24px;"> Add more skills</i>
+                </a>
+            </section>
+			<!--End of Slide-bars for skills-->
+            
+            <div class="form_element">
+                <label id="numMembersField">
+                    <span class="Label">Number of Members:</span>
+                    <br>
+                    <br>
+                    <input type="text" id="numMembers" name="numMembers" class="input_element">
+                </label>
+            </div>
+
+            <div class="form_element">
+                <label id="Label">
+                    <span class="Label">GitHub Link:</span>
+                    <br>
+                    <br>
+                    <input type="text" id="git" name="git" class="input_element">
+                </label>
+            </div>
+
+            <div class="form_element">
+                <input id="SubmitButton" type="submit" value="Submit" class="submit_button" onClick="createProject()" ng-click="$ctrl.createProject()">
+            </div>
+        </form>
+    </section>

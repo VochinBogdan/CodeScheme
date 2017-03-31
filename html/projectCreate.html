@@ -4,12 +4,22 @@
 <head>
     <meta charset="utf-8">
     <title>CodeScheme: Create a New Project</title>
+	<!-- CSS Imports -->
     <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../css/projectCreate.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Javascript Imports -->
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="/js/angularComponents/codeSchemeApp.js"></script>
+    <script src="/js/angularComponents/createProject/createProjectComponents.js"></script>
+    <script src="/js/angularComponents/createProject/createProjectService.js"></script>
+	<script src="../js/nav.js"></script>
+	<script src="../js/projectCreate.js"></script>
 </head>
 
-<body>
+<body ng-app="codeSchemeApp">
 
     <!-- Navigation Bar -->
     <div class="navigation">
@@ -46,115 +56,9 @@
         </ul>
         <!--End of Navigation Bar-->
     </div>
-
-
-    <!--Project Creation Fields-->
-    <section class="Create_Project">
-        <header>
-            <h1>Create a New Side Project</h1>
-        </header>
-        <form action="../html/projectProfile.html" method="post" class="create_project_form">
-            <div class="form_element">
-                <label>
-                    <span class="Label">Title:</span>
-                    <br>
-                    <br>
-                    <input type="text" id="title" name="title" class="input_element" pattern="([az])" required>
-                    <span class="error"></span>
-                </label>
-            </div>
-
-            <div class="form_element">
-                <label>
-                    <span class="Label">Project Short Description:</span>
-                    <br>
-                    <br>
-                    <textarea name="desc" id="short_desc" rows="1" cols="50" class="input_element" pattern="([az])" required></textarea>
-                </label>
-            </div>
-
-            <div class="form_element">
-                <label>
-                    <span class="Label">Project Long Description:</span>
-                    <br>
-                    <br>
-                    <textarea name="desc" id="long_desc" rows="6" cols="50" class="input_element"></textarea>
-                </label>
-            </div>
-            
-            <div class="form_element">
-                <label>
-                    <span class="Label">Tags:</span>
-                    <br>
-                    <br>
-                    <textarea name="desc" id="tags" rows="1" cols="50" class="input_element" pattern="(\#[az])" required></textarea>
-                </label>
-            </div>
-
-            <!--Slide-bars for skills-->
-            <section class="skills">
-                <h4 class="Label">Skills:</h4>
-                <div class="skill" id="skill1">
-                    <select class="skill_name">
-                        <option value="HTML">HTML</option>
-                        <option value="CSS">CSS</option>
-                        <option value="JavaScript">JavaScript</option>
-                    </select>
-                    <br>
-                    <input type="range" id="range1" min="0" max="100" value="0" step="5" class="slidebar" onchange="showValue(this.value)" />
-                    <span id="result1">0</span>
-                </div>
-                <div class="skill" id="skill2" style="display:none">
-                    <select class="skill_name">
-                        <option value="HTML">HTML</option>
-                        <option value="CSS">CSS</option>
-                        <option value="JavaScript">JavaScript</option>
-                    </select>
-                    <br>
-                    <input type="range" id="range2" min="0" max="100" value="0" step="5" class="slidebar" onchange="showValue(this.value)" />
-                    <span id="result2">0</span>
-                </div>
-                <div class="skill" id="skill3" style="display:none">
-                    <select class="skill_name">
-                        <option value="HTML">HTML</option>
-                        <option value="CSS">CSS</option>
-                        <option value="JavaScript">JavaScript</option>
-                    </select>
-                    <br>
-                    <input type="range" id="range3" min="0" max="100" value="0" step="5" class="slidebar" onchange="showValue(this.value)" />
-                    <span id="result3">0</span>
-                </div>
-                <a href="javascript:void(0)" onClick="addSkills()">
-                    <i id="add_button" class="fa fa-plus-circle" style="font-size:24px;"> Add more skills</i>
-                </a>
-            </section>
-			<!--End of Slide-bars for skills-->
-            
-            <div class="form_element">
-                <label id="numMembersField">
-                    <span class="Label">Number of Members:</span>
-                    <br>
-                    <br>
-                    <input type="text" id="numMembers" name="numMembers" class="input_element">
-                </label>
-            </div>
-
-            <div class="form_element">
-                <label id="Label">
-                    <span class="Label">GitHub Link:</span>
-                    <br>
-                    <br>
-                    <input type="text" id="git" name="git" class="input_element">
-                </label>
-            </div>
-
-            <div class="form_element">
-                <input id="SubmitButton" type="submit" value="Submit" class="submit_button" onClick="createProject()">
-            </div>
-        </form>
-    </section>
-
-    <script src="../js/projectCreate.js"></script>
+	
+    <create-Project></create-Project>
+	
 </body>
 
 </html>
