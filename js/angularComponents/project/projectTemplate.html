@@ -1,6 +1,6 @@
 <!-- section for all Project Create information -->
-<div class="projectProfile">
-    
+<div class="projectProfile" onload="emptySelection()">
+
     <h1 class="title"> {{$ctrl.project.title}} </h1>
     <ul class="tabs">
         <!--Expandable Tabs for mobile & small screens -->
@@ -64,7 +64,7 @@
         </li>
     </ul>
     <!--Information show up below the tabs for larger screens -->
-    <div id="About_big" class="tab" style="display:none">
+    <div id="About_big" class="tab">
         <h2>About the Project</h2>
         <h4>{{$ctrl.project.short_desc}} </h4>
         <p>{{$ctrl.project.long_desc}}</p>

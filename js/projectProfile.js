@@ -1,3 +1,4 @@
+
 // When the page is first loaded & when the window is resized, erase the opened tabs
 function emptySelection() {
     var i;
@@ -13,7 +14,8 @@ function emptySelection() {
     // if the screen is larger than 768px, display the "About" tab by default
     var mediaQuery = window.matchMedia("screen and (min-width: 768px)");
     if (mediaQuery.matches) {
-        document.getElementById('About_big').style.display = "block";
+		var AboutBig = document.getElementById('About_big');
+		AboutBig.style.display = "block";
     }
 }
 
@@ -44,10 +46,4 @@ function expandTab(tabName) {
         }
         document.getElementById(tabName).style.display = "block";
     }
-}
-
-
-function getProject(){
-    
-	location.href = "users" + URL;
 }
