@@ -4,9 +4,7 @@
 	"description": "I want to fight the villains near Alpha Centauri, help me get there.",
 	"num_members_needed": 3,
 	"active": true,
-	"creators": [{
-		"user_id": "batman"
-	}],
+	"creator": "batman",
 	"moderators": [{
 		"user_id": "andrew96"
 	}],
@@ -38,9 +36,7 @@
 	"description": "Help me take over the world",
 	"num_members_needed": 4,
 	"active": false,
-	"creators": [{
-		"user_id": "joker76"
-	}],
+	"creator": "joker76",
 	"moderators": [],
 	"contributors": [],
 	"join_requests": [],
