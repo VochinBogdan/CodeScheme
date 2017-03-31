@@ -42,19 +42,19 @@
                     <h2>People Involved</h2>
                     <h4>Creator</h4>
                     <ul>
-                        <li><i class="fa fa-user"><a href=""> {{$ctrl.project.creator}}</a></i>
+                        <li><i class="fa fa-user"><a href="/html/UserProfile.html?username={{$ctrl.project.creator}}"> {{$ctrl.project.creator}}</a></i>
                         </li>
                     </ul>
                     <br>
                     <h4>Moderators</h4>
                     <ul>
-                        <li class="cur-moderators" ng-repeat="mod in $ctrl.projects.moderators"><i class="fa fa-user"><a href=""> {{mod.username}}</a></i>
+                        <li class="cur-moderators" ng-repeat="mod in $ctrl.projects.moderators"><i class="fa fa-user"><a href="/html/UserProfile.html?username={{mod.username}}"> {{mod.username}}</a></i>
                         </li>
                     </ul>
                     <br>
-                    <h4>Members</h4>
+                    <h4>Contributors</h4>
                     <ul>
-                        <li class="cur-members" ng-repeat="mem in $ctrl.projects.members"><i class="fa fa-user"><a href=""> {{mem.username}}</a></i>
+                        <li class="cur-Contributors" ng-repeat="contributor in $ctrl.projects.contributors"><i class="fa fa-user"><a href="/html/UserProfile.html?username={{contributor.username}}"> {{contributor.username}}</a></i>
                         </li>
                     </ul>
                     <br>
@@ -85,19 +85,19 @@
         <h2>People Involved</h2>
         <h4>Creator</h4>
         <ul>
-            <li><i class="fa fa-user"><a href=""> {{$ctrl.project.creator}}</a></i>
+            <li><i class="fa fa-user"><a href="/html/UserProfile.html?username={{$ctrl.project.creator}}"> {{$ctrl.project.creator}}</a></i>
             </li>
         </ul>
         <br>
         <h4>Moderators</h4>
         <ul>
-            <li class="cur-moderators" ng-repeat="mod in $ctrl.projects.moderators"><i class="fa fa-user"> {{mod.username}}</i>
+            <li class="cur-moderators" ng-repeat="mod in $ctrl.projects.moderators"><i class="fa fa-user"><a href="/html/UserProfile.html?username={{mod.username}}"> {{mod.username}}</a></i>
             </li>
         </ul>
         <br>
-        <h4>Members</h4>
+        <h4>Contributors</h4>
         <ul>
-            <li class="cur-members" ng-repeat="mem in $ctrl.projects.members"><i class="fa fa-user"> {{mem.username}}</i>
+            <li class="cur-contributors" ng-repeat="contributor in $ctrl.projects.contributors"><i class="fa fa-user"><a href="/html/UserProfile.html?username={{contributor.username}}"> {{contributor.username}}</a></i>
             </li>
         </ul>
         <br>

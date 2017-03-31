@@ -31,8 +31,8 @@ function createProject(req, res) {
             createJSON.active = req.body.active;
         if (req.body.moderators)
             createJSON.moderators = req.body.moderators;
-        if (req.body.members)
-            createJSON.members = req.body.members;
+        if (req.body.contributors)
+            createJSON.contributors = req.body.contributors;
         if (req.body.skills_used)
             createJSON.skills_used = req.body.skills_used;
         if (req.body.tags)
@@ -119,11 +119,11 @@ function editProject(req, res) {
                     else
                         editJSON.moderators = project.moderators + ", " + req.body.moderators;
                 }
-                if (req.body.members){
-                    if(!project.members)
-                        editJSON.members = req.body.members;
+                if (req.body.contributors){
+                    if(!project.contributors)
+                        editJSON.contributors = req.body.contributors;
                     else
-                        editJSON.members = project.members + ", " + req.body.members;
+                        editJSON.contributors = project.contributors + ", " + req.body.contributors;
                 }
                 if (req.body.skills_used){
                     if(!project.skills_used)
