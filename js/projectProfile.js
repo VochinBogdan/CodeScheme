@@ -20,7 +20,7 @@ function emptySelection() {
 }
 
 function expandTab(tabName) {
-    var i;
+    var i, flag = 0;
     var mediaQuery = window.matchMedia("screen and (min-width: 768px)");
     if (mediaQuery.matches) { // if media query matches
         var idName = tabName + "_big";
@@ -41,9 +41,12 @@ function expandTab(tabName) {
         }
 
         x = document.getElementsByClassName("expand_tab");
-        for (i = 0; i < x.length; i++) {
+		if(document.getElementById(tabName).style.display == "block")
+			flag = 1;
+		for (i = 0; i < x.length; i++) {
             x[i].style.display = "none";
         }
-        document.getElementById(tabName).style.display = "block";
+		if(!flag)
+			document.getElementById(tabName).style.display = "block";
     }
 }

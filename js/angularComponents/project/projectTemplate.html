@@ -39,27 +39,26 @@
         </li>
         <li id="People" class="expand_tab" style="display:none">
             <div>
-                <a href="" onClick="display:none">
                     <h2>People Involved</h2>
-                    <h4>Creators</h4>
+                    <h4>Creator</h4>
                     <ul>
-                        <li><i class="fa fa-user"> {{$ctrl.project.creator}}</i>
+                        <li><i class="fa fa-user"><a href=""> {{$ctrl.project.creator}}</a></i>
                         </li>
                     </ul>
                     <br>
                     <h4>Moderators</h4>
                     <ul>
-                        <li class="cur-moderators" ng-repeat="mod in $ctrl.projects.moderators"><i class="fa fa-user"> {{mod.username}}</i>
+                        <li class="cur-moderators" ng-repeat="mod in $ctrl.projects.moderators"><i class="fa fa-user"><a href=""> {{mod.username}}</a></i>
                         </li>
                     </ul>
                     <br>
                     <h4>Members</h4>
                     <ul>
-                        <li class="cur-members" ng-repeat="mem in $ctrl.projects.members"><i class="fa fa-user"> {{mem.username}}</i>
+                        <li class="cur-members" ng-repeat="mem in $ctrl.projects.members"><i class="fa fa-user"><a href=""> {{mem.username}}</a></i>
                         </li>
                     </ul>
                     <br>
-                </a>
+                
             </div>
         </li>
     </ul>
@@ -84,7 +83,7 @@
     </div>
     <div id="People_big" class="tab" style="display:none">
         <h2>People Involved</h2>
-        <h4>Creators</h4>
+        <h4>Creator</h4>
         <ul>
             <li><i class="fa fa-user"><a href=""> {{$ctrl.project.creator}}</a></i>
             </li>
