@@ -1,3 +1,4 @@
+/* some format taken from tapp.css from class lab exercise 4 */
 body {
     margin: 0;
     padding: 0;
@@ -33,11 +34,17 @@ h1 {
     min-width: 150px;
     max-width: 500px;
 }
+
+.form_element {
+	text-align: center;
+}
+
 .form_element {} textarea {
     max-width: 100%;
 }
 .skills {
     margin-bottom: 20px;
+	text-align: center;
 }
 .skill_name {
     margin: 10px 0 10px 0;

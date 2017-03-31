@@ -5,7 +5,7 @@
 
     function editProjectController(ePS){
         var ctrl=this;
-        ctrl.project=ePS.editedProject;
+        ctrl.project=ePS.project;
 
       ctrl.editProject=function(){
           ePS.editProject();

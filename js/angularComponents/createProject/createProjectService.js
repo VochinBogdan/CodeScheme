@@ -13,7 +13,7 @@
                     short_desc:'',
                     long_desc:'',
 					tags:'',
-					//skills:'',
+					skills:'',
 					num_needed:'',
 					github:'',
 					city:'',
@@ -24,7 +24,7 @@
             return service;
 
         function createProject(){
-
+			console.log("hi");
             console.log(service.newProject);
             $http({
                 url:'/projects',
@@ -35,7 +35,7 @@
 					short_desc:service.newProject.short_desc,
                     long_desc:service.newProject.long_desc,
 					tags:service.newProject.tags,
-					//skills:service.newProject.skills,
+					skills:service.newProject.skills,
 					num_needed:service.newProject.num_needed,
 					github:service.newProject.github,
 					city:service.newProject.city,
@@ -49,13 +49,14 @@
 		
 		function getUser(){
             var username=getParameterByName('username')
-
+			
             $http({
                 url:'/users/'+username,
                 method:'GET'
             }).then(function(res){
-                angular.copy(res.data,service.newProject);
+                angular.copy(res.data.username,service.newProject.username);
             });
+			
         }
 
         function getParameterByName(name, url) {
