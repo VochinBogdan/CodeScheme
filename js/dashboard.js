@@ -110,7 +110,7 @@ function getParameterByName(name) {
 
 $(document).ready(function() {
     // get username
-    var username = getParameterByName("username");
+    var username = getParameterByName("loggedInUsername");
     var user_projects = [];
     var following_projects = [];
 
@@ -152,6 +152,13 @@ $(document).ready(function() {
                     }
                 }
             });
+        },
+        error : function() {
+            window.location.replace("userNotFound.html");
         }
+    });
+
+    $("#logo").click(function() {
+        window.location.replace("dashboard.html?loggedInUsername=" + username);
     });
 });

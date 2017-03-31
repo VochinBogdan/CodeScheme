@@ -100,24 +100,7 @@ module.exports = function (app, db) {
             }
         );
     })
-    
-    app.delete('/users/:username', function(req, res) {
-        
-        if (!req.params.username) {
-            return res.sendStatus(400);
-        }
-        
-        var cursor = db.collection('projects').find({moderators: req.params.username}, {moderators: 1});
-        while (cursor.hasNext()) {
-            console.log("cursor: " + cursor);
-            var project = cursor.next();
-            console.log("cursor.next: " + project);
-            console.log("project.moderators: " + project.moderators);
-            //var new_moderators = [];
-        }
-        
-    })
-/*
+
     // Delete a user
     app.delete('/users/:username', function(req, res) {
         // Check username and password
@@ -148,7 +131,7 @@ module.exports = function (app, db) {
             return res.sendStatus(200);
         });
     })
-*/
+
     app.put('/users/:username', function(req, res) {
         if (!req.params.username || !req.body.oldPassword) {
             console.log("username and password combination required");
