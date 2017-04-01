@@ -1,3 +1,5 @@
+var numSkill = 1;
+
 // shows the value for the sliders
 function showValue(newValue)
 {
