@@ -13,9 +13,14 @@
                     <h4>{{$ctrl.project.short_desc}} </h4>
                     <p>{{$ctrl.project.long_desc}}</p>
                     <br>
-                    <h4 class="cur-tags" ng-repeat="tag in $ctrl.project.tags">Tags: </h4>
-                    <h5>#{{tag}} </h5>
+                    <h4>Tags: </h4>
+                    <h5 class="cur-tags" ng-repeat="tag in $ctrl.project.tags">#{{tag}} </h5>
                     <br>
+					<h4>City: {{$ctrl.project.city}}</h4>
+					<br>
+					<h4>School: {{$ctrl.project.school}}</h4>
+					<br>
+					
                 </a>
             </div>
         </li>
@@ -67,8 +72,13 @@
         <h2>About the Project</h2>
         <h4>{{$ctrl.project.short_desc}} </h4>
         <p>{{$ctrl.project.long_desc}}</p>
-        <h4 class="cur-tags" ng-repeat="tag in $ctrl.project.tags">Tags: </h4>
-        <h5>#{{tag}} </h5>
+        <h4>Tags: </h4>
+		<h5 class="cur-tags" ng-repeat="tag in $ctrl.project.tags">#{{tag}} </h5>
+		<br>
+		<h4>City: {{$ctrl.project.city}}</h4>
+		<br>
+		<h4>School: {{$ctrl.project.school}}</h4>
+		<br>
     </div>
     <div id="Skills_big" class="tab" style="display:none">
         <h2>Skills Required</h2>

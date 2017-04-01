@@ -5,7 +5,7 @@
     function editProjectService($http){
             var service= {
                 editProject: editProject,
-				getUser:getUser,
+				getLoggedInUser:getLoggedInUser,
 				getProject:getProject,
                 project: {
                     title:'',
@@ -13,7 +13,7 @@
                     short_desc:'',
                     long_desc:'',
 					tags:'',
-					skills:'',
+					skills_used:'',
 					num_needed:'',
 					moderators:'',
 					contributors:'',
@@ -33,11 +33,11 @@
                 method:'PUT',
                 data:{
 					title:service.project.title,
-					username:service.project.username,
+					username:service.loggedInUsername.name,
 					short_desc:service.project.short_desc,
                     long_desc:service.project.long_desc,
 					tags:service.project.tags,
-					skills:service.project.skills,
+					skills_used:service.project.skills_used,
 					num_needed:service.project.num_needed,
 					moderators:service.project.moderators,
 					contributors:service.project.contributors,
@@ -63,15 +63,8 @@
             return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
 		
-		function getUser(){
-            var username=getParameterByName('username')
-
-            $http({
-                url:'/users/'+username,
-                method:'GET'
-            }).then(function(res){
-                angular.copy(res.data,service.project);
-            });
+		function getLoggedInUser(){
+			service.newProject.username = getParameterByName('loggedInUsername');
         }
 
         function getProject(){

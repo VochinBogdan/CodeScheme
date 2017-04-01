@@ -9,7 +9,7 @@
                 short_desc: '',
                 long_desc: '',
                 tags: [],
-                skills: [],
+                skills_used: [],
                 creator: '',
                 moderators: [],
 				contributors: [],

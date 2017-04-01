@@ -6,14 +6,14 @@
     function createProjectService($http){
             var service= {
                 createProject: createProject,
-				getUser:getUser,
+				getLoggedInUser:getLoggedInUser,
                 newProject: {
                     title:'',
 					username:'',
                     short_desc:'',
                     long_desc:'',
-					tags:'',
-					skills:'',
+					tags:[],
+					skills_used:[],
 					num_needed:'',
 					github:'',
 					city:'',
@@ -24,8 +24,7 @@
             return service;
 
         function createProject(){
-			console.log("hi");
-            console.log(service.newProject);
+			console.log(service.newProject);
             $http({
                 url:'/projects',
                 method:'POST',
@@ -35,7 +34,7 @@
 					short_desc:service.newProject.short_desc,
                     long_desc:service.newProject.long_desc,
 					tags:service.newProject.tags,
-					skills:service.newProject.skills,
+					skills_used:service.newProject.skills_used,
 					num_needed:service.newProject.num_needed,
 					github:service.newProject.github,
 					city:service.newProject.city,
@@ -47,16 +46,8 @@
             });
         }
 		
-		function getUser(){
-            var username=getParameterByName('username')
-			
-            $http({
-                url:'/users/'+username,
-                method:'GET'
-            }).then(function(res){
-                angular.copy(res.data.username,service.newProject.username);
-            });
-			
+		function getLoggedInUser(){
+			service.newProject.username = getParameterByName('loggedInUsername');
         }
 
         function getParameterByName(name, url) {

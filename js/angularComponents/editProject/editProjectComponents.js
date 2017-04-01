@@ -5,10 +5,15 @@
 
     function editProjectController(ePS){
         var ctrl=this;
-        ctrl.project=ePS.project;
+		ctrl.project=ePS.project;
+		
+		ctrl.$onInit=function(){
+			ePS.getProject();
+            ePS.getLoggedInUser();
+        }
 
-      ctrl.editProject=function(){
-          ePS.editProject();
+		ctrl.editProject=function(){
+			ePS.editProject();
         }
     }
 
