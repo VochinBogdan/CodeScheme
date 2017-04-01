@@ -47,7 +47,7 @@
             <section class="skills">
                 <h4 class="Label">Skills:</h4>
                 <div class="skill" id="skill1">
-                    <select class="skill_name">
+                    <select class="skill_name" id="skill_name1">
                         <option value="HTML">HTML</option>
                         <option value="CSS">CSS</option>
                         <option value="JavaScript">JavaScript</option>
@@ -57,7 +57,7 @@
                     <span id="result1">0</span>
                 </div>
                 <div class="skill" id="skill2" style="display:none">
-                    <select class="skill_name">
+                    <select class="skill_name" id="skill_name2">
                         <option value="HTML">HTML</option>
                         <option value="CSS">CSS</option>
                         <option value="JavaScript">JavaScript</option>
@@ -67,7 +67,7 @@
                     <span id="result2">0</span>
                 </div>
                 <div class="skill" id="skill3" style="display:none">
-                    <select class="skill_name">
+                    <select class="skill_name" id="skill_name3">
                         <option value="HTML">HTML</option>
                         <option value="CSS">CSS</option>
                         <option value="JavaScript">JavaScript</option>
@@ -135,9 +135,11 @@
                     <input type="text" id="school" name="school" class="input_element" ng-model="$ctrl.project.school" value="{{$ctrl.project.school}}">
                 </label>
             </div>
+			
+			<p id="final_skills" ng-model="$ctrl.project.skills_used" style="display:none"> </p>
 
             <div class="form_element">
-                <input id="SubmitButton" type="submit" value="Submit" class="submit_button" ng-click="$ctrl.editProject()">
+                <input id="SubmitButton" type="submit" value="Submit" class="submit_button" onClick="processSkills()" ng-click="$ctrl.editProject()">
             </div>
         </form>
     </section>
