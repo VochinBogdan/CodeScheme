@@ -5,35 +5,15 @@
     function projectService($http){
         var service={
             currentProject:{
-                title: 'The Very Best Project Ever',
-                short_desc: 'this is a short description',
-                long_desc: 'this is a long description. Sort of.',
-                tags: [{}],
-                skills: [{
-                        name:'Javascript',
-                        level:'80%'
-                    },
-                    {
-                        name:'CSS',
-                        level:'20%'
-                    },{
-                        name:'HTML',
-                        level:'60%'
-                    }],
-                creator: 'Mandy',
-                moderators: [{
-                    username:'Andy'
-                },
-                {
-                    username:'Andy1'
-                }],
-                members: [{
-                    username:'Andy2'
-                },
-                {
-                    username:'Andy3'
-                }],
-                numMembers: 5,
+                title: '',
+                short_desc: '',
+                long_desc: '',
+                tags: [],
+                skills_used: [],
+                creator: '',
+                moderators: [],
+				contributors: [],
+                num_needed: null,
                 github: null,
                 city: null,
                 school: null

@@ -6,9 +6,11 @@
     function editUserController(eUS){
         var ctrl=this;
         ctrl.user=eUS.user;
+        ctrl.loggedInUsername = eUS.loggedInUsername;
 
         ctrl.$onInit=function(){
             eUS.getUser();
+            eUS.setLoginUser();
         }
 
         ctrl.updateUser=function(){

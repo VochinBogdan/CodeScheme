@@ -19,7 +19,11 @@
                 following_projects: []
             },
             projects:[],
-            getUser:getUser
+            loggedInUsername: {
+                name:''
+            },
+            getUser:getUser,
+            setLoginUser:setLoginUser
         }
 
         return service;
@@ -42,6 +46,11 @@
                     });
                 }
             });
+        }
+
+
+        function setLoginUser(){
+            service.loggedInUsername.name = getParameterByName('loggedInUsername');
         }
 
         function getParameterByName(name, url) {

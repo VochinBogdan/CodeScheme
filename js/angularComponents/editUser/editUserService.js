@@ -7,6 +7,7 @@
         var service= {
             updateUser: updateUser,
             getUser:getUser,
+            setLoginUser:setLoginUser,
             user: {
                 username: '',
                 email: '',
@@ -21,8 +22,11 @@
                 projects: [],
                 past_projects: [],
                 following_projects: []
+            },
+            loggedInUsername:{
+                name:''
             }
-        }
+        };
 
         return service;
 
@@ -37,8 +41,8 @@
                     oldPassword:service.user.oldpassword,
                     password:service.user.password,
                     github: service.user.github,
+                    skills_known: service.user.skills,
                     //TODO: ADD THESE to HTML
-                    //skills_known: service.user.skills_known,
                     //skills_wanted: service.user.skills_wanted,
                     bio: service.user.bio,
                     city: service.user.city,
@@ -46,12 +50,12 @@
                 }
             }).then(function(res){
                 console.log(res);
-                window.location.replace('/html/UserProfile.html?username='+ service.user.username);
+                window.location.replace('/html/UserProfile.html?username='+ service.user.username + '&loggedInUsername='+ service.user.username);
             });
         }
 
         function getUser(){
-            var username=getParameterByName('username')
+            var username=getParameterByName('username');
 
             $http({
                 url:'/users/'+username,
@@ -59,13 +63,10 @@
             }).then(function(res){
                 angular.copy(res.data,service.user);
             });
+        }
 
-            $http({
-                url:'/users/'+username+'/private',
-                method:'GET'
-            }).then(function(res){
-                angular.copy(res.data.email,service.user.email);
-            });
+        function setLoginUser(){
+            service.loggedInUsername.name = getParameterByName('loggedInUsername');
         }
 
         function getParameterByName(name, url) {

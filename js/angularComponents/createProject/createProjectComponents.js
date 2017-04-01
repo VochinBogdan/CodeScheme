@@ -5,11 +5,14 @@
 
     function createProjectController(cPS){
         var ctrl=this;
-        ctrl.project=cPS.newProject;
+		ctrl.project=cPS.newProject;
 
-      ctrl.createProject=function(){
-          console.log('project created');
-          cPS.createProject();
+		ctrl.$onInit=function(){
+            cPS.getLoggedInUser();
+        }
+		
+		ctrl.createProject=function(){
+			cPS.createProject();
         }
     }
 

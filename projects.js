@@ -11,7 +11,7 @@ function createProject(req, res) {
     // Query to make sure there isn't a user with the same project title and creator username
     var count = db.collection('projects').count({title: req.body.title}, function(err, count) {
         
-        // Project title and username already in database
+        // Project title already in database
         if (count > 0){ 
             console.log("already in db");
             return res.sendStatus(403);
@@ -21,18 +21,14 @@ function createProject(req, res) {
         var createJSON = {};
         createJSON.title = req.body.title;
         createJSON.creator = req.body.username;
+		createJSON.active = "true";
+		createJSON.requestJoin = [];
         if (req.body.short_desc)
             createJSON.short_desc = req.body.short_desc;
         if (req.body.long_desc)
             createJSON.long_desc = req.body.long_desc;
         if (req.body.num_needed)
-            createJSON.num_needed = req.body.num_needed;
-        if (req.body.active)
-            createJSON.active = req.body.active;
-        if (req.body.moderators)
-            createJSON.moderators = req.body.moderators;
-        if (req.body.contributors)
-            createJSON.contributors = req.body.contributors;
+            createJSON.num_needed = req.body.num_needed;            
         if (req.body.skills_used)
             createJSON.skills_used = req.body.skills_used;
         if (req.body.tags)
@@ -52,6 +48,7 @@ function createProject(req, res) {
     
 }
 
+
 // Get a project's profile info
 function getProject(req, res) {
     
@@ -60,11 +57,6 @@ function getProject(req, res) {
         
         function(err, project) {
             if (project){
-                //res.json(project);
-                //res.status(200).render('project_profile',
-                //{
-                //    userList: usersList
-                //});
                 res.status(200).json(project);
             // If document not found
             } else {
@@ -73,25 +65,26 @@ function getProject(req, res) {
         })    
 }
 
+
 function editProject(req, res) {
     // Check required attributes are there
-    if (!req.body.title || !req.body.username)
+    if (!req.params.title || !req.params.username)
         return res.sendStatus(400);
     
     var has_permission = 0, i = 0, moderator_list;
     
     // Find document matching title
-    db.collection('projects').findOne({title: req.body.title},       
+    db.collection('projects').findOne({title: req.params.title},       
         
         function(err, project) {
             if (project){
                 
                 // Make sure they have creator/moderator permission
-                if (req.body.username != project.creator){
+                if (req.params.username != project.creator){
                     if(project.moderators){
                         moderator_list = (project.moderators).split(", ");
                         while(moderator_list[i]){
-                            if(req.body.username == moderator_list[i])
+                            if(req.params.username == moderator_list[i])
                                 has_permission = 1;
                             i++;
                         }
@@ -146,7 +139,7 @@ function editProject(req, res) {
 
                 // Update
                 db.collection('projects').updateOne({
-                    title: req.body.title}, { $set: editJSON },
+                    title: req.params.title}, { $set: editJSON },
                 function(err, result) {
                     if (result.matchedCount == 1) {
                         res.sendStatus(200);
@@ -179,7 +172,7 @@ function deleteProject(req, res) {
                 return res.sendStatus(401);
             }
             // Delete Project
-            db.collection('projects').deleteOne({title: req.params.title},
+            db.collection('projects').deleteOne({title: req.query.title},
             function(err, result) {
                 if (result.deletedCount != 1) {
                     // A project was not deleted
@@ -197,13 +190,15 @@ function deleteProject(req, res) {
 
 // Search projects
     function getProjectsSearch(req, res) {
-        db.collection('projects').find(req.params).toArray(function(err, docs) {
-            if (err) {
-                handleError(res, err.message, "Failed to get projects.");
-            } else {
-                res.status(200).json(docs);
-            }
-        });
+		
+		db.collection('projects').find(req.query).toArray(function(err, docs) {
+			if (err) {
+				handleError(res, err.message, "Failed to get projects.");
+			} else {
+				res.status(200).json(docs);
+			}
+		});
+		
     }
 
 app.post('/projects', createProject);

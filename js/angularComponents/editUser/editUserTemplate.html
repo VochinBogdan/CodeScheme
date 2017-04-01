@@ -31,6 +31,26 @@
                 <label>Github</label>
                 <input type="text" placeholder="Github" ng-model="$ctrl.user.github" value="{{$ctrl.user.github}}">
             </fieldset>
+            <!--Skills-->
+            <section class="skillslist">
+                <h4 class="Label">Skills:</h4>
+                <div class="skills">
+                    <input type="text" ng-model="$ctrl.skills_known[0].name" name="" placeholder="Skill Name">
+                    <input type="text" ng-model="$ctrl.skills_known[0].level" name="" placeholder="Skill level 0-100">
+                    <br>
+                </div>
+                <div class="skills">
+                    <input type="text" ng-model="$ctrl.skills_known[1].name" name="" placeholder="Skill Name">
+                    <input type="text" ng-model="$ctrl.skills_known[1].level" name="" placeholder="Skill level 0-100">
+                    <br>
+                </div>
+                <div class="skills">
+                    <input type="text" ng-model="$ctrl.skills_known[2].name" name="" placeholder="Skill Name">
+                    <input type="text" ng-model="$ctrl.skills_known[2].level" name="" placeholder="Skill level 0-100">
+                    <br>
+                </div>
+            </section>
+            <!--End of Skills-->
             <button type="button" ng-click="$ctrl.updateUser()">Submit</button>
         </form>
     </div>

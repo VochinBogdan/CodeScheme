@@ -19,6 +19,7 @@ function emptySelection() {
     }
 }
 
+// expand the tab if it's not opened already
 function expandTab(tabName) {
     var i, flag = 0;
     var mediaQuery = window.matchMedia("screen and (min-width: 768px)");
