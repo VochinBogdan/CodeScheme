@@ -12,8 +12,8 @@
 					username:'',
                     short_desc:'',
                     long_desc:'',
-					tags:'',
-					skills_used:'',
+					tags:[],
+					skills_used:[],
 					num_needed:'',
 					moderators:'',
 					contributors:'',
@@ -33,7 +33,7 @@
                 method:'PUT',
                 data:{
 					title:service.project.title,
-					username:service.loggedInUsername.name,
+					username:service.project.username,
 					short_desc:service.project.short_desc,
                     long_desc:service.project.long_desc,
 					tags:service.project.tags,
@@ -64,7 +64,7 @@
         }
 		
 		function getLoggedInUser(){
-			service.newProject.username = getParameterByName('loggedInUsername');
+			service.project.username = getParameterByName('loggedInUsername');
         }
 
         function getProject(){
