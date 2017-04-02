@@ -2,12 +2,12 @@
 <html>
     <head>
         <meta charset="utf-8"/>
+        <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="../css/nav.css">
         <link rel="stylesheet" href="../css/ProjectSearch.css">
-        <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
-        <script src="../js/project_search.js"></script>
+        <script src="../js/projectSearch.js"></script>
         <script src="../js/nav.js"></script>
         <title>CodeScheme - Search</title>
     </head>
@@ -50,31 +50,23 @@
             <!-- Filters for searching projects -->
             <div class="filters">
                 <h3>Filters</h3>
-                <div class="filter_line">Location <input type="text"></div>
+                <div class="filter_line">City <input type="text" ng-model="filter.city"></div>
                 <div class="filter_line">School
-                    <select class="school_menu" name="School">
-                        <option value="any">Any</option>
-                        <option value="UofT">University of Toronto</option>
-                        <option value="Waterloo">Waterloo</option>
-                    </select>
+                    <input name="School" type="text" ng-model="filter.school">
                 </div>
 
                 <h4>Skills</h4>
-                    <div><div class="skills">
-                        <div class="skill filter_line">
-                            HTML
-                            <button class="remove_skill">x</button>
+                    <div class="skills">
+                        <div class="skill filter_line" ng-repeat="skill in filteredSkills">
+                            {{ skill }}
+                            <button class="remove_skill" ng-click="removeSkill(skill)">x</button>
                         </div>
-                        <div class="skill filter_line">
-                            Javascript
-                            <button class="remove_skill">x</button>
-                        </div>
-                    </div></div>
-                    <div class="filter_line">
-                        <input type="text" placeholder="Add Skill">
-                        <button>Add</button>
                     </div>
-                <div class="filter_line"><button class="apply_filter">Apply Filters</button></div>
+                    <div class="filter_line">
+                        <input type="text" ng-model="newSkill" placeholder="Add Skill">
+                        <button ng-click="addFilterSkill(newSkill)">Add</button>
+                    </div>
+                <div class="filter_line"><button ng-click="filterProjects(filter)" class="apply_filter">Apply Filters</button></div>
             </div>
 
             <div class="search_results">
@@ -98,7 +90,7 @@
                                 #{{ skill.name }}
                             </span>
                         </p>
-                        <p class="project_location">{{ project.city }}</p></div>
+                        <p class="project_location">{{ project.city }} - {{ project.school }}</p></div>
                 </div>
             </div>
         </div>
