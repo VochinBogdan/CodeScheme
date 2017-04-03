@@ -50,9 +50,9 @@
             <!-- Filters for searching projects -->
             <div class="filters">
                 <h3>Filters</h3>
-                <div class="filter_line">City <input type="text" ng-model="filter.city"></div>
+                <div class="filter_line">City <input type="text" ng-model="city"></div>
                 <div class="filter_line">School
-                    <input name="School" type="text" ng-model="filter.school">
+                    <input name="School" type="text" ng-model="school">
                 </div>
 
                 <h4>Skills</h4>
@@ -66,7 +66,7 @@
                         <input type="text" ng-model="newSkill" placeholder="Add Skill">
                         <button ng-click="addFilterSkill(newSkill)">Add</button>
                     </div>
-                <div class="filter_line"><button ng-click="filterProjects(filter)" class="apply_filter">Apply Filters</button></div>
+                <div class="filter_line"><button ng-click="filterProjects(city, school)" class="apply_filter">Apply Filters</button></div>
             </div>
 
             <div class="search_results">
