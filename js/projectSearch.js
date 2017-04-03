@@ -29,11 +29,9 @@ projectSearchApp.controller('projectSearchController', function($scope, $http) {
             params.push("school=" + school);
         }
         url += params.join("&");
-        console.log(url);
         $http({
             url: url,
             method: 'GET'}).then(function ( response ) {
-                console.log(response);
                 recieved_projects = response.data;
                 $scope.projects = recieved_projects;
                 console.log($scope.projects);
