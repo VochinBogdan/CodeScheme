@@ -6,6 +6,7 @@
     function editUserController(eUS){
         var ctrl=this;
         ctrl.user=eUS.user;
+        ctrl.skill=eUS.skill;
         ctrl.loggedInUsername = eUS.loggedInUsername;
 
         ctrl.$onInit=function(){
