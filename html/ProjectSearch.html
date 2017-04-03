@@ -80,10 +80,10 @@
                 <div class="searched_projects">
                     <div class="project_search_result" ng-repeat="project in projects">
                         <a href="/html/projectProfile.html?title={{ project.title }}"><h3>{{ project.title }}</h3></a>
-                        <p class="project_creator">Creator: <a href="/html/UserProfile.html?username={{ project.creators[0].user_id }}">{{ project.creators[0].user_id }}</a></p>
-                        <p class="project_description">{{ project.short_description }}</p>
+                        <p class="project_creator">Creator: <a href="/html/UserProfile.html?username={{ project.creator }}">{{ project.creator }}</a></p>
+                        <p class="project_description">{{ project.short_desc }}</p>
                         <p class="project_teammates_needed">
-                            {{ project.num_members_found }}/{{ project.num_members_needed }} Teammates needed
+                            {{ project.num_needed }} Teammates needed
                         </p>
                         <p class="project_tags">
                             <span ng-repeat="(i, skill) in project.skills_used">
