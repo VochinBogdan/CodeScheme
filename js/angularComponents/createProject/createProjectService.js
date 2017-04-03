@@ -17,7 +17,10 @@
 					num_needed:'',
 					github:'',
 					city:'',
-					school:''
+					school:'',
+                    contributors: [],
+                    moderators: [],
+                    join_requests: []
                 }
             }
 
