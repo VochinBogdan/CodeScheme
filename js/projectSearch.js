@@ -1,9 +1,5 @@
 var projectSearchApp = angular.module("projectSearchApp", []);
 
-projectSearchApp.config(['$qProvider', function ($qProvider) {
-    $qProvider.errorOnUnhandledRejections(false);
-}]);
-
 projectSearchApp.controller('projectSearchController', function($scope, $http) {
 
     $scope.filteredSkills = [];
@@ -36,12 +32,11 @@ projectSearchApp.controller('projectSearchController', function($scope, $http) {
         console.log(url);
         $http({
             url: url,
-            method: 'GET'})
-        .then(function ( response ) {
-            recieved_projects = response.data;
-            // Add attribute to projects for current number of members
-            recieved_projects.forEach( function(project) {
-                project.num_members_found = project.contributors.length;
+            method: 'GET'}).then(function ( response ) {
+                recieved_projects = response.data;
+                // Add attribute to projects for current number of members
+                recieved_projects.forEach( function(project) {
+                    project.num_members_found = project.contributors.length;
             }) 
             
             $scope.projects = recieved_projects;
