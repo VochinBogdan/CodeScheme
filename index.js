@@ -15,7 +15,7 @@ var db;
 MongoClient.connect(mongoURL, function(err, database) {
     console.log(database);
     // Database is ready; listen on port 3000
-    app.listen(3000, function () {
+    app.listen(process.env.PORT || 3000, function () {
         console.log('App listening on port 3000');
     });
 
@@ -26,7 +26,7 @@ MongoClient.connect(mongoURL, function(err, database) {
 });
 
 app.get('/', function (req,res) {
-    res.sendfile(__dirname + '/html/SignUpPage.html');
+    res.sendFile(__dirname + '/html/SignUpPage.html');
 });
 
 app.get('/project_search', function(req, res) {
