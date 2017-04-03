@@ -25,13 +25,17 @@
             },
             loggedInUsername:{
                 name:''
+            },
+            skill:{
+                name:'',
+                level:''
             }
         };
 
         return service;
 
         function updateUser(){
-
+            service.user.skills_known.push(service.skill);
             console.log(service.user);
             $http({
                 url:'/users/' + service.user.username,
@@ -41,7 +45,7 @@
                     oldPassword:service.user.oldpassword,
                     password:service.user.password,
                     github: service.user.github,
-                    skills_known: service.user.skills,
+                    skills_known: service.user.skills_known,
                     //TODO: ADD THESE to HTML
                     //skills_wanted: service.user.skills_wanted,
                     bio: service.user.bio,

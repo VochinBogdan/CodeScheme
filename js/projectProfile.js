@@ -51,3 +51,14 @@ function expandTab(tabName) {
 			document.getElementById(tabName).style.display = "block";
     }
 }
+
+function switchButton(join_button) {
+	if(join_button.value == "Request to Join"){
+		join_button.value = "Cancel Request to Join";
+		alert("Request Submitted!");
+	}
+	else{
+		join_button.value = "Request to Join";
+		alert("Request Cancelled!");
+	}
+}
