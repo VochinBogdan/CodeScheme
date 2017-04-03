@@ -47,6 +47,6 @@ projectSearchApp.controller('projectSearchController', function($scope, $http) {
         });
     }
 
-    $scope.filterProjects([]);
+    $scope.filterProjects("","");
 });
 
