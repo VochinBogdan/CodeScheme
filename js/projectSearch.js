@@ -1,5 +1,9 @@
 var projectSearchApp = angular.module("projectSearchApp", []);
 
+projectSearchApp.config(['$qProvider', function ($qProvider) {
+    $qProvider.errorOnUnhandledRejections(false);
+}]);
+
 projectSearchApp.controller('projectSearchController', function($scope, $http) {
 
     $scope.filteredSkills = [];
@@ -43,3 +47,4 @@ projectSearchApp.controller('projectSearchController', function($scope, $http) {
 
     $scope.filterProjects([]);
 });
+
