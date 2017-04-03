@@ -50,9 +50,9 @@
             <!-- Filters for searching projects -->
             <div class="filters">
                 <h3>Filters</h3>
-                <div class="filter_line">City <input type="text" ng-model="filter.city"></div>
+                <div class="filter_line">City <input type="text" ng-model="city"></div>
                 <div class="filter_line">School
-                    <input name="School" type="text" ng-model="filter.school">
+                    <input name="School" type="text" ng-model="school">
                 </div>
 
                 <h4>Skills</h4>
@@ -66,7 +66,7 @@
                         <input type="text" ng-model="newSkill" placeholder="Add Skill">
                         <button ng-click="addFilterSkill(newSkill)">Add</button>
                     </div>
-                <div class="filter_line"><button ng-click="filterProjects(filter)" class="apply_filter">Apply Filters</button></div>
+                <div class="filter_line"><button ng-click="filterProjects(city, school)" class="apply_filter">Apply Filters</button></div>
             </div>
 
             <div class="search_results">
@@ -80,10 +80,10 @@
                 <div class="searched_projects">
                     <div class="project_search_result" ng-repeat="project in projects">
                         <a href="/html/projectProfile.html?title={{ project.title }}"><h3>{{ project.title }}</h3></a>
-                        <p class="project_creator">Creator: <a href="/html/UserProfile.html?username={{ project.creators[0].user_id }}">{{ project.creators[0].user_id }}</a></p>
-                        <p class="project_description">{{ project.short_description }}</p>
+                        <p class="project_creator">Creator: <a href="/html/UserProfile.html?username={{ project.creator }}">{{ project.creator }}</a></p>
+                        <p class="project_description">{{ project.short_desc }}</p>
                         <p class="project_teammates_needed">
-                            {{ project.num_members_found }}/{{ project.num_members_needed }} Teammates needed
+                            {{ project.num_needed }} Teammates needed
                         </p>
                         <p class="project_tags">
                             <span ng-repeat="(i, skill) in project.skills_used">

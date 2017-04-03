@@ -19,27 +19,27 @@ projectSearchApp.controller('projectSearchController', function($scope, $http) {
         }
     }
     
-    $scope.filterProjects = function(filter) {
+    $scope.filterProjects = function(city, school) {
         var url = "/projects?";
         var params = [];
-        if (filter.city) {
-            params.push("city=" + filter.city);
+        if (city) {
+            params.push("city=" + city);
         }
-        if (filter.school) {
-            params.push("school=" + filter.school);
+        if (school) {
+            params.push("school=" + school);
         }
         url += params.join("&");
-        console.log(url);
-        $http.get(url).then(function ( response ) {
-            recieved_projects = response.data;
-            // Add attribute to projects for current number of members
-            recieved_projects.forEach( function(project) {
-                project.num_members_found = project.contributors.length;
-            }) 
-            
-            $scope.projects = recieved_projects;
+        $http({
+            url: url,
+            method: 'GET'}).then(function ( response ) {
+                recieved_projects = response.data;
+                $scope.projects = recieved_projects;
+                console.log($scope.projects);
+        }, function errorCallback(response) {
+            console.log(response);
         });
     }
 
-    $scope.filterProjects([]);
+    $scope.filterProjects("","");
 });
+

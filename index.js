@@ -8,14 +8,14 @@ app.use(express.static(__dirname + '/'));
 
 // MongoDB
 var MongoClient = require('mongodb').MongoClient;
-var mongoURL = 'mongodb://localhost:27017/codescheme';
+var mongoURL = 'mongodb://heroku_whjcwdgg:f1ka69svljkl22sl98f69jhnm@ds149800.mlab.com:49800/heroku_whjcwdgg';
 var db;
 
 // MongoDB connect
 MongoClient.connect(mongoURL, function(err, database) {
     console.log(database);
     // Database is ready; listen on port 3000
-    app.listen(3000, function () {
+    app.listen(process.env.PORT || 3000, function () {
         console.log('App listening on port 3000');
     });
 
@@ -26,7 +26,7 @@ MongoClient.connect(mongoURL, function(err, database) {
 });
 
 app.get('/', function (req,res) {
-    res.sendfile(__dirname + '/html/SignUpPage.html');
+    res.sendFile(__dirname + '/html/SignUpPage.html');
 });
 
 app.get('/project_search', function(req, res) {
