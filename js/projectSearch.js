@@ -22,10 +22,10 @@ projectSearchApp.controller('projectSearchController', function($scope, $http) {
     $scope.filterProjects = function(city, school) {
         var url = "/projects?";
         var params = [];
-        if (city != "") {
+        if (city) {
             params.push("city=" + city);
         }
-        if (school!= "") {
+        if (school) {
             params.push("school=" + school);
         }
         url += params.join("&");
