@@ -46,6 +46,8 @@ projectSearchApp.controller('projectSearchController', function($scope, $http) {
             
             $scope.projects = recieved_projects;
             console.log($scope.projects);
+        }, function errorCallback(response) {
+            console.log(response);
         });
     }
 
