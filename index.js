@@ -8,7 +8,7 @@ app.use(express.static(__dirname + '/'));
 
 // MongoDB
 var MongoClient = require('mongodb').MongoClient;
-var mongoURL = 'mongodb://localhost:27017/codescheme';
+var mongoURL = 'mongodb://heroku_whjcwdgg:f1ka69svljkl22sl98f69jhnm@ds149800.mlab.com:49800/heroku_whjcwdgg';
 var db;
 
 // MongoDB connect
