@@ -34,7 +34,10 @@ projectSearchApp.controller('projectSearchController', function($scope, $http) {
         }
         url += params.join("&");
         console.log(url);
-        $http.get(url).then(function ( response ) {
+        $http({
+            url: url,
+            method: 'GET'})
+        .then(function ( response ) {
             recieved_projects = response.data;
             // Add attribute to projects for current number of members
             recieved_projects.forEach( function(project) {
